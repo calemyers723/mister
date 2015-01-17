@@ -12,7 +12,8 @@
     <p class="byline splash-font">Look Sharp. Be Confident</p>
         <%= form_for @user, :url => { :action => "create" } do |f| %>
             <div class="email brandon">
-                <%= f.text_field :email, :placeholder => "Enter Email", :class => "splash-font", :style => "color: #ffffff; background:transparent;border:none;opacity: 1;" %>    
+                <%= f.text_field :email, :placeholder => "Enter Email", :class => "splash-font", :style => "color: #ffffff; background:transparent;border:none;opacity: 1;margin-top: 11px;
+                    margin-left: 11px;" %>    
             </div>
             <input class="submit splash-font" name="commit" type="submit" value="Step Inside" />
         <% end %>   
