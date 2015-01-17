@@ -23,7 +23,7 @@
 #refer .prizes p.check,
 #refer .prizes p.ship {
 	
-	font-family: Arail;
+	font-family: Arial;
 
 }
 
@@ -185,7 +185,7 @@ html.home{
 }
 
 .splash-font {
-	font-family: Arail;
+	font-family: Arial;
 }
 
 #home .form-wrap.ended{
@@ -412,7 +412,7 @@ html.home{
 	color: #404040;
 	font-weight: bold;
 	margin-top: 42px;
-	font-family: Arail;
+	font-family: Arial;
 	letter-spacing: 0px;
 }
 
@@ -424,7 +424,7 @@ html.home{
 	color: #174C75;
 	margin-top: 18px;
 	letter-spacing: 0px;
-	font-family: Arail;
+	font-family: Arial;
 }
 
 #refer .share-wrap .subtitle{
@@ -432,7 +432,7 @@ html.home{
 	font-size: 13px;
 	text-transform: none;
 	margin-top: 15px;
-	font-family: Arail;
+	font-family: Arial;
 	letter-spacing: 0px;
 }
 
@@ -444,7 +444,7 @@ html.home{
 	text-transform: none;
 	font-size: 11px;
 	margin: 20px auto 0;
-	font-family: Arail;
+	font-family: Arial;
 	letter-spacing: 0px;
 }
 
@@ -498,7 +498,7 @@ html.home{
 	font-weight: bold;
 	margin: 20px 0 0 0;
 	text-transform: uppercase;
-	font-family: Arail;
+	font-family: Arial;
 	letter-spacing: 0px;
 }
 
@@ -555,7 +555,7 @@ html.home{
 #refer .prizes .products li.title .friends{
 	margin-top: 7px;
 	letter-spacing: 2px;
-	font-family: Arail;
+	font-family: Arial;
 	font-size: 16px;
 	letter-spacing: 0px;
 }
@@ -563,7 +563,7 @@ html.home{
 #refer .prizes .products li.title .rewards{
 	margin-top: 30px;
 	letter-spacing: 2px;
-	font-family: Arail;
+	font-family: Arial;
 	font-size: 16px;
 	letter-spacing: 0px;
 }
@@ -615,7 +615,7 @@ html.home{
 #refer .prizes .products li.product p{
 	text-align: center;
 	font-weight: 500;
-	font-family: Arail;
+	font-family: Arial;
 	letter-spacing: 0px;
 }
 
@@ -674,7 +674,7 @@ html.home{
 	width: 100%;
 	font-weight: 500;
 	margin-top: 30px;
-	font-family: Arail;
+	font-family: Arial;
 	letter-spacing: 0px;
 }
 
@@ -685,7 +685,7 @@ html.home{
 	width: 100%;
 	font-weight: bold;
 	margin-top: 5px;
-	font-family: Arail;
+	font-family: Arial;
 	letter-spacing: 0px;
 }
 
@@ -700,7 +700,7 @@ html.home{
 	width: 100%;
 	font-weight: 500;
 	margin-top: 5px;
-	font-family: Arail;
+	font-family: Arial;
 	letter-spacing: 0px;
 }
 
@@ -711,7 +711,7 @@ html.home{
 	width: 100%;
 	font-weight: 500;
 	margin-top: 50px;
-	font-family: Arail;
+	font-family: Arial;
 	letter-spacing: 0px;
 }
 

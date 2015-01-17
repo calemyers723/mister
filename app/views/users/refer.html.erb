@@ -106,13 +106,9 @@
         %>
 
         <% if referrals_count == 0 %>
-            <!-- <p class="place brandon"><span>No</span> friends have joined...Yet!</p> -->
-            <p class="place brandon">Friends have joined...Yet!</p>
-            <p class="number">No</p>
+            <p class="place brandon"><span style="font-weight:bold">No</span> friends have joined...Yet!</p>
         <% else %>
-            <!-- <p class="place brandon"><span><%= referrals_count %></span> <%= words %> joined</p> -->
-            <p class="place brandon"><%= words %> joined</p>
-            <p class="number"><%= referrals_count %></p>
+            <p class="place brandon"><span style="font-weight:bold"><%= referrals_count %></span> <%= words %> joined</p>
         <% end %>
         <p class="check brandon">Keep checking</p>
 
