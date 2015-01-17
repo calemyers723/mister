@@ -1,6 +1,7 @@
 <div class="header">
     <div class="content">
-        <p class="logo brandon">Mister POMPADOUR</p>
+        <!-- <p class="logo brandon">Mister POMPADOUR</p> -->
+        <p class="logo brandon"><span style="font-family:Niagrsol;">Mister </span> <span style="font-family:Niageng;">Pompadour</span></p>
         
     </div>
 </div>
@@ -97,17 +98,21 @@
         <% 
             words = ''
             if referrals_count == 1
-                words = 'friend has'
+                words = 'Friend has'
             elsif 
-                words = 'friends have'
+                words = 'Friends have'
             end
 
         %>
 
         <% if referrals_count == 0 %>
-            <p class="place brandon"><span>No</span> friends have joined...Yet!</p>
+            <!-- <p class="place brandon"><span>No</span> friends have joined...Yet!</p> -->
+            <p class="place brandon">Friends have joined...Yet!</p>
+            <p class="number">No</p>
         <% else %>
-            <p class="place brandon"><span><%= referrals_count %></span> <%= words %> joined</p>
+            <!-- <p class="place brandon"><span><%= referrals_count %></span> <%= words %> joined</p> -->
+            <p class="place brandon"><%= words %> joined</p>
+            <p class="number"><%= referrals_count %></p>
         <% end %>
         <p class="check brandon">Keep checking</p>
 

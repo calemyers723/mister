@@ -12,16 +12,40 @@
  *= require_self
  */
 
+#refer .share-wrap .why,
+#refer .share-wrap .title,
+#refer .share-wrap .copy-link,
+#refer .prizes .callout,
+#refer .prizes .products li.title .friends,
+#refer .prizes .products li.title .rewards,
+#refer .prizes .products li.product p,
+#refer .prizes p.place,
+#refer .prizes p.check,
+#refer .prizes p.ship {
+	
+	font-family: Arail;
+
+}
+
 @font-face {
     font-family: Orator;
     src: url(/assets/Orator.ttf);
 }
 
 
-
 @font-face {
     font-family: Niagrsol;
     src: url(/assets/NIAGSOL.TTF);
+}
+
+@font-face {
+    font-family: Niageng;
+    src: url(/assets/NIAGENG.TTF);
+}
+
+@font-face {
+    font-family: Arial;
+    src: url(/assets/Arial.ttf);
 }
 
 form{
@@ -69,15 +93,15 @@ html.home{
 }
 
 #home .hero .large{
-	font-weight: bold;
-	font-size: 45px;
+	font-weight: normal;
+	font-size: 61px;
 	color: #FFFFFF;
 	text-transform: uppercase;
-	margin: 200px 80px 0 650px;
+	margin: 200px 80px 0 749px;
 	position: relative;
 	z-index: 2;
 	letter-spacing: 8px;
-	text-align: center;
+	/*text-align: center;*/
 }
 
 #home .hero .small{
@@ -110,13 +134,14 @@ html.home{
 }
 
 #home .form-wrap .byline{
-	font-size: 28px;
+	font-size: 31px;
 	/*text-transform: uppercase;*/
 	color: #FFFFFF;
 	/*text-align: center;*/
 	font-weight: normal;
-	letter-spacing: 0px;
+	letter-spacing: 2px;
 	margin: 0 0 20px 0;
+	font-family: Arial;
 }
 
 #home .form-wrap .email{
@@ -151,6 +176,7 @@ html.home{
 	border: 0;
 	letter-spacing: 0px;
 	font-weight: bold;
+	font-family: Arial;
 }
 
 #home .form-wrap .submit:hover {
@@ -159,7 +185,7 @@ html.home{
 }
 
 .splash-font {
-	font-family: Orator;
+	font-family: Arail;
 }
 
 #home .form-wrap.ended{
@@ -325,17 +351,17 @@ html.home{
 }
 
 #refer .header .logo{
-	font-weight: bolder;
-	font-size: 22px;
+	font-weight: normal;
+	font-size: 34px;
 	line-height: 0;
 	margin-right: 14px;
-	letter-spacing: 0px;
+	letter-spacing: 5px;
 	/*background: url(/assets/refer/logo.png) 0 0 no-repeat;*/
 	/*background-size: 106px 19px;*/
 	height: 19px;
 	width: 270px;
 	margin-top: 25px;
-	font-family: Orator;
+	/*font-family: Orator;*/
 }
 
 #refer .hero{
@@ -386,7 +412,7 @@ html.home{
 	color: #404040;
 	font-weight: bold;
 	margin-top: 42px;
-	font-family: Orator;
+	font-family: Arail;
 	letter-spacing: 0px;
 }
 
@@ -398,7 +424,7 @@ html.home{
 	color: #174C75;
 	margin-top: 18px;
 	letter-spacing: 0px;
-	font-family: Orator;
+	font-family: Arail;
 }
 
 #refer .share-wrap .subtitle{
@@ -406,7 +432,7 @@ html.home{
 	font-size: 13px;
 	text-transform: none;
 	margin-top: 15px;
-	font-family: Orator;
+	font-family: Arail;
 	letter-spacing: 0px;
 }
 
@@ -418,7 +444,7 @@ html.home{
 	text-transform: none;
 	font-size: 11px;
 	margin: 20px auto 0;
-	font-family: Orator;
+	font-family: Arail;
 	letter-spacing: 0px;
 }
 
@@ -472,7 +498,7 @@ html.home{
 	font-weight: bold;
 	margin: 20px 0 0 0;
 	text-transform: uppercase;
-	font-family: Orator;
+	font-family: Arail;
 	letter-spacing: 0px;
 }
 
@@ -529,7 +555,7 @@ html.home{
 #refer .prizes .products li.title .friends{
 	margin-top: 7px;
 	letter-spacing: 2px;
-	font-family: Orator;
+	font-family: Arail;
 	font-size: 16px;
 	letter-spacing: 0px;
 }
@@ -537,7 +563,7 @@ html.home{
 #refer .prizes .products li.title .rewards{
 	margin-top: 30px;
 	letter-spacing: 2px;
-	font-family: Orator;
+	font-family: Arail;
 	font-size: 16px;
 	letter-spacing: 0px;
 }
@@ -589,7 +615,7 @@ html.home{
 #refer .prizes .products li.product p{
 	text-align: center;
 	font-weight: 500;
-	font-family: Orator;
+	font-family: Arail;
 	letter-spacing: 0px;
 }
 
@@ -648,12 +674,23 @@ html.home{
 	width: 100%;
 	font-weight: 500;
 	margin-top: 30px;
-	font-family: Orator;
+	font-family: Arail;
+	letter-spacing: 0px;
+}
+
+#refer .prizes p.number{
+	text-align: center;
+	font-size: 16px;
+	color: #FF0000;
+	width: 100%;
+	font-weight: bold;
+	margin-top: 5px;
+	font-family: Arail;
 	letter-spacing: 0px;
 }
 
 #refer .prizes p.place span{
-	color: #960008;
+	color: #FF0000;
 }
 
 #refer .prizes p.check{
@@ -663,7 +700,7 @@ html.home{
 	width: 100%;
 	font-weight: 500;
 	margin-top: 5px;
-	font-family: Orator;
+	font-family: Arail;
 	letter-spacing: 0px;
 }
 
@@ -674,7 +711,7 @@ html.home{
 	width: 100%;
 	font-weight: 500;
 	margin-top: 50px;
-	font-family: Orator;
+	font-family: Arail;
 	letter-spacing: 0px;
 }
 
@@ -760,6 +797,10 @@ only screen and (min-device-pixel-ratio: 2) {
 	.splash-font {
 		font-family: Orator;
 	}
+
+
+
+
 }
 
 

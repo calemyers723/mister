@@ -1,5 +1,6 @@
 <div class="hero">
-    <p class="large " style="font-family:Niagrsol;">Mister Pompadour</p>
+    <!-- <p class="large " style="font-family:Niagrsol;">Mister Pompadour</p> -->
+    <p class="large " ><span style="font-family:Niagrsol;">Mister </span> <span style="font-family:Niageng;">Pompadour</span></p>
     <!-- <p class="small brandon">Respecting the Face and Wallet<br>Since Like...Right Now.</p> -->
 
     <div class="form-wrap">
@@ -13,7 +14,7 @@
         <%= form_for @user, :url => { :action => "create" } do |f| %>
             <div class="email brandon">
                 <%= f.text_field :email, :placeholder => "Enter Email", :class => "splash-font", :style => "color: #ffffff; background:transparent;border:none;opacity: 1;margin-top: 11px;
-                    margin-left: 11px;" %>    
+                    margin-left: 11px;font-family: Arial;" %>    
             </div>
             <input class="submit splash-font" name="commit" type="submit" value="Step Inside" />
         <% end %>   
