@@ -26417,3 +26417,159 @@ Served asset /refer/level-2.jpg - 304 Not Modified (0ms)
 
 Started GET "/assets/favicon.ico" for 192.168.0.20 at 2015-01-17 12:08:44 -0500
 Served asset /favicon.ico - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36m (34.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (49.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (1.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130126215239)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (70.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130126215239')
+  [1m[36m (10.0ms)[0m  [1mCOMMIT[0m
+Migrating to DeviseCreateAdminUsers (20130127063936)
+  [1m[35m (0.9ms)[0m  BEGIN
+  [1m[36m (82.0ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (30.7ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (34.9ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35mAdminUser Exists (1.3ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'tech@harrys.com' LIMIT 1
+  [1m[36mSQL (13.6ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Sat, 17 Jan 2015 17:47:30 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "tech@harrys.com"], ["encrypted_password", "$2a$10$4GhQQvJhcyekeovEYKt2h.N8XVkkPOfkYJqSqxQADaq.o0K2XMaXG"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Sat, 17 Jan 2015 17:47:30 UTC +00:00]]
+  [1m[35m (15.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130127063936')
+  [1m[36m (18.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAdminNotes (20130127063939)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (56.1ms)[0m  [1mCREATE TABLE "admin_notes" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "admin_user_id" integer, "admin_user_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (24.0ms)[0m  CREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "admin_notes" ("resource_type", "resource_id")
+  [1m[36m (24.3ms)[0m  [1mCREATE INDEX "index_admin_notes_on_admin_user_type_and_admin_user_id" ON "admin_notes" ("admin_user_type", "admin_user_id")[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130127063939')
+  [1m[36m (17.4ms)[0m  [1mCOMMIT[0m
+Migrating to MoveAdminNotesToComments (20130127063940)
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (2.6ms)[0m  [1mDROP INDEX "index_admin_notes_on_admin_user_type_and_admin_user_id"[0m
+  [1m[35m (6.5ms)[0m  ALTER TABLE "admin_notes" RENAME TO "active_admin_comments"
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "admin_notes_id_seq" RENAME TO "active_admin_comments_id_seq"[0m
+  [1m[35m (1.3ms)[0m  ALTER TABLE "active_admin_comments" RENAME COLUMN "admin_user_type" TO "author_type"
+  [1m[36m (1.7ms)[0m  [1mALTER TABLE "active_admin_comments" RENAME COLUMN "admin_user_id" TO "author_id"[0m
+  [1m[35m (1.9ms)[0m  ALTER TABLE "active_admin_comments" ADD COLUMN "namespace" character varying(255)
+  [1m[36m (31.2ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35m (21.5ms)[0m  CREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")
+  [1m[36m (1.0ms)[0m  [1mUPDATE active_admin_comments SET namespace='admin'[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130127063940')
+  [1m[36m (11.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateDelayedJobs (20130227185712)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (55.6ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (28.6ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130227185712')[0m
+  [1m[35m (14.6ms)[0m  COMMIT
+Migrating to CreateIpAddresses (20130312045541)
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (31.8ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130312045541')[0m
+  [1m[35m (9.2ms)[0m  COMMIT
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-17 12:48:36 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 141ms (Views: 124.4ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2015-01-17 12:48:36 -0500
+Served asset /reset.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/core.css?body=1" for 127.0.0.1 at 2015-01-17 12:48:36 -0500
+Served asset /core.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/home/splash.jpg" for 127.0.0.1 at 2015-01-17 12:48:37 -0500
+Served asset /home/splash.jpg - 304 Not Modified (13ms)
+
+
+Started GET "/assets/NIAGSOL.TTF" for 127.0.0.1 at 2015-01-17 12:48:37 -0500
+Served asset /NIAGSOL.TTF - 304 Not Modified (9ms)
+
+
+Started GET "/assets/Orator.ttf" for 127.0.0.1 at 2015-01-17 12:48:37 -0500
+Served asset /Orator.ttf - 304 Not Modified (5ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-01-17 12:48:51 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MOsPTQ5zI0oJOcJDmoQwk2uAXjBzoKFmRoUdn8Q5wKk=", "user"=>{"email"=>"kyle.perez1985@gmail.com"}, "commit"=>"Step Inside"}
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'kyle.perez1985@gmail.com' LIMIT 1[0m
+  [1m[35mIpAddress Load (1.3ms)[0m  SELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" = '127.0.0.1' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (9.2ms)[0m  INSERT INTO "ip_addresses" ("address", "count", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["address", "127.0.0.1"], ["count", 0], ["created_at", Sat, 17 Jan 2015 17:48:51 UTC +00:00], ["updated_at", Sat, 17 Jan 2015 17:48:51 UTC +00:00]]
+  [1m[36m (9.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mUPDATE "ip_addresses" SET "count" = 1, "updated_at" = '2015-01-17 17:48:52.015912' WHERE "ip_addresses"."id" = 1[0m
+  [1m[35m (10.1ms)[0m  COMMIT
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'kyle.perez1985@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" = '5a1357a447' LIMIT 1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Sat, 17 Jan 2015 17:48:52 UTC +00:00], ["email", "kyle.perez1985@gmail.com"], ["referral_code", "5a1357a447"], ["referrer_id", nil], ["updated_at", Sat, 17 Jan 2015 17:48:52 UTC +00:00]]
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "delayed_jobs" ("attempts", "created_at", "failed_at", "handler", "last_error", "locked_at", "locked_by", "priority", "queue", "run_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["attempts", 0], ["created_at", Sat, 17 Jan 2015 17:48:52 UTC +00:00], ["failed_at", nil], ["handler", "--- !ruby/object:Delayed::PerformableMailer\nobject: !ruby/class 'UserMailer'\nmethod_name: :signup_email\nargs:\n- !ruby/ActiveRecord:User\n  attributes:\n    id: '1'\n    email: kyle.perez1985@gmail.com\n    referral_code: 5a1357a447\n    referrer_id: \n    created_at: &1 2015-01-17 17:48:52.051554680 Z\n    updated_at: *1\n"], ["last_error", nil], ["locked_at", nil], ["locked_by", nil], ["priority", 0], ["queue", nil], ["run_at", Sat, 17 Jan 2015 17:48:52 UTC +00:00], ["updated_at", Sat, 17 Jan 2015 17:48:52 UTC +00:00]]
+  [1m[35m (16.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/refer-a-friend
+Completed 302 Found in 320ms (ActiveRecord: 75.6ms)
+
+
+Started GET "/refer-a-friend" for 127.0.0.1 at 2015-01-17 12:48:52 -0500
+Processing by UsersController#refer as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'kyle.perez1985@gmail.com' LIMIT 1[0m
+  [1m[35m (1.3ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = 1
+  Rendered users/refer.html.erb within layouts/application (51.5ms)
+Completed 200 OK in 92ms (Views: 86.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2015-01-17 12:48:52 -0500
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/core.css?body=1" for 127.0.0.1 at 2015-01-17 12:48:52 -0500
+Served asset /core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/refer/level-1.jpg" for 127.0.0.1 at 2015-01-17 12:48:52 -0500
+Served asset /refer/level-1.jpg - 200 OK (6ms)
+
+
+Started GET "/assets/refer/level-2.jpg" for 127.0.0.1 at 2015-01-17 12:48:52 -0500
+Served asset /refer/level-2.jpg - 200 OK (14ms)
+
+
+Started GET "/assets/refer/level-3.jpg" for 127.0.0.1 at 2015-01-17 12:48:52 -0500
+Served asset /refer/level-3.jpg - 200 OK (2ms)
+
+
+Started GET "/assets/refer/level-4.jpg" for 127.0.0.1 at 2015-01-17 12:48:52 -0500
+Served asset /refer/level-4.jpg - 200 OK (2ms)
+
+
+Started GET "/assets/refer/twit.png" for 127.0.0.1 at 2015-01-17 12:48:52 -0500
+Served asset /refer/twit.png - 200 OK (11ms)
+
+
+Started GET "/assets/Orator.ttf" for 127.0.0.1 at 2015-01-17 12:48:52 -0500
+Served asset /Orator.ttf - 304 Not Modified (0ms)
+
+
+Started GET "/assets/refer/fb.png" for 127.0.0.1 at 2015-01-17 12:48:52 -0500
+Served asset /refer/fb.png - 200 OK (6ms)
+
+
+Started GET "/assets/refer/refer-left.jpg" for 127.0.0.1 at 2015-01-17 12:48:52 -0500
+Served asset /refer/refer-left.jpg - 200 OK (3ms)
+
+
+Started GET "/assets/refer/progress-done.png" for 127.0.0.1 at 2015-01-17 12:48:52 -0500
+Served asset /refer/progress-done.png - 200 OK (3ms)
+
+
+Started GET "/assets/refer/progress-bg.png" for 127.0.0.1 at 2015-01-17 12:48:52 -0500
+Served asset /refer/progress-bg.png - 200 OK (2ms)
