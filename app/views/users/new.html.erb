@@ -1,0 +1,36 @@
+<div class="hero">
+    <p class="large " style="font-family:Niagrsol;">Mister Pompadour</p>
+    <!-- <p class="small brandon">Respecting the Face and Wallet<br>Since Like...Right Now.</p> -->
+
+    <div class="form-wrap">
+    <style type="text/css">
+        input::-webkit-input-placeholder { color: #fff; opacity: 1; }
+        input:-moz-placeholder { color: #fff; opacity: 1; }
+        input::-moz-placeholder { color: #fff; opacity: 1;}
+        input::-ms-input-placeholder { color: #fff; opacity: 1;}
+    </style>
+    <p class="byline splash-font">Look Sharp. Be Confident</p>
+        <%= form_for @user, :url => { :action => "create" } do |f| %>
+            <div class="email brandon">
+                <%= f.text_field :email, :placeholder => "Enter Email", :class => "splash-font", :style => "color: #ffffff; background:transparent;border:none;opacity: 1;" %>    
+            </div>
+            <input class="submit splash-font" name="commit" type="submit" value="Step Inside" />
+        <% end %>   
+    </div>
+</div>
+
+<!-- <div class="form-wrap clearfix <%= "ended" if Rails.application.config.ended %>">
+    <% if Rails.application.config.ended %>
+        <p class="thanks brandon">THANK YOU FOR PARTICIPATING<br>IN OUR PRE-LAUNCH.</p>
+        <p class="compiling brandon">WE ARE COMPILING REWARDS RIGHT NOW AND WILL EMAIL<br/>COUPON CODES TO ALL RECIPIENTS IN THE NEXT DAY OR TWO</p>
+        <p class="go-to brandon">In the meantime, head to  <a href="http://www.harrys.com/">WWW.HARRYS.COM</a></p>
+        <p class="again brandon">Thank You Again!</p>
+    <% else %>
+        <div class="key"></div>
+        <p class="byline brandon">Be the first to know</p>
+        <%= form_for @user, :url => { :action => "create" } do |f| %>
+            <%= f.text_field :email, :placeholder => "ENTER EMAIL", :class => "email brandon" %>
+            <input class="submit brandon" name="commit" type="submit" value="Step Inside" />
+        <% end %>   
+    <% end %>
+</div> -->

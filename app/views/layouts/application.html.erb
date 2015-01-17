@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6 <%= @bodyId %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7 <%= @bodyId %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8 <%= @bodyId %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9 <%= @bodyId %>"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="<%= @bodyId %>"> <!--<![endif]-->
+<head>
+        <title>Mister Pompadour&#8217;s &ndash; Tell Friends</title>
+        <link rel="icon" href="<%= asset_path('favicon.ico') %>" type="image/x-icon">
+        <link rel="shortcut icon" href="<%= asset_path('favicon.ico') %>" type="image/x-icon">
+
+
+
+        <meta property="og:title" content="Mister Pompadour is here!"/>
+        <meta property="og:description" content="Look Good. Be Confident. Didn't want to leave you all behind. Check out Mister Pompadour's hair products here."/>
+        <meta property="og:url" content="<%= root_url %>"/>
+        <meta property="og:image" content="<%= asset_path("refer/logo.jpg") %>"/>
+        <meta property="fb:app_id" content="297145297118247"/>
+
+
+        <% if @is_mobile %>
+            <% if @bodyId == 'home' %>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <% else %>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <% end %>
+        <% end %>
+        <%= stylesheet_link_tag "core.css", :media => "all" %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <% if @is_mobile %>
+            <%= stylesheet_link_tag "mobile.css" %>
+        <% end %>
+        
+        <%= csrf_meta_tags %>
+</head>
+<body id="<%= @bodyId %>">
+
+<%= yield %>
+
+
+</body>
+</html>
