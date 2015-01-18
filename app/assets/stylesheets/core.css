@@ -429,7 +429,7 @@ html.home{
 
 #refer .share-wrap .subtitle{
 	color: #404040;
-	font-size: 13px;
+	font-size: 17px;
 	text-transform: none;
 	margin-top: 15px;
 	font-family: Arial;
@@ -571,8 +571,8 @@ html.home{
 #refer .prizes .products li.product{
 	height: 100%;
 	color: #174C75;
-	width: 125px;
-	margin-right: 129px;
+	width: 171px;
+	margin-right: 60px;
 	float: left;
 	position: relative;
 }

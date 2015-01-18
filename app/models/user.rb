@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
         },
         {
             'count' => 50,
-            "html" => "$100 Gift<br>Certificate",
+            "html" => "$100 Mister Pompadour<br>Gift Certificate",
             "class" => "five",
             # "image" => ActionController::Base.helpers.asset_path("refer/blade-explain@2x.png")
             "image" => ActionController::Base.helpers.asset_path("refer/level-4.jpg")
