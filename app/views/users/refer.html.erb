@@ -14,7 +14,12 @@
         <div class="share-wrap">
             <p class="why brandon">Don't leave your friends behind</p>
             <p class="title brandon">INVITE FRIENDS &<br>Earn <span style="font-weight: bolder;">FREE</span> Product</p>
-            <p class="subtitle brandon">Share your unique referral link via email, Facebook or Twitter and earn <span style="font-weight: bolder;font-size: 16px;">FREE</span> Mister Pompadour products for each friend who signs up.</p>
+            <p class="subtitle brandon">[Share your unique referral link via email, Facebook <br>or Twitter and earn <span style="font-weight: bolder;font-size: 16px;">FREE</span> Mister Pompadour products <br>for each friend who signs up.<br><br>
+                <span class="countdown" id="defaultCountdown1">
+                    Only XX Days XX Hrs Left...Let the Sharing Begin!]
+                </span>
+            </p>
+            
             <div class="copy-link brandon"><%= root_url %>?ref=<%= @user.referral_code %></div>
             <% twitter_message = "#MisterPompadour #looksharpbeconfident Excited for @mistrpompadour new website launch." %>
             <%

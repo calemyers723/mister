@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
     private
 
     def create_referral_code
+        binding.pry
         referral_code = SecureRandom.hex(5)
         @collision = User.find_by_referral_code(referral_code)
 
@@ -56,6 +57,7 @@ class User < ActiveRecord::Base
     end
 
     def send_welcome_email
+        binding.pry
         UserMailer.delay.signup_email(self)
     end
 end

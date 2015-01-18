@@ -70,7 +70,9 @@ html.home{
 }
 
 #home{
-	padding-bottom: 50px;
+	/*padding-bottom: 50px;*/
+	width: 1349px;
+	margin: 0 auto;
 }
 
 #home .page-content{
@@ -104,7 +106,7 @@ html.home{
 	/*text-align: center;*/
 }
 
-#home .hero .small{
+/*#home .hero .small{
 	font-weight: bold;
 	color: #2E9DAD;
 	font-size: 18px;
@@ -116,12 +118,12 @@ html.home{
 	text-align: center;
 	width: 375px;
 	letter-spacing: 1px;
-}
+}*/
 
 #home .form-wrap{
-	height: 100px;
-	width: 500px;
-	margin: 23px 0 0 750px;
+	/*height: 100px;*/
+	/*width: 800px;*/
+	/*margin: 23px 0 0 750px;*/
 	font-family: Orator Std;
 }
 
@@ -134,14 +136,35 @@ html.home{
 }
 
 #home .form-wrap .byline{
-	font-size: 31px;
+	font-size: 57px;
 	/*text-transform: uppercase;*/
 	color: #FFFFFF;
 	/*text-align: center;*/
 	font-weight: normal;
 	letter-spacing: 2px;
-	margin: 0 0 20px 0;
+	margin: 186px 0 0px 616px;
 	font-family: Arial;
+	text-align: center;
+}
+
+#home .form-wrap .signup{
+	font-size: 34px;
+	color: #FFFFFF;
+	font-weight: normal;
+	letter-spacing: 0px;
+	margin: 20px 0 0px 616px;
+	font-family: Arial;
+	text-align: center;
+}
+
+#home .form-wrap .countdown{
+	font-size: 24px;
+	color: #FFFFFF;
+	font-weight: normal;
+	letter-spacing: 0px;
+	margin: 20px 0 0px 616px;
+	font-family: Arial;
+	text-align: center;
 }
 
 #home .form-wrap .email{
@@ -154,6 +177,7 @@ html.home{
 	outline: none;
 	letter-spacing: 1px;
 	color: #FFFFFF;
+	margin-left: 140px;
 
 	background: -moz-linear-gradient(top, rgba(206,206,206,0.5) 50%, rgba(109,109,109,0.5) 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,rgba(206,206,206,0.5)), color-stop(100%,rgba(109,109,109,0.5))); /* Chrome,Safari4+ */
@@ -183,6 +207,66 @@ html.home{
 	background: #FE7536;
 	cursor: pointer;
 }
+
+#home .form-wrap .hr1 {
+	margin: 38px 0 0 92px;
+	width: 226px;
+	height: 0px;
+	border: 2px solid white;
+}
+
+#home .form-wrap .hr2 {
+	margin: 2px 0 0 92px;
+	width: 228px;
+	height: 0px;
+	border: 1px solid white;
+}
+
+#home .form-wrap .logo_text_1 {
+	font-family: Niagrsol;
+	color: white;
+	font-size: 111px;
+	line-height: 101px;
+	margin: 0 0 0 105px;
+	padding: 0;
+}
+#home .form-wrap .logo_text_2 {
+	font-family:Niageng;
+	color: white;
+	font-size: 69px;
+	line-height: 36px;
+	margin: 0 0 0 105px;
+	padding: 0;
+}
+
+#home .form-wrap .hr3 {
+	margin: 19px 0 0 92px;
+	width: 228px;
+	height: 0px;
+	border: 1px solid white;
+}
+
+#home .form-wrap .hr4 {
+	margin: 2px 0 0 92px;
+	width: 226px;
+	height: 0px;
+	border: 2px solid white;
+}
+
+#home .main-link {
+	float: right;
+	width: 407px;
+	height: 50px;
+	margin-top: 15px;
+}
+
+#home .main-link a {
+	color: #174C75;
+	font-family: Arial;
+	font-size: 30px;
+	text-decoration: blink;
+}
+
 
 .splash-font {
 	font-family: Arial;
@@ -429,11 +513,15 @@ html.home{
 
 #refer .share-wrap .subtitle{
 	color: #404040;
-	font-size: 17px;
+	font-size: 15px;
 	text-transform: none;
 	margin-top: 15px;
 	font-family: Arial;
 	letter-spacing: 0px;
+}
+
+#refer .share-wrap .countdown {
+
 }
 
 #refer .share-wrap .copy-link{
@@ -690,7 +778,7 @@ html.home{
 }
 
 #refer .prizes p.place span{
-	color: #FF0000;
+	color: #960008;
 }
 
 #refer .prizes p.check{
@@ -799,7 +887,9 @@ only screen and (min-device-pixel-ratio: 2) {
 	}
 
 
-
+	.clear {
+		clear: both;
+	}
 
 }
 
