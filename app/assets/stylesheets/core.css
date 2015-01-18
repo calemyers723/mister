@@ -87,7 +87,7 @@ html.home{
 	height: 655px;
 	/*background: url(/assets/home/hero.jpg) center center no-repeat;*/
 	background: url(/assets/home/splash.jpg) center center no-repeat;
-	background-size: 1365px 715px;
+	/*background-size: 1365px 715px;*/
 	overflow: hidden;
 	position: relative;
 	letter-spacing: .09em;
@@ -209,7 +209,7 @@ html.home{
 }
 
 #home .form-wrap .hr1 {
-	margin: 38px 0 0 92px;
+	margin: 35px 0 0 92px;
 	width: 226px;
 	height: 0px;
 	border: 2px solid white;
@@ -265,7 +265,7 @@ html.home{
 #home .main-link a {
 	color: #174C75;
 	font-family: Arial;
-	font-size: 30px;
+	font-size: 24px;
 	text-decoration: blink;
 }
 

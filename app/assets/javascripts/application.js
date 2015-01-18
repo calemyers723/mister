@@ -83,7 +83,7 @@ function countdown_clock() {
       $("#defaultCountdown1")[0].innerHTML = "Only ";
       $("#defaultCountdown1")[0].innerHTML += days + ' Days ';
       $("#defaultCountdown1")[0].innerHTML += hours + ' Hrs ';
-      $("#defaultCountdown1")[0].innerHTML += "Left...Let the Sharing Begin!]";
+      $("#defaultCountdown1")[0].innerHTML += "Left...Let the Sharing Begin!";
     }
     
     
