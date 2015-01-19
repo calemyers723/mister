@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns"http//www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <p>
+      Thank you for signing up, please refer friends using your unique code
+    </p>
+
+    <br>
+
+    <a href="<%= Rails.application.config.action_mailer.default_url_options || "" %>?ref=<%= @user.referral_code %>" style="font-family: 'Times', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none" target="_blank"><%= Rails.application.config.action_mailer.default_url_options || "" %>?ref=<%= @user.referral_code %>
+    </a>
+    
+</body>
+</html>

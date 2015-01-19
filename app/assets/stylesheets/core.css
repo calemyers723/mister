@@ -142,7 +142,7 @@ html.home{
 	/*text-align: center;*/
 	font-weight: normal;
 	letter-spacing: 2px;
-	margin: 186px 0 0px 616px;
+	margin: 186px 0 0px 500px;
 	font-family: Arial;
 	text-align: center;
 }
@@ -152,7 +152,7 @@ html.home{
 	color: #FFFFFF;
 	font-weight: normal;
 	letter-spacing: 0px;
-	margin: 20px 0 0px 616px;
+	margin: 20px 0 0px 500px;
 	font-family: Arial;
 	text-align: center;
 }
@@ -162,7 +162,7 @@ html.home{
 	color: #FFFFFF;
 	font-weight: normal;
 	letter-spacing: 0px;
-	margin: 20px 0 0px 616px;
+	margin: 20px 0 0px 500px;
 	font-family: Arial;
 	text-align: center;
 }

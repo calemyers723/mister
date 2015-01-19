@@ -57,7 +57,8 @@ class User < ActiveRecord::Base
     end
 
     def send_welcome_email
-        binding.pry
-        UserMailer.delay.signup_email(self)
+        #binding.pry
+        # UserMailer.delay.signup_email(self)
+        UserMailer.test_email(self).deliver
     end
 end
