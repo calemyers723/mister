@@ -2,3 +2,7 @@ account:zack@misterpompadour.com
 
 password:
 P0mpad0ur+0414
+
+MailChimp; usernmane - Zack@misterpompadour.com
+password - Pompadour
+mister-pompadour-referral.herokuapp.com

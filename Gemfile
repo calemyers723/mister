@@ -34,6 +34,8 @@ gem 'rails_12factor', group: :production
 
 gem 'sidekiq'
 
+gem 'gibbon'
+
 
 
 # To use ActiveModel has_secure_password
