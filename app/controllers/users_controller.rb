@@ -55,6 +55,10 @@ class UsersController < ApplicationController
                 @user.referrer = @referred_by
             end
             @user.save
+
+            if !@referred_by.nil?
+                @referred_by.update_list_mailchimp
+            end
         end
 
         # Send them over refer action

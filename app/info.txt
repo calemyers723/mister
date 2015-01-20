@@ -1,8 +1,10 @@
-account:zack@misterpompadour.com
 
-password:
-P0mpad0ur+0414
+Heroku
+account: zack@misterpompadour.com
+password: P0mpad0ur+0414
 
 MailChimp; usernmane - Zack@misterpompadour.com
 password - Pompadour
 mister-pompadour-referral.herokuapp.com
+
+http://localhost:3000/?ref=64f30b7316

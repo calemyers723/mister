@@ -14,4 +14,9 @@ class UserMailer < ActionMailer::Base
         @twitter_message = "#MisterPompadour #looksharpbeconfident Excited for @mistrpompadour new website launch"
         mail(:to => user.email, :subject => "Thanks for signing up!")
     end
+
+
+    
+
+
 end
