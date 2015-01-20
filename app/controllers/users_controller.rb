@@ -57,7 +57,7 @@ class UsersController < ApplicationController
             @user.save
 
             if !@referred_by.nil?
-                @referred_by.update_list_mailchimp
+                # @referred_by.update_list_mailchimp
             end
         end
 

@@ -64,29 +64,29 @@ class User < ActiveRecord::Base
 
 
     def do_mailchimp
-        gb = Gibbon::API.new("7bab8af62f772b706d6f243f7dc0fbed-us10")
-        gb.lists.subscribe({:id => '193ef1abca', 
-         :email => {:email => self.email }, :merge_vars => {:REFERRALS => 0},
+        gb = Gibbon::API.new("e2844e8f8efc2b00227081305c5cb473-us8")
+        gb.lists.subscribe({:id => '6e9c754687', 
+         :email => {:email => self.email }, :merge_vars => {:RNUM => 0},
          :double_optin => false})
 
-        # gb.lists.batch_subscribe(:id => '193ef1abca', :batch => 
+        # gb.lists.batch_subscribe(:id => '6e9c754687', :batch => 
         #     [ {:email => {:email => self.email }, :merge_vars => {:FNAME => "FirstName1", :LNAME => "LastName1"}}], :update_existing => true)
 
     end
 
 
     def add_subscribe_to_list_mailchimp
-        gb = Gibbon::API.new("7bab8af62f772b706d6f243f7dc0fbed-us10")
-        gb.lists.subscribe({:id => '193ef1abca', 
-         :email => {:email => self.email }, :merge_vars => {:FNAME => "FirstName1", :LNAME => "LastName1", :REFERRALS => 0},
+        gb = Gibbon::API.new("e2844e8f8efc2b00227081305c5cb473-us8")
+        gb.lists.subscribe({:id => '6e9c754687', 
+         :email => {:email => self.email }, :merge_vars => {:RNUM => 0, :RCODE => self.referral_code},
          :double_optin => false})
     end
 
     public 
     
     def update_list_mailchimp
-        gb = Gibbon::API.new("7bab8af62f772b706d6f243f7dc0fbed-us10")
-        gb.lists.batch_subscribe(:id => '193ef1abca', :batch => 
-            [ {:email => {:email => self.email }, :merge_vars => { :REFERRALS => self.referrals.count}}], :update_existing => true)
+        gb = Gibbon::API.new("e2844e8f8efc2b00227081305c5cb473-us8")
+        gb.lists.batch_subscribe(:id => '6e9c754687', :batch => 
+            [ {:email => {:email => self.email }, :merge_vars => { :RNUM => self.referrals.count}}], :update_existing => true)
     end
 end
