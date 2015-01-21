@@ -58691,3 +58691,7 @@ Served asset /NIAGENG.TTF - 304 Not Modified (4ms)
 
 Started GET "/assets/favicon.ico" for 192.168.0.20 at 2015-01-21 13:24:53 -0500
 Served asset /favicon.ico - 304 Not Modified (0ms)
+
+
+Started GET "/assets/NIAGSOL.TTF" for 119.147.146.189 at 2015-01-21 13:37:58 -0500
+Served asset /NIAGSOL.TTF - 200 OK (0ms)

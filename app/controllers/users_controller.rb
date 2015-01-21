@@ -57,7 +57,8 @@ class UsersController < ApplicationController
             @user.save
 
             if !@referred_by.nil?
-                # @referred_by.update_list_mailchimp
+                
+                @referred_by.update_list_mailchimp
 
                 case @referred_by.referrals.count
                     when 1

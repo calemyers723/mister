@@ -12,9 +12,7 @@ class User < ActiveRecord::Base
     validates :referral_code, :uniqueness => true
 
     before_create :create_referral_code
-    # after_create :send_welcome_email, :add_subscribe_to_list_mailchimp
-    # after_create :send_welcome_email
-    after_create :send_sign_up_email
+    after_create :send_sign_up_email, :add_subscribe_to_list_mailchimp
 
     REFERRAL_STEPS = [
         {
@@ -72,30 +70,35 @@ class User < ActiveRecord::Base
     def send_first_referral_friend
         subject = "Congratulations on Your First Friend Referral"
         html_content = "<p>You have got 1 referral friend</p>"
+        html_content += "<p>http://mister-pompadour-referral.herokuapp.com/?ref=" + self.referral_code + "</p>"
         send_mandrill_email(subject, html_content)
     end
 
     def send_five_referral_friends
         subject = "Congratulations on 5 Friend Referrals"
         html_content = "<p>You have reacched 5 referral friends</p>"
+        html_content += "<p>http://mister-pompadour-referral.herokuapp.com/?ref=" + self.referral_code + "</p>"
         send_mandrill_email(subject, html_content) 
     end
 
     def send_ten_referral_friends
         subject = "Congratulations on 10 Friend Referrals"
         html_content = "<p>You have reacched 10 referral friends</p>"
+        html_content += "<p>http://mister-pompadour-referral.herokuapp.com/?ref=" + self.referral_code + "</p>"
         send_mandrill_email(subject, html_content)  
     end
 
     def send_twentyfive_referral_friends
         subject = "Congratulations on 25 Friend Referrals"
         html_content = "<p>You have reacched 25 referral friends</p>"
+        html_content += "<p>http://mister-pompadour-referral.herokuapp.com/?ref=" + self.referral_code + "</p>"
         send_mandrill_email(subject, html_content) 
     end
 
     def send_fifty_referral_friends
         subject = "Congratulations on 50 Friend Referrals"
         html_content = "<p>You have reacched 50 referral friends</p>"
+        html_content += "<p>http://mister-pompadour-referral.herokuapp.com/?ref=" + self.referral_code + "</p>"
         send_mandrill_email(subject, html_content) 
     end
 
