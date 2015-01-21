@@ -36,6 +36,8 @@ gem 'sidekiq'
 
 gem 'gibbon'
 
+gem 'mandrill-api', '~> 1.0.53'
+
 
 
 # To use ActiveModel has_secure_password

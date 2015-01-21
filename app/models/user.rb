@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
 
     before_create :create_referral_code
     # after_create :send_welcome_email, :add_subscribe_to_list_mailchimp
-    after_create :send_welcome_email
+    # after_create :send_welcome_email
+    after_create :send_sign_up_email
 
     REFERRAL_STEPS = [
         {
@@ -86,4 +87,27 @@ class User < ActiveRecord::Base
         end
         
     end
+
+    def send_sign_up_email
+        # require 'mandrill'  
+        m = Mandrill::API.new
+        message = {  
+         :subject=> "Hello from the Mandrill API",  
+         :from_name=> "Your name",  
+         :text=>"Hi message, how are you?",  
+         :to=>[  
+           {  
+             :email=> self.email,  
+             :name=> "Recipient1"  
+           }  
+         ],  
+         :html=>"<html><h1>Hi <strong>message</strong>, how are you?</h1></html>",  
+         :from_email=>"info@misterpompadour.com"  
+        }  
+        sending = m.messages.send message  
+        puts "----------------sending mail status--------"
+        puts sending
+    end
+
+    
 end
