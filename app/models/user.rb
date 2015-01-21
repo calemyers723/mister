@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
     before_create :create_referral_code
     # after_create :send_welcome_email, :add_subscribe_to_list_mailchimp
     # after_create :send_welcome_email
-    after_create :send_sign_up_email
+    after_create :send_sign_up_email, :send_first_referral_friend, :send_five_referral_friends, :send_ten_referral_friends
 
     REFERRAL_STEPS = [
         {
@@ -61,47 +61,57 @@ class User < ActiveRecord::Base
     end
 
     def send_sign_up_email
-        # require 'mandrill'  
-        m = Mandrill::API.new
         html_content = "<html><p>Thank you for signing up, please refer friends using your unique code</p>"
         html_content += "<p>http://mister-pompadour-referral.herokuapp.com/?ref=" + self.referral_code + "</p>"
         html_content += "</html>"
-        message = {  
-         :subject=> "Welcome Email",  
-         :from_name=> "Mister Pompadour",  
-         # :text=>"Hi message, how are you?",  
-         :to=>[  
-           {  
-             :email=> self.email,  
-             :name=> "Recipient1"  
-           }  
-         ],  
-         :html=> html_content,
-         :from_email=>"info@misterpompadour.com"  
-        }  
-        sending = m.messages.send message  
-        puts "----------------sending mail status--------"
-        puts sending
+        subject=> "Welcome Email"
+
+        send_mandrill_email(subject, html_content)
     end
 
     def send_first_referral_friend
+        subject = "Congratulations on Your First Friend Referral"
+        html_content = "<p>You have got 1 friend</p>"
+        send_mandrill_email(subject, html_content)
+    end
+
+    def send_five_referral_friends
+        subject = "Congratulations on 5 Friend Referrals"
+        html_content = "<p>You have reacched 5 referral friends</p>"
+        send_mandrill_email(subject, html_content) 
+    end
+
+    def send_ten_referral_friends
+        subject = "Congratulations on 10 Friend Referrals"
+        html_content = "<p>You have reacched 10 referral friends</p>"
+        send_mandrill_email(subject, html_content)  
+    end
+
+    def send_twentyfive_referral_friends
+        subject = "Congratulations on 25 Friend Referrals"
+        html_content = "<p>You have reacched 25 referral friends</p>"
+        send_mandrill_email(subject, html_content) 
+    end
+
+    def send_fifty_referral_friends
+        subject = "Congratulations on 50 Friend Referrals"
+        html_content = "<p>You have reacched 50 referral friends</p>"
+        send_mandrill_email(subject, html_content) 
     end
 
     private
 
-    def send_mandrill_email html_content
+    def send_mandrill_email(subject,html_content)
         m = Mandrill::API.new
         message = {  
-         :subject => "Hello from the Mandrill API",  
-         :from_name => "Mister Pompadour",  
-         :text => "Hi message, how are you?",  
-         :to => [  
+         :subject=> subject,  
+         :from_name=> "Mister Pompadour",  
+         :to=>[  
            {  
-             :email=> self.email,  
-             :name=> "Recipient1"  
+             :email=> self.email
            }  
          ],  
-         :html => html_content,  
+         :html=> html_content,
          :from_email=>"info@misterpompadour.com"  
         }  
         sending = m.messages.send message  
