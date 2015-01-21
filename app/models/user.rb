@@ -1,3 +1,5 @@
+require 'mandrill'  
+
 class User < ActiveRecord::Base
     belongs_to :referrer, :class_name => "User", :foreign_key => "referrer_id"
     has_many :referrals, :class_name => "User", :foreign_key => "referrer_id"
@@ -109,5 +111,7 @@ class User < ActiveRecord::Base
         puts sending
     end
 
-    
+    def send_first_referral_friend
+    end
+
 end
