@@ -58,6 +58,17 @@ class UsersController < ApplicationController
 
             if !@referred_by.nil?
                 # @referred_by.update_list_mailchimp
+
+                # case a
+                #     when 1
+                #       @referred_by.
+                #     when 6
+                #       puts "It's 6"
+                #     when String
+                #       puts "You passed a string"
+                #     else
+                #       puts "You gave me #{a} -- I have no idea what to do with that."
+                # end
             end
         end
 

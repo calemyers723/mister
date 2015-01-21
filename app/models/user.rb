@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
         html_content = "<html><p>Thank you for signing up, please refer friends using your unique code</p>"
         html_content += "<p>http://mister-pompadour-referral.herokuapp.com/?ref=" + self.referral_code + "</p>"
         html_content += "</html>"
-        subject=> "Welcome Email"
+        subject = "Welcome Email"
 
         send_mandrill_email(subject, html_content)
     end

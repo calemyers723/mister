@@ -58025,3 +58025,99 @@ Served asset /NIAGSOL.TTF - 304 Not Modified (0ms)
 
 Started GET "/assets/NIAGENG.TTF" for 127.0.0.1 at 2015-01-20 12:12:42 -0500
 Served asset /NIAGENG.TTF - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 192.168.0.20 at 2015-01-21 11:59:38 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 365ms (Views: 259.6ms | ActiveRecord: 88.9ms)
+
+
+Started GET "/assets/reset.css?body=1" for 192.168.0.20 at 2015-01-21 11:59:40 -0500
+Served asset /reset.css - 200 OK (6ms)
+
+
+Started GET "/assets/core.css?body=1" for 192.168.0.20 at 2015-01-21 11:59:40 -0500
+Served asset /core.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:40 -0500
+Served asset /jquery.js - 200 OK (30ms)
+
+
+Started GET "/assets/active_admin/lib/namespace.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:40 -0500
+Served asset /active_admin/lib/namespace.js - 200 OK (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:40 -0500
+Served asset /jquery_ujs.js - 200 OK (6ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:40 -0500
+Served asset /jquery-ui.js - 200 OK (8ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.checkbox-toggler.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:41 -0500
+Served asset /active_admin/components/jquery.aa.checkbox-toggler.js - 200 OK (9ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.dropdown-menu.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:41 -0500
+Served asset /active_admin/components/jquery.aa.dropdown-menu.js - 200 OK (8ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.popover.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:41 -0500
+Served asset /active_admin/components/jquery.aa.popover.js - 200 OK (8ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.table-checkbox-toggler.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:42 -0500
+Served asset /active_admin/components/jquery.aa.table-checkbox-toggler.js - 200 OK (4ms)
+
+
+Started GET "/assets/active_admin/pages/application.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:42 -0500
+Served asset /active_admin/pages/application.js - 200 OK (8ms)
+
+
+Started GET "/assets/active_admin/pages/batch_actions.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:42 -0500
+Served asset /active_admin/pages/batch_actions.js - 200 OK (8ms)
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:42 -0500
+Served asset /active_admin/application.js - 200 OK (32ms)
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:42 -0500
+Served asset /active_admin/base.js - 200 OK (33ms)
+
+
+Started GET "/assets/active_admin.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:42 -0500
+Served asset /active_admin.js - 200 OK (153ms)
+
+
+Started GET "/assets/users.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:43 -0500
+Served asset /users.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.0.20 at 2015-01-21 11:59:43 -0500
+Served asset /application.js - 200 OK (77ms)
+
+
+Started GET "/assets/favicon.ico" for 192.168.0.20 at 2015-01-21 11:59:43 -0500
+Served asset /favicon.ico - 304 Not Modified (5ms)
+
+
+Started GET "/assets/favicon.ico" for 192.168.0.20 at 2015-01-21 11:59:44 -0500
+Served asset /favicon.ico - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home/splash.jpg" for 192.168.0.20 at 2015-01-21 11:59:44 -0500
+Served asset /home/splash.jpg - 304 Not Modified (5ms)
+
+
+Started GET "/assets/NIAGSOL.TTF" for 192.168.0.20 at 2015-01-21 11:59:44 -0500
+Served asset /NIAGSOL.TTF - 200 OK (5ms)
+
+
+Started GET "/assets/NIAGENG.TTF" for 192.168.0.20 at 2015-01-21 11:59:44 -0500
+Served asset /NIAGENG.TTF - 200 OK (3ms)
