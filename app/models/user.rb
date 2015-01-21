@@ -64,30 +64,26 @@ class User < ActiveRecord::Base
     end
 
 
-    def do_mailchimp
-        gb = Gibbon::API.new("e2844e8f8efc2b00227081305c5cb473-us8")
-        gb.lists.subscribe({:id => '6e9c754687', 
-         :email => {:email => self.email }, :merge_vars => {:RNUM => 0},
-         :double_optin => false})
-
-        # gb.lists.batch_subscribe(:id => '6e9c754687', :batch => 
-        #     [ {:email => {:email => self.email }, :merge_vars => {:FNAME => "FirstName1", :LNAME => "LastName1"}}], :update_existing => true)
-
-    end
-
+    
 
     def add_subscribe_to_list_mailchimp
-        gb = Gibbon::API.new("e2844e8f8efc2b00227081305c5cb473-us8")
-        gb.lists.subscribe({:id => '6e9c754687', 
-         :email => {:email => self.email }, :merge_vars => {:RNUM => 0, :RCODE => self.referral_code},
-         :double_optin => false})
+        if Rails.env.production?
+            gb = Gibbon::API.new(ENV['MAILCHIMP_KEY'])
+            gb.lists.subscribe({:id => ENV['MAILCHIMP_LIST_ID'], 
+             :email => {:email => self.email }, :merge_vars => {:RNUM => 0, :RCODE => self.referral_code},
+             :double_optin => false})
+        end
+        
     end
 
     public 
     
     def update_list_mailchimp
-        gb = Gibbon::API.new("e2844e8f8efc2b00227081305c5cb473-us8")
-        gb.lists.batch_subscribe(:id => '6e9c754687', :batch => 
-            [ {:email => {:email => self.email }, :merge_vars => { :RNUM => self.referrals.count}}], :update_existing => true)
+        if Rails.env.production?
+            gb = Gibbon::API.new(ENV['MAILCHIMP_KEY'])
+            gb.lists.batch_subscribe(:id => ENV['MAILCHIMP_LIST_ID'], :batch => 
+                [ {:email => {:email => self.email }, :merge_vars => { :RNUM => self.referrals.count}}], :update_existing => true)
+        end
+        
     end
 end
