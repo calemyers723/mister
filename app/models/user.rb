@@ -1,3 +1,5 @@
+
+include Rails.application.routes.url_helpers
 require 'mandrill'  
 
 class User < ActiveRecord::Base
@@ -45,40 +47,8 @@ class User < ActiveRecord::Base
         }
     ]
 
-    private
-
-    def create_referral_code
-        # binding.pry
-        referral_code = SecureRandom.hex(5)
-        @collision = User.find_by_referral_code(referral_code)
-
-        while !@collision.nil?
-            referral_code = SecureRandom.hex(5)
-            @collision = User.find_by_referral_code(referral_code)
-        end
-
-        self.referral_code = referral_code
-    end
-
-    def send_welcome_email
-        #binding.pry
-        # UserMailer.delay.signup_email(self)
-        UserMailer.test_email(self).deliver
-    end
-
-
     
-
-    def add_subscribe_to_list_mailchimp
-        if Rails.env.production?
-            gb = Gibbon::API.new(ENV['MAILCHIMP_KEY'])
-            gb.lists.subscribe({:id => ENV['MAILCHIMP_LIST_ID'], 
-             :email => {:email => self.email }, :merge_vars => {:RNUM => 0, :RCODE => self.referral_code},
-             :double_optin => false})
-        end
-        
-    end
-
+    
     public 
     
     def update_list_mailchimp
@@ -117,5 +87,63 @@ class User < ActiveRecord::Base
 
     def send_first_referral_friend
     end
+
+    private
+
+    def send_mandrill_email html_content
+        m = Mandrill::API.new
+        message = {  
+         :subject=> "Hello from the Mandrill API",  
+         :from_name=> "Mister Pompadour",  
+         :text=>"Hi message, how are you?",  
+         :to=>[  
+           {  
+             :email=> self.email,  
+             :name=> "Recipient1"  
+           }  
+         ],  
+         :html=>"<html><p>Thank you for signing up, please refer friends using your unique code</p>
+                    <p></p></html>",  
+         :from_email=>"info@misterpompadour.com"  
+        }  
+        sending = m.messages.send message  
+        puts "----------------sending mail status--------"
+        puts sending
+    end
+
+
+    def create_referral_code
+        # binding.pry
+        referral_code = SecureRandom.hex(5)
+        @collision = User.find_by_referral_code(referral_code)
+
+        while !@collision.nil?
+            referral_code = SecureRandom.hex(5)
+            @collision = User.find_by_referral_code(referral_code)
+        end
+
+        self.referral_code = referral_code
+    end
+
+    def send_welcome_email
+        #binding.pry
+        # UserMailer.delay.signup_email(self)
+        UserMailer.test_email(self).deliver
+    end
+
+
+    
+
+    def add_subscribe_to_list_mailchimp
+        if Rails.env.production?
+            gb = Gibbon::API.new(ENV['MAILCHIMP_KEY'])
+            gb.lists.subscribe({:id => ENV['MAILCHIMP_LIST_ID'], 
+             :email => {:email => self.email }, :merge_vars => {:RNUM => 0, :RCODE => self.referral_code},
+             :double_optin => false})
+        end
+        
+    end
+
+    
 
 end
