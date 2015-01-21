@@ -1,5 +1,5 @@
 
-include Rails.application.routes.url_helpers
+# include Rails.application.routes.url_helpers
 require 'mandrill'  
 
 class User < ActiveRecord::Base
@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
     before_create :create_referral_code
     # after_create :send_welcome_email, :add_subscribe_to_list_mailchimp
     # after_create :send_welcome_email
-    after_create :send_sign_up_email, :send_first_referral_friend, :send_five_referral_friends, :send_ten_referral_friends
+    after_create :send_sign_up_email
 
     REFERRAL_STEPS = [
         {
@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
 
     def send_first_referral_friend
         subject = "Congratulations on Your First Friend Referral"
-        html_content = "<p>You have got 1 friend</p>"
+        html_content = "<p>You have got 1 referral friend</p>"
         send_mandrill_email(subject, html_content)
     end
 
