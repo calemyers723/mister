@@ -64,20 +64,19 @@ class User < ActiveRecord::Base
         # require 'mandrill'  
         m = Mandrill::API.new
         html_content = "<html><p>Thank you for signing up, please refer friends using your unique code</p>"
-        html_content += "<p>" + root_url + "</p>"
+        html_content += "<p>http://mister-pompadour-referral.herokuapp.com/?ref=" + self.referral_code + "</p>"
         html_content += "</html>"
         message = {  
-         :subject=> "Hello from the Mandrill API",  
+         :subject=> "Welcome Email",  
          :from_name=> "Mister Pompadour",  
-         :text=>"Hi message, how are you?",  
+         # :text=>"Hi message, how are you?",  
          :to=>[  
            {  
              :email=> self.email,  
              :name=> "Recipient1"  
            }  
          ],  
-         :html=>"<html><p>Thank you for signing up, please refer friends using your unique code</p>
-                    <p></p></html>",  
+         :html=> html_content,
          :from_email=>"info@misterpompadour.com"  
         }  
         sending = m.messages.send message  
@@ -93,17 +92,16 @@ class User < ActiveRecord::Base
     def send_mandrill_email html_content
         m = Mandrill::API.new
         message = {  
-         :subject=> "Hello from the Mandrill API",  
-         :from_name=> "Mister Pompadour",  
-         :text=>"Hi message, how are you?",  
-         :to=>[  
+         :subject => "Hello from the Mandrill API",  
+         :from_name => "Mister Pompadour",  
+         :text => "Hi message, how are you?",  
+         :to => [  
            {  
              :email=> self.email,  
              :name=> "Recipient1"  
            }  
          ],  
-         :html=>"<html><p>Thank you for signing up, please refer friends using your unique code</p>
-                    <p></p></html>",  
+         :html => html_content,  
          :from_email=>"info@misterpompadour.com"  
         }  
         sending = m.messages.send message  
