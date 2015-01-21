@@ -93,9 +93,12 @@ class User < ActiveRecord::Base
     def send_sign_up_email
         # require 'mandrill'  
         m = Mandrill::API.new
+        html_content = "<html><p>Thank you for signing up, please refer friends using your unique code</p>"
+        html_content += "<p>" + root_url + "</p>"
+        html_content += "</html>"
         message = {  
          :subject=> "Hello from the Mandrill API",  
-         :from_name=> "Your name",  
+         :from_name=> "Mister Pompadour",  
          :text=>"Hi message, how are you?",  
          :to=>[  
            {  
@@ -103,7 +106,8 @@ class User < ActiveRecord::Base
              :name=> "Recipient1"  
            }  
          ],  
-         :html=>"<html><h1>Hi <strong>message</strong>, how are you?</h1></html>",  
+         :html=>"<html><p>Thank you for signing up, please refer friends using your unique code</p>
+                    <p></p></html>",  
          :from_email=>"info@misterpompadour.com"  
         }  
         sending = m.messages.send message  
