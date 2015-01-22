@@ -51,18 +51,19 @@ var end = new Date();
 end.setDate(end.getDate() + 7);
 // $('#defaultCountdown').countdown({until: baseTime}); 
 
-var _second = 1000;
+var _second = 1;
 var _minute = _second * 60;
 var _hour = _minute * 60;
 var _day = _hour * 24;
 var timer;
 
 function countdown_clock() {
-    var now = new Date();
-    var distance = end - now;
+    // var now = new Date();
+    // var distance = end - now;
+    var distance = $('#remainning_time').val();
     if (distance < 0) {
 
-        clearInterval(timer);
+        // clearInterval(timer);
         if ($("#defaultCountdown").length >0 )
           $("#defaultCountdown")[0].innerHTML = "Only 0 Days 0 Hrs Left!";
         if ($("#defaultCountdown1").length >0 )
@@ -93,6 +94,9 @@ function countdown_clock() {
 
 $(document).ready( function() {
   countdown_clock();
+
+  // var remainning_time = $('#remainning_time').val();
+  // alert(remainning_time);
 });
 
-timer = setInterval(countdown_clock, 1000);
+// timer = setInterval(countdown_clock, 1000);

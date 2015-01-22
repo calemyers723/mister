@@ -38,6 +38,8 @@ gem 'gibbon'
 
 gem 'mandrill-api', '~> 1.0.53'
 
+gem 'sprockets'
+
 
 
 # To use ActiveModel has_secure_password

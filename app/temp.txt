@@ -1,0 +1,57 @@
+mattdavis777: on 5th day of 7 days, i want an email sent out saying you have [7-5] days left
+
+
+Kyle: i see
+
+
+mattdavis777: and you have Y referral counts left until your next product level
+
+
+Kyle: i understand
+i can do this also in prelauncher site
+
+
+mattdavis777: ok cool
+
+
+Kyle: so if someone has reached to level-5, no need to send the email.
+right?
+level-5 means 50 referrals
+
+
+mattdavis777: what will the email be pertaining too? how much time left?
+
+
+Kyle: what do you mean?
+
+
+mattdavis777: a level 5 email will say "Congratulations you made it to 50 referrals!"
+
+
+Kyle: okay
+
+
+mattdavis777: and on "day 5" if they already have 50 referrals...we need one that says "We know that you've already maxed out, but please keep referring friends"
+
+
+Kyle: i understand
+i have just asked that email.
+and i have one question
+this prelauncher site is only need one time?
+for one week
+?
+
+
+mattdavis777: it will be for 1 week only and then go away
+
+
+Kyle: oh i see
+
+
+mattdavis777: and we will want to implement it in about 6 months down the road for 1 week too
+we want to make this a "sharing event" that people become excited about twice a year
+
+
+Kyle: i understand
+maybe i can implement "day 5" feature on tommorrow.
+is it ok?

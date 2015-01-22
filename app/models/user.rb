@@ -102,25 +102,47 @@ class User < ActiveRecord::Base
         send_mandrill_email(subject, html_content) 
     end
 
+    def send_remainning_emails
+
+        subject = "Only 2 days left for Opening."
+        if self.referrals.count >= 50
+            html_content = "<p>We know that you've already maxed out, but please keep referring friends</p>"
+        elsif self.referrals.count >= 25
+            html_content = "<p>You have #{ 50 - self.referrals.count} referral counts left until your next product level-4</p>"
+        elsif self.referrals.count >= 10
+            html_content = "<p>You have #{ 25 - self.referrals.count} referral counts left until your next product level-3</p>"
+        elsif self.referrals.count >= 5
+            html_content = "<p>You have #{ 10 - self.referrals.count} referral counts left until your next product level-2</p>"
+        else        
+            html_content = "<p>You have #{ 5 - self.referrals.count} referral counts left until your next product level-1</p>"
+        end
+
+        send_mandrill_email(subject, html_content) 
+    end
+
     private
 
     def send_mandrill_email(subject,html_content)
-        m = Mandrill::API.new
-        message = {  
-         :subject=> subject,  
-         :from_name=> "Mister Pompadour",  
-         :to=>[  
-           {  
-             :email=> self.email
-           }  
-         ],  
-         :html=> html_content,
-         :from_email=>"info@misterpompadour.com"  
-        }  
-        async = true;
-        sending = m.messages.send message, async
-        puts "----------------sending mail status--------"
-        puts sending
+
+        if Rails.env.production?
+            m = Mandrill::API.new
+            message = {  
+             :subject=> subject,  
+             :from_name=> "Mister Pompadour",  
+             :to=>[  
+               {  
+                 :email=> self.email
+               }  
+             ],  
+             :html=> html_content,
+             :from_email=>"info@misterpompadour.com"  
+            }  
+            async = true;
+            sending = m.messages.send message, async
+            puts "----------------sending mail status--------"
+            puts sending
+        end
+        
     end
 
 
@@ -144,8 +166,6 @@ class User < ActiveRecord::Base
     end
 
 
-    
-
     def add_subscribe_to_list_mailchimp
         if Rails.env.production?
             gb = Gibbon::API.new(ENV['MAILCHIMP_KEY'])
@@ -155,7 +175,5 @@ class User < ActiveRecord::Base
         end
         
     end
-
-    
 
 end

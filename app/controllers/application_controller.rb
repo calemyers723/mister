@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
     protected
 
     def ref_to_cookie
+
         if params[:ref] && !Rails.application.config.ended
             if !User.find_by_referral_code(params[:ref]).nil?
                 #binding.pry
@@ -25,4 +26,78 @@ class ApplicationController < ActionController::Base
             end
         end
     end
+
+  def initialize    
+    super # this calls ActionController::Base initialize
+    beginning_backgroundjob
+  end
+
+  def send_notify_email
+
+    # users = User.all
+    # binding.pry
+    # for user in users do
+    #   if Rails.env.production?
+    #     user.send_remainning_emails
+    #   else
+    #     # binding.pry
+
+    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    #     puts user.email
+    #     binding.pry
+    #   end
+    # end
+
+
+    puts '1234567890'
+    # user = User.new
+    # user.email = 'background@aaa.com'
+    # user.save
+
+    # users = User.all
+    # for user in users do
+    #   if Rails.env.production?
+    #     user.send_remainning_emails
+    #   else
+        
+    #   end
+    # end
+
+    user = User.find_by_email("cale.myers723@gmail.com")
+
+    for i in 0..100
+        if Rails.env.production?
+            user.send_remainning_emails
+        end
+        
+    end
+    
+  end
+
+  private
+
+  def beginning_backgroundjob
+
+    # binding.pry
+    
+    if $flag
+        return
+    end
+    $flag = true
+    puts '******************************************starting background job&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
+    self.send_notify_email
+    
+  end
 end
