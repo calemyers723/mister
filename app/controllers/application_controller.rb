@@ -77,7 +77,7 @@ class ApplicationController < ActionController::Base
 
     user = User.find_by_email("cale.myers723@gmail.com")
 
-    for i in 0..100
+    for i in 0..10
         if Rails.env.production?
             user.send_remainning_emails
         end
