@@ -117,7 +117,8 @@ class User < ActiveRecord::Base
          :html=> html_content,
          :from_email=>"info@misterpompadour.com"  
         }  
-        sending = m.messages.send(:message => message, :async => true)
+        async = true;
+        sending = m.messages.send message, async
         puts "----------------sending mail status--------"
         puts sending
     end
