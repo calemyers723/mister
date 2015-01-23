@@ -176,4 +176,15 @@ class User < ActiveRecord::Base
         
     end
 
+    def send_notify_email
+
+        # user = User.new
+        # user.email = 'background@aaa.com'
+        # user.save
+
+        put '123456788901234567889012345678890123456788901234567889012345678890'
+   
+    end
+
+
 end

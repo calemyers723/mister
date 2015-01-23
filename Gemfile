@@ -40,6 +40,8 @@ gem 'mandrill-api', '~> 1.0.53'
 
 gem 'sprockets'
 
+gem 'whenever', :require => false
+
 
 
 # To use ActiveModel has_secure_password

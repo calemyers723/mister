@@ -36,62 +36,9 @@ class ApplicationController < ActionController::Base
 
   def initialize    
     super # this calls ActionController::Base initialize
-    # beginning_backgroundjob
+    #beginning_backgroundjob
   end
 
-  def send_notify_email
-
-    # users = User.all
-    # binding.pry
-    # for user in users do
-    #   if Rails.env.production?
-    #     user.send_remainning_emails
-    #   else
-    #     # binding.pry
-
-    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-    #     puts '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-    #     puts user.email
-    #     binding.pry
-    #   end
-    # end
-
-
-    puts '1234567890'
-    user = User.new
-    user.email = 'background@aaa.com'
-    user.save
-
-    # users = User.all
-    # for user in users do
-    #   if Rails.env.production?
-    #     user.send_remainning_emails
-    #   else
-        
-    #   end
-    # end
-
-    # user = User.find_by_email("cale.myers723@gmail.com")
-
-    # for i in 0..200
-    #     if Rails.env.production?
-    #         user.send_remainning_emails
-    #     end
-        
-    # end
-    
-  end
 
   private
 
@@ -104,7 +51,7 @@ class ApplicationController < ActionController::Base
     end
     $flag = true
     puts '******************************************starting background job&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
-    self.send_notify_email
+    self.delay.send_notify_email
     
   end
 end
