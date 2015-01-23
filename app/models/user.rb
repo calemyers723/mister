@@ -355,7 +355,7 @@ class User < ActiveRecord::Base
                     </html>
                     '
 
-        send_mandrill_email(subject, html_content)
+        user.send_mandrill_email(subject, html_content)
    
     end
 
