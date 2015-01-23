@@ -189,7 +189,7 @@ class User < ActiveRecord::Base
         send_mandrill_email(subject, html_content) 
     end
 
-    def send_remainning_emails
+    def send_remainning_emails days
 
         subject = "Only 2 days left for Opening."
         if self.referrals.count >= 50

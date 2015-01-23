@@ -103,17 +103,19 @@ class Background < ActiveRecord::Base
         timestamp_day = 60 * 60 * 24
         remain_day = remain_time / timestamp_day
 
+        puts remain_day
+
         if remain_day == 3 && $flag_four != true
           $flag_four = true
-          put 'start five days'
+          puts 'start five days'
         end
         if remain_day == 2 && $flag_five != true
           $flag_five = true
-          put 'start five days'
+          puts 'start five days'
         end
         if remain_day == 1 && $flag_sex != true
           $flag_sex = true
-          put 'start six days'
+          puts 'start six days'
         end
 
         users = User.all
