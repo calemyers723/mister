@@ -232,9 +232,6 @@ class User < ActiveRecord::Base
 
     private
 
-    
-
-
     def create_referral_code
         # binding.pry
         referral_code = SecureRandom.hex(5)
