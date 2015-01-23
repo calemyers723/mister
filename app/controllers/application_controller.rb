@@ -34,24 +34,4 @@ class ApplicationController < ActionController::Base
         end
     end
 
-  def initialize    
-    super # this calls ActionController::Base initialize
-    #beginning_backgroundjob
-  end
-
-
-  private
-
-  def beginning_backgroundjob
-
-    # binding.pry
-    
-    if $flag
-        return
-    end
-    $flag = true
-    puts '******************************************starting background job&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
-    User.send_notify_email
-    
-  end
 end
