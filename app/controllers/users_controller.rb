@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-    before_filter :setting_launch_time
     before_filter :skip_first_page, :only => :new
 
     def new
@@ -126,13 +125,6 @@ class UsersController < ApplicationController
                 cookies.delete :h_email
             end
         end
-    end
-
-    def setting_launch_time
-        launch_time = AdminUser.first.created_at + 7.days
-        launch_time = launch_time.to_time.to_i
-        now_time = Time.now.to_time.to_i
-        @remainning_time = launch_time - now_time
     end
 
 end

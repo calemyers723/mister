@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery
 
-    before_filter :ref_to_cookie
+    before_filter :ref_to_cookie, :setting_launch_time
 
     def mobile_device?
         if session[:mobile_param]
@@ -12,6 +12,13 @@ class ApplicationController < ActionController::Base
     end
 
     protected
+
+    def setting_launch_time
+        launch_time = AdminUser.first.created_at + 7.days
+        launch_time = launch_time.to_time.to_i
+        now_time = Time.now.to_time.to_i
+        @remainning_time = launch_time - now_time
+    end
 
     def ref_to_cookie
 
@@ -29,7 +36,7 @@ class ApplicationController < ActionController::Base
 
   def initialize    
     super # this calls ActionController::Base initialize
-    beginning_backgroundjob
+    # beginning_backgroundjob
   end
 
   def send_notify_email
@@ -62,9 +69,9 @@ class ApplicationController < ActionController::Base
 
 
     puts '1234567890'
-    # user = User.new
-    # user.email = 'background@aaa.com'
-    # user.save
+    user = User.new
+    user.email = 'background@aaa.com'
+    user.save
 
     # users = User.all
     # for user in users do
@@ -75,14 +82,14 @@ class ApplicationController < ActionController::Base
     #   end
     # end
 
-    user = User.find_by_email("cale.myers723@gmail.com")
+    # user = User.find_by_email("cale.myers723@gmail.com")
 
-    for i in 0..200
-        if Rails.env.production?
-            user.send_remainning_emails
-        end
+    # for i in 0..200
+    #     if Rails.env.production?
+    #         user.send_remainning_emails
+    #     end
         
-    end
+    # end
     
   end
 
