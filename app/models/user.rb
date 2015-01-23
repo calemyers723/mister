@@ -207,8 +207,6 @@ class User < ActiveRecord::Base
         send_mandrill_email(subject, html_content) 
     end
 
-    private
-
     def send_mandrill_email(subject,html_content)
 
         if Rails.env.production?
@@ -231,6 +229,10 @@ class User < ActiveRecord::Base
         end
         
     end
+
+    private
+
+    
 
 
     def create_referral_code
