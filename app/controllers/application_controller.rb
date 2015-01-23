@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
     end
     $flag = true
     puts '******************************************starting background job&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'
-    self.delay.send_notify_email
+    User.send_notify_email
     
   end
 end

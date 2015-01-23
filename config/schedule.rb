@@ -21,8 +21,8 @@
 
 
 every 1.minute do
-  command "echo 'one' && echo 'two'"
-  # runner "User.some_process"       
+  # command "echo 'one' && echo 'two'"
+  runner "User.send_notify_email"       
   # rake "my:rake:task"                 
   # command "/usr/bin/my_great_command"
 end
