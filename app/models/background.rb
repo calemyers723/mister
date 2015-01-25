@@ -13,7 +13,7 @@ class Background < ActiveRecord::Base
                           </head>
 
                           <body style="margin: 0 auto;
-                                  width: 910px;
+                                  width: 940px;
                                   text-align: center;
                                   font-family: Arial;
                                   font-size: 25px;">
@@ -28,7 +28,7 @@ class Background < ActiveRecord::Base
                                 Welcome to the <i>Friend Referral Campaign...</i>
                               </p>
                               <p style="font-weight: bold;text-align:left; margin: 5px 0 0;">Let the Sharing Begin!</p>  
-                              <hr style="font-size: 15px; width: 730px;" />
+                              <hr style="font-size: 15px; width: 790px;" />
                             </div>
 
                             <div style="clear: both;"></div>
@@ -81,7 +81,7 @@ class Background < ActiveRecord::Base
                         </head>
 
                         <body style="margin: 0 auto;
-                                width: 910px;
+                                width: 940px;
                                 text-align: center;
                                 font-family: Arial;
                                 font-size: 25px;">
@@ -96,7 +96,7 @@ class Background < ActiveRecord::Base
                               Congratulations!
                             </p>
                             <p style="text-align:left; margin: 5px 0 0; font-weight: bold;"><span style="color: #C00000;">1</span> friend has joined the <i>Friend Referral Campaign</i></p>  
-                            <hr style="font-size: 15px; width: 730px; color: #4F81BC;" />
+                            <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
                           </div>
 
                           <div style="clear: both;"></div>
@@ -147,7 +147,7 @@ class Background < ActiveRecord::Base
                             <title>Welcome</title>
                           </head>
                           <body style="margin: 0 auto;
-                                  width: 910px;
+                                  width: 940px;
                                   text-align: center;
                                   font-family: Arial;
                                   font-size: 25px;">
@@ -162,7 +162,7 @@ class Background < ActiveRecord::Base
                                 Congratulations! You are earned the
                               </p>
                               <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Peppermint Shower Experience Travel Kit</p>  
-                              <hr style="font-size: 15px; width: 730px; color: #4F81BC;" />
+                              <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
                             </div>
 
                             <div style="clear: both;"></div>
@@ -222,7 +222,7 @@ class Background < ActiveRecord::Base
                             <title>Welcome</title>
                           </head>
                           <body style="margin: 0 auto;
-                                  width: 910px;
+                                  width: 940px;
                                   text-align: center;
                                   font-family: Arial;
                                   font-size: 25px;">
@@ -237,7 +237,7 @@ class Background < ActiveRecord::Base
                                 Congratulations! You are earned the
                               </p>
                               <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Styling Product of Your Choice</p>  
-                              <hr style="font-size: 15px; width: 730px; color: #4F81BC;" />
+                              <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
                             </div>
 
                             <div style="clear: both;"></div>
@@ -297,7 +297,7 @@ class Background < ActiveRecord::Base
                             <title>Welcome</title>
                           </head>
                           <body style="margin: 0 auto;
-                                  width: 910px;
+                                  width: 940px;
                                   text-align: center;
                                   font-family: Arial;
                                   font-size: 25px;">
@@ -312,7 +312,7 @@ class Background < ActiveRecord::Base
                                 Congratulations! You are earned the
                               </p>
                               <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Mister Pompadour Kit of Your Choice</p>  
-                              <hr style="font-size: 15px; width: 730px; color: #4F81BC;" />
+                              <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
                             </div>
 
                             <div style="clear: both;"></div>
@@ -372,7 +372,7 @@ class Background < ActiveRecord::Base
                             <title>Welcome</title>
                           </head>
                           <body style="margin: 0 auto;
-                                  width: 910px;
+                                  width: 940px;
                                   text-align: center;
                                   font-family: Arial;
                                   font-size: 25px;">
@@ -387,7 +387,7 @@ class Background < ActiveRecord::Base
                                 Congratulations! You are earned the
                               </p>
                               <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">$100 Mister Pompadour Gift Certificate</p>  
-                              <hr style="font-size: 15px; width: 730px; color: #4F81BC;" />
+                              <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
                             </div>
 
                             <div style="clear: both;"></div>
@@ -439,7 +439,7 @@ class Background < ActiveRecord::Base
                             <title>Welcome</title>
                           </head>
                           <body style="margin: 0 auto;
-                                  width: 910px;
+                                  width: 940px;
                                   text-align: center;
                                   font-family: Arial;
                                   font-size: 25px;">
@@ -456,7 +456,7 @@ class Background < ActiveRecord::Base
         html_content += 'for the <i>Friend Referral Campaign...</i>
                           </p>
                           <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Donot miss out on FREE products!</p>  
-                          <hr style="font-size: 15px; width: 730px; color: #4F81BC;" />
+                          <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
                         </div>
                         <div style="clear: both;"></div>
                         <div style="text-align: left;">
@@ -524,7 +524,7 @@ class Background < ActiveRecord::Base
                             <title>Welcome</title>
                           </head>
                           <body style="margin: 0 auto;
-                                  width: 910px;
+                                  width: 940px;
                                   text-align: center;
                                   font-family: Arial;
                                   font-size: 25px;">
@@ -541,7 +541,7 @@ class Background < ActiveRecord::Base
         html_content += 'for the <i>Friend Referral Campaign...</i>
                           </p>
                           <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Donot miss out on FREE products!</p>  
-                          <hr style="font-size: 15px; width: 730px; color: #4F81BC;" />
+                          <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
                         </div>
                         <div style="clear: both;"></div>
                         <div style="text-align: left;">
@@ -608,7 +608,7 @@ class Background < ActiveRecord::Base
                             <title>Welcome</title>
                           </head>
                           <body style="margin: 0 auto;
-                                  width: 910px;
+                                  width: 940px;
                                   text-align: center;
                                   font-family: Arial;
                                   font-size: 25px;">
@@ -625,7 +625,7 @@ class Background < ActiveRecord::Base
         html_content += 'for the <i>Friend Referral Campaign...</i>
                           </p>
                           <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Donot miss out on FREE products!</p>  
-                          <hr style="font-size: 15px; width: 730px; color: #4F81BC;" />
+                          <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
                         </div>
                         <div style="clear: both;"></div>
                         <div style="text-align: left;">
