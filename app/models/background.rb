@@ -3,7 +3,7 @@ class Background < ActiveRecord::Base
 
   def self.send_notify_email
 
-        user = User.find_by_email("kyle.perez1985@gmail.com")
+        user = User.find_by_email("mattdavis777@gmail.com")
         subject = "Welcome Email"
         html_content = '<!DOCTYPE html>
                           <html lang="en">
@@ -656,7 +656,7 @@ class Background < ActiveRecord::Base
         html_content += '</p>
                           </div>
                           <div style="margin-top: 5px;">
-                            <img src="/assets/refer/email_2.jpg">
+                            <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_2.jpg">
                           </div>
                           
                           <p style="margin: 30px 0 0 10px; font-size: 40px; font-weight: bold; text-align: left; color: #365F91;">Remember...</p>
