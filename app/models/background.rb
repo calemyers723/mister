@@ -87,7 +87,7 @@ class Background < ActiveRecord::Base
                                 font-size: 25px;">
 
                           <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                            <img src="/assets/refer/email_logo.jpg">
+                            <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
                           </div>
 
                           <div style="font-size: 34px;
@@ -104,7 +104,7 @@ class Background < ActiveRecord::Base
                             <p style="margin: 30px 0 0 0; color: #355F91;">You are off to a great start and <span style="color: #C00000;">1</span> friend has officially joined! Only 4 more <i>friend referrals</i> before you earn a <span style="font-size: 30px; font-weight: bold;">Peppermint Shower Experience Travel Kit.</span></p>
                           </div>
                           <div style="margin-top: 20px;">
-                            <img src="/assets/refer/level-1.jpg">
+                            <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-1.jpg">
                           </div>
 
                           <div style="margin: 15px 0 0 0;">
@@ -113,7 +113,7 @@ class Background < ActiveRecord::Base
         html_content += '</p>
                           </div>
                           <div style="margin-top: 5px;">
-                            <img src="/assets/refer/email_2.jpg">
+                            <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_2.jpg">
                           </div>
                           
                           <p style="margin: 30px 0 0 10px; font-size: 40px; font-weight: bold; text-align: left; color: #365F91;">Remember...</p>
@@ -153,7 +153,7 @@ class Background < ActiveRecord::Base
                                   font-size: 25px;">
 
                             <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="/assets/refer/email_logo.jpg">
+                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
                             </div>
 
                             <div style="font-size: 34px;
@@ -172,11 +172,11 @@ class Background < ActiveRecord::Base
                             <div style="margin-top: 20px; color: #355F91;">
                               <div style="float: left; width: 400px; margin: 0 auto;">
                                 <p><span style="color: #C00000;">5</span> Friends Referred (unlocked)</p>
-                                <img src="/assets/refer/level-1.jpg">  
+                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-1.jpg">  
                               </div>
                               <div style="float: right; width: 400px; margin: 0 auto;">
                                 <p><span style="color: #C00000;">10</span> Friends Referred (in progress)</p>
-                                <img src="/assets/refer/level-2.jpg">
+                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-2.jpg">
                               </div>
                               
                               <div style="clear: both;"></div>
@@ -188,7 +188,7 @@ class Background < ActiveRecord::Base
         html_content += '</p>
                           </div>
                           <div style="margin-top: 5px;">
-                            <img src="/assets/refer/email_2.jpg">
+                            <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_2.jpg">
                           </div>
                           
                           <p style="margin: 30px 0 0 10px; font-size: 40px; font-weight: bold; text-align: left; color: #365F91;">Remember...</p>
@@ -228,7 +228,7 @@ class Background < ActiveRecord::Base
                                   font-size: 25px;">
 
                             <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="/assets/refer/email_logo.jpg">
+                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
                             </div>
 
                             <div style="font-size: 34px;
@@ -247,11 +247,11 @@ class Background < ActiveRecord::Base
                             <div style="margin-top: 20px; color: #355F91;">
                               <div style="float: left; width: 400px; margin: 0 auto;">
                                 <p><span style="color: #C00000;">10</span> Friends Referred (unlocked)</p>
-                                <img src="/assets/refer/level-2.jpg">  
+                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-2.jpg">  
                               </div>
                               <div style="float: right; width: 400px; margin: 0 auto;">
                                 <p><span style="color: #C00000;">25</span> Friends Referred (in progress)</p>
-                                <img src="/assets/refer/level-3.jpg">
+                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-3.jpg">
                               </div>
                               
                               <div style="clear: both;"></div>
@@ -263,7 +263,7 @@ class Background < ActiveRecord::Base
         html_content += '</p>
                           </div>
                           <div style="margin-top: 5px;">
-                            <img src="/assets/refer/email_2.jpg">
+                            <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_2.jpg">
                           </div>
                           
                           <p style="margin: 30px 0 0 10px; font-size: 40px; font-weight: bold; text-align: left; color: #365F91;">Remember...</p>
@@ -303,7 +303,7 @@ class Background < ActiveRecord::Base
                                   font-size: 25px;">
 
                             <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="/assets/refer/email_logo.jpg">
+                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
                             </div>
 
                             <div style="font-size: 34px;
@@ -322,11 +322,11 @@ class Background < ActiveRecord::Base
                             <div style="margin-top: 20px; color: #355F91;">
                               <div style="float: left; width: 400px; margin: 0 auto;">
                                 <p><span style="color: #C00000;">25</span> Friends Referred (unlocked)</p>
-                                <img src="/assets/refer/level-3.jpg">  
+                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-3.jpg">  
                               </div>
                               <div style="float: right; width: 400px; margin: 0 auto;">
                                 <p><span style="color: #C00000;">50</span> Friends Referred (in progress)</p>
-                                <img src="/assets/refer/level-4.jpg">
+                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-4.jpg">
                               </div>
                               
                               <div style="clear: both;"></div>
@@ -338,7 +338,7 @@ class Background < ActiveRecord::Base
         html_content += '</p>
                           </div>
                           <div style="margin-top: 5px;">
-                            <img src="/assets/refer/email_2.jpg">
+                            <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_2.jpg">
                           </div>
                           
                           <p style="margin: 30px 0 0 10px; font-size: 40px; font-weight: bold; text-align: left; color: #365F91;">Remember...</p>
@@ -378,7 +378,7 @@ class Background < ActiveRecord::Base
                                   font-size: 25px;">
 
                             <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="/assets/refer/email_logo.jpg">
+                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
                             </div>
 
                             <div style="font-size: 34px;
@@ -397,7 +397,7 @@ class Background < ActiveRecord::Base
 
                             <div style="margin-top: 20px; color: #355F91;">
                               <p><span style="color: #C00000;">50</span> Friends Referred (unlocked)</p>
-                              <img src="/assets/refer/level-4.jpg">
+                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-4.jpg">
                             </div>
 
                             <div style="margin: 15px 0 0 0;">
@@ -406,7 +406,7 @@ class Background < ActiveRecord::Base
         html_content += '</p>
                           </div>
                           <div style="margin-top: 5px;">
-                            <img src="/assets/refer/email_2.jpg">
+                            <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_2.jpg">
                           </div>
                           
                           <p style="margin: 30px 0 0 10px; font-size: 40px; font-weight: bold; text-align: left; color: #365F91;">Remember...</p>
@@ -445,7 +445,7 @@ class Background < ActiveRecord::Base
                                   font-size: 25px;">
 
                             <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="/assets/refer/email_logo.jpg">
+                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
                             </div>
 
                             <div style="font-size: 34px;
@@ -476,7 +476,7 @@ class Background < ActiveRecord::Base
         html_content += '5'
         html_content += '</span> Friends Referred (in progress)</p>
                           <img src="'
-        html_content += '/assets/refer/level-2.jpg'
+        html_content += 'http://mister-pompadour-referral.herokuapp.com/assets/refer/level-2.jpg'
         html_content += '">
                           </div>
 
@@ -487,7 +487,7 @@ class Background < ActiveRecord::Base
         html_content += '</p>
                           </div>
                           <div style="margin-top: 5px;">
-                            <img src="/assets/refer/email_2.jpg">
+                            <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_2.jpg">
                           </div>
                           
                           <p style="margin: 30px 0 0 10px; font-size: 40px; font-weight: bold; text-align: left; color: #365F91;">Remember...</p>
@@ -530,7 +530,7 @@ class Background < ActiveRecord::Base
                                   font-size: 25px;">
 
                             <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="/assets/refer/email_logo.jpg">
+                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
                             </div>
 
                             <div style="font-size: 34px;
@@ -561,7 +561,7 @@ class Background < ActiveRecord::Base
         html_content += '5'
         html_content += '</span> Friends Referred (in progress)</p>
                           <img src="'
-        html_content += '/assets/refer/level-2.jpg'
+        html_content += 'http://mister-pompadour-referral.herokuapp.com/assets/refer/level-2.jpg'
         html_content += '">
                           </div>
 
@@ -572,7 +572,7 @@ class Background < ActiveRecord::Base
         html_content += '</p>
                           </div>
                           <div style="margin-top: 5px;">
-                            <img src="/assets/refer/email_2.jpg">
+                            <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_2.jpg">
                           </div>
                           
                           <p style="margin: 30px 0 0 10px; font-size: 40px; font-weight: bold; text-align: left; color: #365F91;">Remember...</p>
@@ -596,6 +596,7 @@ class Background < ActiveRecord::Base
                           </div>
                         </body>
                         </html>'
+        user.send_mandrill_email(subject, html_content)
 
         subject = "Last Day left for the Friend Referral Campaign"
         html_content = '<!DOCTYPE html>
@@ -613,7 +614,7 @@ class Background < ActiveRecord::Base
                                   font-size: 25px;">
 
                             <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="/assets/refer/email_logo.jpg">
+                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
                             </div>
 
                             <div style="font-size: 34px;
@@ -644,7 +645,7 @@ class Background < ActiveRecord::Base
         html_content += 'XX'
         html_content += '</span> Friends Referred (in progress)</p>
                           <img src="'
-        html_content += '/assets/refer/level-2.jpg'
+        html_content += 'http://mister-pompadour-referral.herokuapp.com/assets/refer/level-2.jpg'
         html_content += '">
                           </div>
 
@@ -679,7 +680,7 @@ class Background < ActiveRecord::Base
                           </div>
                         </body>
                         </html>'
-
+        user.send_mandrill_email(subject, html_content)
 
         # end_time = AdminUser.first.created_at + 7.days
         # end_time = end_time.to_time.to_i
