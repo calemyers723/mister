@@ -63,6 +63,31 @@ class Background < ActiveRecord::Base
     return footer_content
   end
 
+  def self.reminder_emails
+    end_time = AdminUser.first.created_at + 7.days
+    end_time = end_time.to_time.to_i
+    now_time = Time.now.to_time.to_i
+    remain_time = end_time - now_time
+
+    timestamp_day = 60 * 60 * 24
+    remain_day = remain_time / timestamp_day
+
+    
+    if remain_day <= 3 && remain_day >= 1
+      puts remain_day
+      users = User.all
+      for user in users do
+        puts user.email
+        begin
+          user.send_remainning_emails remain_day
+        rescue Exception => e
+          puts "Reminder email sending error"
+        end
+      end
+    end
+
+    
+  end
 
 
   def self.send_notify_email
@@ -77,7 +102,15 @@ class Background < ActiveRecord::Base
         user = User.find_by_email("Mattdavis777@gmail.com ")
         referral_code = CGI::escape(user.referral_code);
 
-
+        user.send_sign_up_email
+        # user.send_first_referral_friend
+        # user.send_five_referral_friends
+        # user.send_ten_referral_friends
+        # user.send_twentyfive_referral_friends
+        # user.send_fifty_referral_friends
+        # user.send_remainning_emails 3
+        # user.send_remainning_emails 2
+        # user.send_remainning_emails 1
 
         # subject = "Welcome Email"
         # html_content = '<!DOCTYPE html>
@@ -407,15 +440,7 @@ class Background < ActiveRecord::Base
         # html_content += html_footer_content
         # user.send_mandrill_email(subject, html_content)
 
-        user.send_sign_up_email
-        # user.send_first_referral_friend
-        # user.send_five_referral_friends
-        # user.send_ten_referral_friends
-        # user.send_twentyfive_referral_friends
-        # user.send_fifty_referral_friends
-        # user.send_remainning_emails 3
-        # user.send_remainning_emails 2
-        # user.send_remainning_emails 1
+        
 
         # subject = "Only 3 days left for the Friend Referral Campaign"
         # html_content = '<!DOCTYPE html>
