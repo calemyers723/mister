@@ -78757,3 +78757,7 @@ Served asset /favicon.ico - 304 Not Modified (0ms)
 
 Started GET "/assets/favicon.ico" for 192.168.0.20 at 2015-01-26 13:53:08 -0500
 Served asset /favicon.ico - 304 Not Modified (1ms)
+
+
+Started GET "/assets/refer/email_1.jpg" for 192.168.0.20 at 2015-01-26 14:14:16 -0500
+Served asset /refer/email_1.jpg - 304 Not Modified (0ms)
