@@ -502,7 +502,7 @@ class User < ActiveRecord::Base
                           <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
                             <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
         html_content += html_footer_content
-        user.send_mandrill_email(subject, html_content)
+        send_mandrill_email(subject, html_content)
 
 
 
