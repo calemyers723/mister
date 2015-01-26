@@ -624,7 +624,7 @@ class User < ActiveRecord::Base
     end
 
 
-    def self.html_footer_content
+    def html_footer_content
 
         root_url = "http://mister-pompadour-referral.herokuapp.com/"
         image = CGI::escape(root_url + '/assets/refer/logo-fb69ee306dd1e2eb28dd2e5c9e0c103d.jpg');
