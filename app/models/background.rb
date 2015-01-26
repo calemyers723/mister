@@ -27,7 +27,7 @@ class Background < ActiveRecord::Base
                                   font-size: 25px;">
 
                             <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="http://mister-pompadour-referral.herokuapp.comassets/refer/email_logo.jpg">
+                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
                             </div>
 
                             <div style="font-size: 34px;
