@@ -9,7 +9,7 @@ class Background < ActiveRecord::Base
         twitter_message = CGI::escape("#MisterPompadour #looksharpbeconfident Excited for @mistrpompadour new website launch.")
         
 
-        user = User.find_by_email("ckmsmart@gmail.com")
+        user = User.find_by_email("kyle.perez1985@gmail.com")
         referral_code = CGI::escape(user.referral_code);
         subject = "Welcome Email"
         html_content = '<!DOCTYPE html>
@@ -711,7 +711,7 @@ class Background < ActiveRecord::Base
 
 
 
-        
+
 
         # end_time = AdminUser.first.created_at + 7.days
         # end_time = end_time.to_time.to_i
