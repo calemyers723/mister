@@ -167,244 +167,244 @@ class Background < ActiveRecord::Base
 
         # user.send_mandrill_email(subject, html_content)
 
-        subject = "Congratulations on Your First Friend Referral"
-        html_content = '<!DOCTYPE html>
-                          <html lang="en">
-                          <head>
-                            <meta charset="utf-8">
-                            <title>Welcome</title>
-                          </head>
-                          <body style="margin: 0 auto;
-                                  width: 940px;
-                                  text-align: center;
-                                  font-family: Arial;
-                                  font-size: 25px;">
+        # subject = "Congratulations on Your First Friend Referral"
+        # html_content = '<!DOCTYPE html>
+        #                   <html lang="en">
+        #                   <head>
+        #                     <meta charset="utf-8">
+        #                     <title>Welcome</title>
+        #                   </head>
+        #                   <body style="margin: 0 auto;
+        #                           width: 940px;
+        #                           text-align: center;
+        #                           font-family: Arial;
+        #                           font-size: 25px;">
 
-                            <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
-                            </div>
+        #                     <div style="margin: 20px 0 0 0;text-align:left; float:left;">
+        #                       <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
+        #                     </div>
 
-                            <div style="font-size: 34px;
-                                  margin: 20px 0 0 20px; float:left; color: #16355D;">
-                              <p style="margin: 10px 0 0; text-align: left;">
-                                Congratulations!
-                              </p>
-                              <p style="text-align:left; margin: 5px 0 0; font-weight: bold;"><span style="color: #C00000;">1</span> friend has joined the <i>Friend Referral Campaign</i></p>  
-                              <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
-                            </div>
+        #                     <div style="font-size: 34px;
+        #                           margin: 20px 0 0 20px; float:left; color: #16355D;">
+        #                       <p style="margin: 10px 0 0; text-align: left;">
+        #                         Congratulations!
+        #                       </p>
+        #                       <p style="text-align:left; margin: 5px 0 0; font-weight: bold;"><span style="color: #C00000;">1</span> friend has joined the <i>Friend Referral Campaign</i></p>  
+        #                       <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
+        #                     </div>
 
-                            <div style="clear: both;"></div>
-                            <div style="text-align: left;">
-                              <p style="margin: 30px 0 0 0; color: #355F91;">You are off to a great start and <span style="color: #C00000;">1</span> friend has officially joined! Only 4 more <i>friend referrals</i> before you earn a <span style="font-size: 30px; font-weight: bold;">Peppermint Shower Experience Travel Kit.</span></p>
-                            </div>
-                            <div style="margin-top: 20px;">
-                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-1.jpg">
-                            </div>
+        #                     <div style="clear: both;"></div>
+        #                     <div style="text-align: left;">
+        #                       <p style="margin: 30px 0 0 0; color: #355F91;">You are off to a great start and <span style="color: #C00000;">1</span> friend has officially joined! Only 4 more <i>friend referrals</i> before you earn a <span style="font-size: 30px; font-weight: bold;">Peppermint Shower Experience Travel Kit.</span></p>
+        #                     </div>
+        #                     <div style="margin-top: 20px;">
+        #                       <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-1.jpg">
+        #                     </div>
 
-                            <div style="margin: 15px 0 0 0;">
-                              <p style="color: #4F81BC;">Your Unique Referral Code</p>
-                            </div>
-                            <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
-                              <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
-        html_content += html_footer_content
-        user.send_mandrill_email(subject, html_content)
+        #                     <div style="margin: 15px 0 0 0;">
+        #                       <p style="color: #4F81BC;">Your Unique Referral Code</p>
+        #                     </div>
+        #                     <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
+        #                       <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
+        # html_content += html_footer_content
+        # user.send_mandrill_email(subject, html_content)
 
-        subject = "Congratulations on 5 Friend Referrals"
-        html_content = '<!DOCTYPE html>
-                          <html lang="en">
-                          <head>
-                            <meta charset="utf-8">
-                            <title>Welcome</title>
-                          </head>
-                          <body style="margin: 0 auto;
-                                  width: 940px;
-                                  text-align: center;
-                                  font-family: Arial;
-                                  font-size: 25px;">
+        # subject = "Congratulations on 5 Friend Referrals"
+        # html_content = '<!DOCTYPE html>
+        #                   <html lang="en">
+        #                   <head>
+        #                     <meta charset="utf-8">
+        #                     <title>Welcome</title>
+        #                   </head>
+        #                   <body style="margin: 0 auto;
+        #                           width: 940px;
+        #                           text-align: center;
+        #                           font-family: Arial;
+        #                           font-size: 25px;">
 
-                            <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
-                            </div>
+        #                     <div style="margin: 20px 0 0 0;text-align:left; float:left;">
+        #                       <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
+        #                     </div>
 
-                            <div style="font-size: 34px;
-                                  margin: 20px 0 0 20px; float:left; color: #16355D;">
-                              <p style="margin: 10px 0 0; text-align: left;">
-                                Congratulations! You are earned the
-                              </p>
-                              <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Peppermint Shower Experience Travel Kit</p>  
-                              <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
-                            </div>
+        #                     <div style="font-size: 34px;
+        #                           margin: 20px 0 0 20px; float:left; color: #16355D;">
+        #                       <p style="margin: 10px 0 0; text-align: left;">
+        #                         Congratulations! You are earned the
+        #                       </p>
+        #                       <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Peppermint Shower Experience Travel Kit</p>  
+        #                       <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
+        #                     </div>
 
-                            <div style="clear: both;"></div>
-                            <div style="text-align: left;">
-                              <p style="margin: 30px 0 0 0; color: #355F91;"><span style="color: #C00000;">5</span> friends have offically joined the campaign! You finally reached your first milestone and have unlocked the <i>Peppermint Shower Experience Travel Kit</i>!</p>
-                            </div>
-                            <div style="margin-top: 20px; color: #355F91;">
-                              <div style="float: left; width: 400px; margin: 0 auto;">
-                                <p><span style="color: #C00000;">5</span> Friends Referred (unlocked)</p>
-                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-1.jpg">  
-                              </div>
-                              <div style="float: right; width: 400px; margin: 0 auto;">
-                                <p><span style="color: #C00000;">10</span> Friends Referred (in progress)</p>
-                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-2.jpg">
-                              </div>
+        #                     <div style="clear: both;"></div>
+        #                     <div style="text-align: left;">
+        #                       <p style="margin: 30px 0 0 0; color: #355F91;"><span style="color: #C00000;">5</span> friends have offically joined the campaign! You finally reached your first milestone and have unlocked the <i>Peppermint Shower Experience Travel Kit</i>!</p>
+        #                     </div>
+        #                     <div style="margin-top: 20px; color: #355F91;">
+        #                       <div style="float: left; width: 400px; margin: 0 auto;">
+        #                         <p><span style="color: #C00000;">5</span> Friends Referred (unlocked)</p>
+        #                         <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-1.jpg">  
+        #                       </div>
+        #                       <div style="float: right; width: 400px; margin: 0 auto;">
+        #                         <p><span style="color: #C00000;">10</span> Friends Referred (in progress)</p>
+        #                         <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-2.jpg">
+        #                       </div>
                               
-                              <div style="clear: both;"></div>
-                            </div>
+        #                       <div style="clear: both;"></div>
+        #                     </div>
 
-                            <div style="margin: 15px 0 0 0;">
-                              <p style="color: #4F81BC;">Your Unique Referral Code</p>
-                            </div>
-                            <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
-                              <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
-        html_content += html_footer_content
-        user.send_mandrill_email(subject, html_content)
+        #                     <div style="margin: 15px 0 0 0;">
+        #                       <p style="color: #4F81BC;">Your Unique Referral Code</p>
+        #                     </div>
+        #                     <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
+        #                       <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
+        # html_content += html_footer_content
+        # user.send_mandrill_email(subject, html_content)
 
-        subject = "Congratulations on 10 Friend Referrals"
-        html_content = '<!DOCTYPE html>
-                          <html lang="en">
-                          <head>
-                            <meta charset="utf-8">
-                            <title>Welcome</title>
-                          </head>
-                          <body style="margin: 0 auto;
-                                  width: 940px;
-                                  text-align: center;
-                                  font-family: Arial;
-                                  font-size: 25px;">
+        # subject = "Congratulations on 10 Friend Referrals"
+        # html_content = '<!DOCTYPE html>
+        #                   <html lang="en">
+        #                   <head>
+        #                     <meta charset="utf-8">
+        #                     <title>Welcome</title>
+        #                   </head>
+        #                   <body style="margin: 0 auto;
+        #                           width: 940px;
+        #                           text-align: center;
+        #                           font-family: Arial;
+        #                           font-size: 25px;">
 
-                            <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="http://mister-pompadour-referral.herokuapp.comassets/refer/email_logo.jpg">
-                            </div>
+        #                     <div style="margin: 20px 0 0 0;text-align:left; float:left;">
+        #                       <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
+        #                     </div>
 
-                            <div style="font-size: 34px;
-                                  margin: 20px 0 0 20px; float:left; color: #16355D;">
-                              <p style="margin: 10px 0 0; text-align: left;">
-                                Congratulations! You are earned the
-                              </p>
-                              <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Styling Product of Your Choice</p>  
-                              <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
-                            </div>
+        #                     <div style="font-size: 34px;
+        #                           margin: 20px 0 0 20px; float:left; color: #16355D;">
+        #                       <p style="margin: 10px 0 0; text-align: left;">
+        #                         Congratulations! You are earned the
+        #                       </p>
+        #                       <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Styling Product of Your Choice</p>  
+        #                       <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
+        #                     </div>
 
-                            <div style="clear: both;"></div>
-                            <div style="text-align: left;">
-                              <p style="margin: 30px 0 0 0; color: #355F91;"><span style="color: #C00000;">10</span> friends have joined the campaign! You finally reached your second milestone and unlocked the <i>Styling Product of Your Choice!</i></p>
-                            </div>
-                            <div style="margin-top: 20px; color: #355F91;">
-                              <div style="float: left; width: 400px; margin: 0 auto;">
-                                <p><span style="color: #C00000;">10</span> Friends Referred (unlocked)</p>
-                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-2.jpg">  
-                              </div>
-                              <div style="float: right; width: 400px; margin: 0 auto;">
-                                <p><span style="color: #C00000;">25</span> Friends Referred (in progress)</p>
-                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-3.jpg">
-                              </div>
+        #                     <div style="clear: both;"></div>
+        #                     <div style="text-align: left;">
+        #                       <p style="margin: 30px 0 0 0; color: #355F91;"><span style="color: #C00000;">10</span> friends have joined the campaign! You finally reached your second milestone and unlocked the <i>Styling Product of Your Choice!</i></p>
+        #                     </div>
+        #                     <div style="margin-top: 20px; color: #355F91;">
+        #                       <div style="float: left; width: 400px; margin: 0 auto;">
+        #                         <p><span style="color: #C00000;">10</span> Friends Referred (unlocked)</p>
+        #                         <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-2.jpg">  
+        #                       </div>
+        #                       <div style="float: right; width: 400px; margin: 0 auto;">
+        #                         <p><span style="color: #C00000;">25</span> Friends Referred (in progress)</p>
+        #                         <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-3.jpg">
+        #                       </div>
                               
-                              <div style="clear: both;"></div>
-                            </div>
+        #                       <div style="clear: both;"></div>
+        #                     </div>
 
-                            <div style="margin: 15px 0 0 0;">
-                              <p style="color: #4F81BC;">Your Unique Referral Code</p>
-                            </div>
-                            <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
-                              <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
-        html_content += html_footer_content
-        user.send_mandrill_email(subject, html_content)
+        #                     <div style="margin: 15px 0 0 0;">
+        #                       <p style="color: #4F81BC;">Your Unique Referral Code</p>
+        #                     </div>
+        #                     <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
+        #                       <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
+        # html_content += html_footer_content
+        # user.send_mandrill_email(subject, html_content)
 
-        subject = "Congratulations on 25 Friend Referrals"
-        html_content = '<!DOCTYPE html>
-                          <html lang="en">
-                          <head>
-                            <meta charset="utf-8">
-                            <title>Welcome</title>
-                          </head>
-                          <body style="margin: 0 auto;
-                                  width: 940px;
-                                  text-align: center;
-                                  font-family: Arial;
-                                  font-size: 25px;">
+        # subject = "Congratulations on 25 Friend Referrals"
+        # html_content = '<!DOCTYPE html>
+        #                   <html lang="en">
+        #                   <head>
+        #                     <meta charset="utf-8">
+        #                     <title>Welcome</title>
+        #                   </head>
+        #                   <body style="margin: 0 auto;
+        #                           width: 940px;
+        #                           text-align: center;
+        #                           font-family: Arial;
+        #                           font-size: 25px;">
 
-                            <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
-                            </div>
+        #                     <div style="margin: 20px 0 0 0;text-align:left; float:left;">
+        #                       <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
+        #                     </div>
 
-                            <div style="font-size: 34px;
-                                  margin: 20px 0 0 20px; float:left; color: #16355D;">
-                              <p style="margin: 10px 0 0; text-align: left;">
-                                Congratulations! You are earned the
-                              </p>
-                              <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Mister Pompadour Kit of Your Choice</p>  
-                              <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
-                            </div>
+        #                     <div style="font-size: 34px;
+        #                           margin: 20px 0 0 20px; float:left; color: #16355D;">
+        #                       <p style="margin: 10px 0 0; text-align: left;">
+        #                         Congratulations! You are earned the
+        #                       </p>
+        #                       <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Mister Pompadour Kit of Your Choice</p>  
+        #                       <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
+        #                     </div>
 
-                            <div style="clear: both;"></div>
-                            <div style="text-align: left;">
-                              <p style="margin: 30px 0 0 0; color: #355F91;"><span style="color: #C00000;">25</span> friends have joined the campaign! You finally reached your third milestone and unlocked the <i>Mister Pompadour Kit of Your Choice!</i></p>
-                            </div>
-                            <div style="margin-top: 20px; color: #355F91;">
-                              <div style="float: left; width: 400px; margin: 0 auto;">
-                                <p><span style="color: #C00000;">25</span> Friends Referred (unlocked)</p>
-                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-3.jpg">  
-                              </div>
-                              <div style="float: right; width: 400px; margin: 0 auto;">
-                                <p><span style="color: #C00000;">50</span> Friends Referred (in progress)</p>
-                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-4.jpg">
-                              </div>
+        #                     <div style="clear: both;"></div>
+        #                     <div style="text-align: left;">
+        #                       <p style="margin: 30px 0 0 0; color: #355F91;"><span style="color: #C00000;">25</span> friends have joined the campaign! You finally reached your third milestone and unlocked the <i>Mister Pompadour Kit of Your Choice!</i></p>
+        #                     </div>
+        #                     <div style="margin-top: 20px; color: #355F91;">
+        #                       <div style="float: left; width: 400px; margin: 0 auto;">
+        #                         <p><span style="color: #C00000;">25</span> Friends Referred (unlocked)</p>
+        #                         <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-3.jpg">  
+        #                       </div>
+        #                       <div style="float: right; width: 400px; margin: 0 auto;">
+        #                         <p><span style="color: #C00000;">50</span> Friends Referred (in progress)</p>
+        #                         <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-4.jpg">
+        #                       </div>
                               
-                              <div style="clear: both;"></div>
-                            </div>
+        #                       <div style="clear: both;"></div>
+        #                     </div>
 
-                            <div style="margin: 15px 0 0 0;">
-                              <p style="color: #4F81BC;">Your Unique Referral Code</p>
-                            </div>
-                            <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
-                              <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
-        html_content += html_footer_content
-        user.send_mandrill_email(subject, html_content)
+        #                     <div style="margin: 15px 0 0 0;">
+        #                       <p style="color: #4F81BC;">Your Unique Referral Code</p>
+        #                     </div>
+        #                     <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
+        #                       <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
+        # html_content += html_footer_content
+        # user.send_mandrill_email(subject, html_content)
 
-        subject = "Congratulations on 50 Friend Referrals"
-        html_content = '<!DOCTYPE html>
-                          <html lang="en">
-                          <head>
-                            <meta charset="utf-8">
-                            <title>Welcome</title>
-                          </head>
-                          <body style="margin: 0 auto;
-                                  width: 940px;
-                                  text-align: center;
-                                  font-family: Arial;
-                                  font-size: 25px;">
+        # subject = "Congratulations on 50 Friend Referrals"
+        # html_content = '<!DOCTYPE html>
+        #                   <html lang="en">
+        #                   <head>
+        #                     <meta charset="utf-8">
+        #                     <title>Welcome</title>
+        #                   </head>
+        #                   <body style="margin: 0 auto;
+        #                           width: 940px;
+        #                           text-align: center;
+        #                           font-family: Arial;
+        #                           font-size: 25px;">
 
-                            <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
-                            </div>
+        #                     <div style="margin: 20px 0 0 0;text-align:left; float:left;">
+        #                       <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
+        #                     </div>
 
-                            <div style="font-size: 34px;
-                                  margin: 20px 0 0 20px; float:left; color: #16355D;">
-                              <p style="margin: 10px 0 0; text-align: left;">
-                                Congratulations! You are earned the
-                              </p>
-                              <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">$100 Mister Pompadour Gift Certificate</p>  
-                              <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
-                            </div>
+        #                     <div style="font-size: 34px;
+        #                           margin: 20px 0 0 20px; float:left; color: #16355D;">
+        #                       <p style="margin: 10px 0 0; text-align: left;">
+        #                         Congratulations! You are earned the
+        #                       </p>
+        #                       <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">$100 Mister Pompadour Gift Certificate</p>  
+        #                       <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
+        #                     </div>
 
-                            <div style="clear: both;"></div>
-                            <div style="text-align: left;">
-                              <p style="margin: 30px 0 0 0; color: #355F91;">Extraordinary! <span style="color: #C00000;">50</span> friends have joined the campaign thanks to you! You have reached last and final milestone and unlocked the $100 <i>Mister Pompadour Gift Certificate!</i></p>
-                            </div>
+        #                     <div style="clear: both;"></div>
+        #                     <div style="text-align: left;">
+        #                       <p style="margin: 30px 0 0 0; color: #355F91;">Extraordinary! <span style="color: #C00000;">50</span> friends have joined the campaign thanks to you! You have reached last and final milestone and unlocked the $100 <i>Mister Pompadour Gift Certificate!</i></p>
+        #                     </div>
 
-                            <div style="margin-top: 20px; color: #355F91;">
-                              <p><span style="color: #C00000;">50</span> Friends Referred (unlocked)</p>
-                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-4.jpg">
-                            </div>
+        #                     <div style="margin-top: 20px; color: #355F91;">
+        #                       <p><span style="color: #C00000;">50</span> Friends Referred (unlocked)</p>
+        #                       <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-4.jpg">
+        #                     </div>
 
-                            <div style="margin: 15px 0 0 0;">
-                              <p style="color: #4F81BC;">Your Unique Referral Code</p>
-                            </div>
-                            <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
-                              <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
-        html_content += html_footer_content
-        user.send_mandrill_email(subject, html_content)
+        #                     <div style="margin: 15px 0 0 0;">
+        #                       <p style="color: #4F81BC;">Your Unique Referral Code</p>
+        #                     </div>
+        #                     <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
+        #                       <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
+        # html_content += html_footer_content
+        # user.send_mandrill_email(subject, html_content)
 
         subject = "Only 3 days left for the Friend Referral Campaign"
         html_content = '<!DOCTYPE html>
@@ -465,6 +465,8 @@ class Background < ActiveRecord::Base
                             <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
         html_content += html_footer_content
         user.send_mandrill_email(subject, html_content)
+
+        user.send_remainning_emails 3
 
         # subject = "Only 2 days left for the Friend Referral Campaign"
         # html_content = '<!DOCTYPE html>
