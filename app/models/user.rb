@@ -446,7 +446,7 @@ class User < ActiveRecord::Base
                         <div style="clear: both;"></div>
                         <div style="text-align: left;">
                           <p style="margin: 30px 0 0 0; color: #355F91;"><span style="color: #C00000;">'
-        html_content += self.referrals.count
+        html_content += self.referrals.count.to_s
         html_content += '</span> friends have joined the campaign thanks to you! You have already earned the '
         current_prize_level = ''
         next_prize_level = ''
@@ -479,7 +479,7 @@ class User < ActiveRecord::Base
         end
         html_content += current_prize_level
         html_content += '. Only <span style="color: #C00000;">'
-        html_content += remain_count
+        html_content += remain_count.to_s
         html_content += '</span> more until you unlock the '
         html_content += next_prize_level
         html_content += '...Let the Sharing Continue!</p>
@@ -488,7 +488,7 @@ class User < ActiveRecord::Base
                           <div style="margin-top: 20px; color: #355F91;">
                             <p><span style="color: #C00000;">'
 
-        html_content += self.referrals.count
+        html_content += self.referrals.count.to_s
         html_content += '</span> Friends Referred (in progress)</p>
                           <img src="'
         html_content += image_path
