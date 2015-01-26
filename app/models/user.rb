@@ -505,67 +505,6 @@ class User < ActiveRecord::Base
         send_mandrill_email(subject, html_content)
 
 
-
-
-        # subject = "Only 3 days left for the Friend Referral Campaign"
-        # html_content = '<!DOCTYPE html>
-        #                   <html lang="en">
-        #                   <head>
-        #                     <meta charset="utf-8">
-
-
-        #                     <title>Welcome</title>
-        #                   </head>
-        #                   <body style="margin: 0 auto;
-        #                           width: 940px;
-        #                           text-align: center;
-        #                           font-family: Arial;
-        #                           font-size: 25px;">
-
-        #                     <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-        #                       <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
-        #                     </div>
-
-        #                     <div style="font-size: 34px;
-        #                           margin: 20px 0 0 20px; float:left; color: #16355D;">
-        #                       <p style="margin: 10px 0 0; text-align: left;">
-        #                         '
-        # html_content += 'Only 3 days left '
-        # html_content += 'for the <i>Friend Referral Campaign...</i>
-        #                   </p>
-        #                   <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Donot miss out on FREE products!</p>  
-        #                   <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
-        #                 </div>
-        #                 <div style="clear: both;"></div>
-        #                 <div style="text-align: left;">
-        #                   <p style="margin: 30px 0 0 0; color: #355F91;"><span style="color: #C00000;">'
-        # html_content += '5'
-        # html_content += '</span> friends have joined the campaign thanks to you! You have already earned the '
-        # html_content += 'Peppermint Shower Experience Travel Kit'
-        # html_content += '. Only <span style="color: #C00000;">'
-        # html_content += '5'
-        # html_content += '</span> more until you unlock the '
-        # html_content += 'Styling Product of Your Choice'
-        # html_content += '...Let the Sharing Continue!</p>
-        #                   </div>
-
-        #                   <div style="margin-top: 20px; color: #355F91;">
-        #                     <p><span style="color: #C00000;">'
-        # html_content += '5'
-        # html_content += '</span> Friends Referred (in progress)</p>
-        #                   <img src="'
-        # html_content += 'http://mister-pompadour-referral.herokuapp.com/assets/refer/level-2.jpg'
-        # html_content += '">
-        #                   </div>
-
-                          
-        #                   <div style="margin: 15px 0 0 0;">
-        #                     <p style="color: #4F81BC;">Your Unique Referral Code</p>
-        #                   </div>
-        #                   <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
-        #                     <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
-        # html_content += html_footer_content
-        # user.send_mandrill_email(subject, html_content)
     end
 
     def send_mandrill_email(subject,html_content)
