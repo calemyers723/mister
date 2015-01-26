@@ -12,6 +12,8 @@ class Background < ActiveRecord::Base
         user = User.find_by_email("kyle.perez1985@gmail.com")
         referral_code = CGI::escape(user.referral_code);
         subject = "Welcome Email"
+        
+
         html_content = '<!DOCTYPE html>
                           <html lang="en">
                           <head>
@@ -25,7 +27,7 @@ class Background < ActiveRecord::Base
                                   font-size: 25px;">
 
                             <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="/assets/refer/email_logo.jpg">
+                              <img src="http://mister-pompadour-referral.herokuapp.comassets/refer/email_logo.jpg">
                             </div>
 
                             <div style="font-size: 34px;
@@ -46,9 +48,13 @@ class Background < ActiveRecord::Base
                               <p style="color: #4F81BC;">Your Unique Referral Code</p>
                             </div>
                             <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
-                              <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;"><%= root_url %>?ref=df2c2abfff</div>
-                              <div style="width: 120px; height:37px; margin: 25px auto 0; text-aling: center;">
-                                <a href="http://www.facebook.com/sharer.php?u='
+                              <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
+        html_content += root_url
+        html_content += '?ref='
+        html_content += user.referral_code
+        html_content += '</div>
+                          <div style="width: 120px; height:37px; margin: 25px auto 0; text-aling: center;">
+                            <a href="http://www.facebook.com/sharer.php?u='
         html_content += url
         html_content += '?ref='
         html_content += referral_code
