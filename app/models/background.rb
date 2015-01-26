@@ -9,7 +9,7 @@ class Background < ActiveRecord::Base
         twitter_message = CGI::escape("#MisterPompadour #looksharpbeconfident Excited for @mistrpompadour new website launch.")
         
 
-        user = User.find_by_email("mattdavis777@gmail.com")
+        user = User.find_by_email("ckmsmart@gmail.com")
         referral_code = CGI::escape(user.referral_code);
         subject = "Welcome Email"
         html_content = '<!DOCTYPE html>
