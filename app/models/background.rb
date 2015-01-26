@@ -99,7 +99,7 @@ class Background < ActiveRecord::Base
         
 
         # user = User.find_by_email("kyle.perez1985@gmail.com")
-        user = User.find_by_email("Mattdavis777@gmail.com")
+        user = User.find_by_email("mattdavis777@gmail.com")
         referral_code = CGI::escape(user.referral_code);
 
         user.send_sign_up_email
