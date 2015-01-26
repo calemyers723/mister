@@ -127,7 +127,7 @@ class User < ActiveRecord::Base
                             </div>  
                           </div>
                           <div style="margin-top: 20px;">
-                            <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_1.jpg">
+                            <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_1.jpg" style="border: 5px solid #233e5f;">
                           </div>
 
                           <p style="margin: 30px 0 0 0; font-size: 20px; text-align: left; color: #365F91;">Each friend can only be referred once so make sure you reach them
@@ -440,7 +440,7 @@ class User < ActiveRecord::Base
         end
         html_content += 'for the <i>Friend Referral Campaign...</i>
                           </p>
-                          <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Donot miss out on FREE products!</p>  
+                          <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Do Not miss out on FREE products!</p>  
                           <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
                         </div>
                         <div style="clear: both;"></div>
