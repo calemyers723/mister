@@ -500,8 +500,71 @@ class User < ActiveRecord::Base
        
     end
 
-    def reminder_email_header 
-        
+    def reminder_email_header days
+        html_content = '<!DOCTYPE html>
+                            <html lang="en">
+                            <head>
+                              <meta charset="utf-8">
+                              <title>Welcome</title>
+                            </head>
+                            <body style="margin: 0 auto;
+                                    width: 940px;
+                                    text-align: center;
+                                    font-family: Arial;
+                                    font-size: 25px;">
+
+                              <div style="margin: 20px 0 0 0;text-align:left; float:left;">
+                                <img src="/assets/refer/email_logo.jpg">
+                              </div>
+
+                              <div style="font-size: 34px;
+                                    margin: 20px 0 0 20px; float:left; color: #16355D;">
+                                <p style="margin: 10px 0 0; text-align: left;">
+                                  '
+        str_days = ''
+        case days
+        when 3
+            str_days = 'Only 3 days left'
+        when 2
+            str_days = 'Only 2 days left'  
+        when 1
+            str_days = 'Last day'  
+        end
+        html_content += str_days
+        html_content += ' for the <i>Friend Referral Campaign...</i>
+                            </p>
+                            <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">'
+        html_title = ''
+        html_sub_title = ''
+        image_path = 'email_1.jpg'
+        if self.referrals.count >= 50
+            html_title = 'Don\'t miss out on FREE products!'
+            html_sub_title = 'Only <span style="color: #C00000;">XX</span> more friend referrals until your next prize!'
+            image_path = 'email_1.jpg'
+        else
+            html_title = 'Max prize achieved but we still need your help!'
+            html_sub_title = 'You\'ve already referred <span style="color: #C00000;">50</span> friend referrals, but don\'t let that stop you from referring more!'
+            image_path = 'email_1.jpg'
+        end
+        html_content += html_title
+        html_content += '</p>  
+                            <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
+                          </div>
+
+                          <div style="clear: both;"></div>
+                          <div style="text-align: left;">
+                            <p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px;">'
+
+        html_content += html_sub_title
+        html_content += '</p>
+                          </div>
+
+                          <div style="margin-top: 20px; color: #355F91;">
+                            <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/'
+
+        html_content += image_path
+        html_content += '" style="border: 5px solid #233e5f;">
+                            </div>'
     end
 
 

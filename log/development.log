@@ -83805,3 +83805,225 @@ Served asset /favicon.ico - 304 Not Modified (0ms)
 
 Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-01-27 03:01:13 -0500
 Served asset /favicon.ico - 304 Not Modified (0ms)
+
+
+Started GET "/privacy-policy" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Processing by UsersController#policy as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" LIMIT 1[0m
+  Rendered users/policy.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 47ms (Views: 25.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (22ms)
+
+
+Started GET "/assets/core.css?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/lib/namespace.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /active_admin/lib/namespace.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.checkbox-toggler.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /active_admin/components/jquery.aa.checkbox-toggler.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.dropdown-menu.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /active_admin/components/jquery.aa.dropdown-menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /jquery-ui.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.popover.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /active_admin/components/jquery.aa.popover.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /active_admin/components/jquery.aa.table-checkbox-toggler.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/pages/application.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /active_admin/pages/application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/active_admin/pages/batch_actions.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /active_admin/pages/batch_actions.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /active_admin/application.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /active_admin/base.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /active_admin.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/notify_sending_email.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /notify_sending_email.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/refer/email_logo.jpg" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /refer/email_logo.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/refer/email_1.jpg" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /refer/email_1.jpg - 304 Not Modified (9ms)
+
+
+Started GET "/assets/refer/fb.png" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /refer/fb.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/Arial.ttf" for 127.0.0.1 at 2015-01-27 08:59:58 -0500
+Served asset /Arial.ttf - 304 Not Modified (0ms)
+
+
+Started GET "/assets/refer/twit.png" for 127.0.0.1 at 2015-01-27 08:59:59 -0500
+Served asset /refer/twit.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-01-27 08:59:59 -0500
+Served asset /favicon.ico - 304 Not Modified (0ms)
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-01-27 08:59:59 -0500
+Served asset /favicon.ico - 304 Not Modified (0ms)
+
+
+Started GET "/privacy-policy" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Processing by UsersController#policy as HTML
+  [1m[35mAdminUser Load (1.1ms)[0m  SELECT "admin_users".* FROM "admin_users" LIMIT 1
+  Rendered users/policy.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 53ms (Views: 28.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/core.css?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/lib/namespace.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /active_admin/lib/namespace.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /jquery-ui.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.checkbox-toggler.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /active_admin/components/jquery.aa.checkbox-toggler.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.dropdown-menu.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /active_admin/components/jquery.aa.dropdown-menu.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /active_admin/components/jquery.aa.table-checkbox-toggler.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.popover.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /active_admin/components/jquery.aa.popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/pages/batch_actions.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /active_admin/pages/batch_actions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /active_admin/application.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/active_admin/pages/application.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /active_admin/pages/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /active_admin/base.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/notify_sending_email.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /notify_sending_email.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /active_admin.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/refer/email_logo.jpg" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /refer/email_logo.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/refer/email_1.jpg" for 127.0.0.1 at 2015-01-27 09:20:02 -0500
+Served asset /refer/email_1.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/Arial.ttf" for 127.0.0.1 at 2015-01-27 09:20:03 -0500
+Served asset /Arial.ttf - 304 Not Modified (0ms)
+
+
+Started GET "/assets/refer/fb.png" for 127.0.0.1 at 2015-01-27 09:20:03 -0500
+Served asset /refer/fb.png - 304 Not Modified (2ms)
+
+
+Started GET "/assets/refer/twit.png" for 127.0.0.1 at 2015-01-27 09:20:03 -0500
+Served asset /refer/twit.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-01-27 09:20:03 -0500
+Served asset /favicon.ico - 304 Not Modified (0ms)
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-01-27 09:20:03 -0500
+Served asset /favicon.ico - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2015-01-27 09:22:41 -0500
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/core.css?body=1" for 127.0.0.1 at 2015-01-27 09:22:41 -0500
+Served asset /core.css - 304 Not Modified (1ms)
