@@ -102,45 +102,46 @@ class User < ActiveRecord::Base
 
     def send_first_referral_friend
         subject = "Congratulations on Your First Friend Referral"
-        html_content = '<!DOCTYPE html>
-                          <html lang="en">
-                          <head>
-                            <meta charset="utf-8">
-                            <title>Welcome</title>
-                          </head>
-                          <body style="margin: 0 auto;
-                                  width: 940px;
-                                  text-align: center;
-                                  font-family: Arial;
-                                  font-size: 25px;">
+        # html_content = '<!DOCTYPE html>
+        #                   <html lang="en">
+        #                   <head>
+        #                     <meta charset="utf-8">
+        #                     <title>Welcome</title>
+        #                   </head>
+        #                   <body style="margin: 0 auto;
+        #                           width: 940px;
+        #                           text-align: center;
+        #                           font-family: Arial;
+        #                           font-size: 25px;">
 
-                            <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
-                            </div>
+        #                     <div style="margin: 20px 0 0 0;text-align:left; float:left;">
+        #                       <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
+        #                     </div>
 
-                            <div style="font-size: 34px;
-                                  margin: 20px 0 0 20px; float:left; color: #16355D;">
-                              <p style="margin: 10px 0 0; text-align: left;">
-                                Congratulations!
-                              </p>
-                              <p style="text-align:left; margin: 5px 0 0; font-weight: bold;"><span style="color: #C00000;">1</span> friend has joined the <i>Friend Referral Campaign</i></p>  
-                              <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
-                            </div>
+        #                     <div style="font-size: 34px;
+        #                           margin: 20px 0 0 20px; float:left; color: #16355D;">
+        #                       <p style="margin: 10px 0 0; text-align: left;">
+        #                         Congratulations!
+        #                       </p>
+        #                       <p style="text-align:left; margin: 5px 0 0; font-weight: bold;"><span style="color: #C00000;">1</span> friend has joined the <i>Friend Referral Campaign</i></p>  
+        #                       <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
+        #                     </div>
 
-                            <div style="clear: both;"></div>
-                            <div style="text-align: left;">
-                              <p style="margin: 30px 0 0 0; color: #355F91;">You are off to a great start and <span style="color: #C00000;">1</span> friend has officially joined! Only 4 more <i>friend referrals</i> before you earn a <span style="font-size: 30px; font-weight: bold;">Peppermint Shower Experience Travel Kit.</span></p>
-                            </div>
-                            <div style="margin-top: 20px;">
-                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-1.jpg">
-                            </div>
+        #                     <div style="clear: both;"></div>
+        #                     <div style="text-align: left;">
+        #                       <p style="margin: 30px 0 0 0; color: #355F91;">You are off to a great start and <span style="color: #C00000;">1</span> friend has officially joined! Only 4 more <i>friend referrals</i> before you earn a <span style="font-size: 30px; font-weight: bold;">Peppermint Shower Experience Travel Kit.</span></p>
+        #                     </div>
+        #                     <div style="margin-top: 20px;">
+        #                       <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/level-1.jpg">
+        #                     </div>
 
-                            <div style="margin: 15px 0 0 0;">
-                              <p style="color: #4F81BC;">Your Unique Referral Code</p>
-                            </div>
-                            <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
-                              <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
-        html_content += html_footer_content
+        #                     <div style="margin: 15px 0 0 0;">
+        #                       <p style="color: #4F81BC;">Your Unique Referral Code</p>
+        #                     </div>
+        #                     <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
+        #                       <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
+        html_content = referral_friends_header(0)
+        html_content += email_footer_content(2)
         send_mandrill_email(subject, html_content)
     end
 
@@ -607,7 +608,7 @@ class User < ActiveRecord::Base
         footer_content += '&text='
         footer_content += twitter_message
 
-        footer_content += '" target="_blank" style="background: url(/assets/refer/twit.png); background-size: 27px 27px; width:27px; height: 27px; display: inline-block;"></a>
+        footer_content += '" target="_blank" style="background: url(http://mister-pompadour-referral.herokuapp.com/assets/refer/twit.png); background-size: 27px 27px; width:27px; height: 27px; display: inline-block;"></a>
                             </div>  
                           </div>
                           '
@@ -646,6 +647,104 @@ class User < ActiveRecord::Base
                           </div>
                         </body>
                         </html>'
+    end
+
+    def referral_friends_header header_type
+
+        header_content = '<!DOCTYPE html>
+                            <html lang="en">
+                            <head>
+                              <meta charset="utf-8">
+                              <title>Welcome</title>
+                            </head>
+                            <body style="margin: 0 auto;
+                                    width: 940px;
+                                    text-align: center;
+                                    font-family: Arial;
+                                    font-size: 25px;">
+
+                              <div style="margin: 20px 0 0 0;text-align:left; float:left;">
+                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
+                              </div>
+
+                              <div style="font-size: 34px;
+                                    margin: 20px 0 0 20px; float:left; color: #16355D;">
+                                <p style="margin: 10px 0 0; text-align: left;">
+                                  Congratulations!'
+        if header_type != 0
+            header_content += ' You\'ve earned the'
+        end
+        referral_title = ''
+        referral_content =''
+        image_path = ''
+        case header_type
+        when 0
+            referral_title = '<p style="text-align:left; margin: 5px 0 0; "><span style="color: #C00000;">1</span> friend has joined the <i>Friend Referral Campaign</i></p>  '
+            referral_content = '<p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Only <span style="color: #C00000;">4</span> more friend referrals to earn FREE product!</p>'
+            image_path = 'email_1.jpg'
+        when 1
+            referral_title = '<p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Peppermint Shower Experience Travel Kit</i></p>  '
+            referral_content = '<p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Thanks to you <span style="color: #C00000;">5</span> friends have officially joined!</p>'
+            image_path = 'email_1.jpg'
+        when 2
+            referral_title = '<p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Styling Product of Your Choice</i></p>  '              
+            referral_content = '<p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Thanks to you <span style="color: #C00000;">10</span> friends have officially joined!</p>'
+            image_path = 'email_1.jpg'
+        when 3
+            referral_title = '<p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Complete Kit of Your Choice</i></p>  '
+            referral_content = '<p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Thanks to you <span style="color: #C00000;">25</span> friends have officially joined!</p>'
+            image_path = 'email_1.jpg'
+        when 4
+            referral_title = '<p style="text-align:left; margin: 5px 0 0; font-weight: bold;">$100 Mister Pompadour Gift Certificate</i></p>  '
+            referral_content = '<p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Extraordinary! You\'ve officially referred <span style="color: #C00000;">50</span> friends!</p>'
+            image_path = 'email_1.jpg'
+        end
+        html_content += referral_title
+        html_content += '<hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
+                              </div>
+
+                              <div style="clear: both;"></div>
+                              <div style="text-align: left;">'
+        html_content += referral_content
+        html_content += '</div>
+                              <div style="margin-top: 20px;">
+                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/'
+        html_content += image_path
+        html_content += '">
+                              </div>'
+
+        # header_content = '<!DOCTYPE html>
+        #                     <html lang="en">
+        #                     <head>
+        #                       <meta charset="utf-8">
+        #                       <title>Welcome</title>
+        #                     </head>
+        #                     <body style="margin: 0 auto;
+        #                             width: 940px;
+        #                             text-align: center;
+        #                             font-family: Arial;
+        #                             font-size: 25px;">
+
+        #                       <div style="margin: 20px 0 0 0;text-align:left; float:left;">
+        #                         <img src="/assets/refer/email_logo.jpg">
+        #                       </div>
+
+        #                       <div style="font-size: 34px;
+        #                             margin: 20px 0 0 20px; float:left; color: #16355D;">
+        #                         <p style="margin: 10px 0 0; text-align: left;">
+        #                           Congratulations!
+        #                         </p>
+        #                         <p style="text-align:left; margin: 5px 0 0; "><span style="color: #C00000;">1</span> friend has joined the <i>Friend Referral Campaign</i></p>  
+        #                         <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
+        #                       </div>
+
+        #                       <div style="clear: both;"></div>
+        #                       <div style="text-align: left;">
+        #                         <p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Only <span style="color: #C00000;">4</span> more friend referrals to earn FREE product!</p>
+        #                       </div>
+        #                       <div style="margin-top: 20px;">
+        #                         <img src="/assets/refer/email_1.jpg">
+        #                       </div>'
     end
 
 
