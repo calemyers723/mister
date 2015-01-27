@@ -14,7 +14,11 @@ class UsersController < ApplicationController
 
     def create
         # Get user to see if they have already signed up
-        @user = User.find_by_email(params[:user][:email]);
+        email = params[:user][:email]
+        if !email.nil?
+            email = email.downcase.strip
+        end
+        @user = User.find_by_email(email);
             
         # If user doesnt exist, make them, and attach referrer
         if @user.nil?
@@ -115,11 +119,10 @@ class UsersController < ApplicationController
     private 
 
     def skip_first_page
-
+        
         if !Rails.application.config.ended
             email = cookies[:h_email]
             if email and !User.find_by_email(email).nil?
-                #binding.pry
                 redirect_to '/refer-a-friend'
             else
                 cookies.delete :h_email

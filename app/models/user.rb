@@ -57,100 +57,46 @@ class User < ActiveRecord::Base
     end
 
     def send_sign_up_email
-        root_url = "http://mister-pompadour-referral.herokuapp.com/"
-        image = CGI::escape(root_url + '/assets/refer/logo-fb69ee306dd1e2eb28dd2e5c9e0c103d.jpg');
-        title = CGI::escape('Mister Pompadour');
-        url = CGI::escape(root_url);
-        twitter_message = CGI::escape("#MisterPompadour #looksharpbeconfident Excited for @mistrpompadour new website launch.")
-        referral_code = CGI::escape(self.referral_code);
         subject = "Welcome Email"
 
         html_content = '<!DOCTYPE html>
-                          <html lang="en">
-                          <head>
-                            <meta charset="utf-8">
-                            <title>Welcome</title>
-                          </head>
-                          <body style="margin: 0 auto;
-                                  width: 940px;
-                                  text-align: center;
-                                  font-family: Arial;
-                                  font-size: 25px;">
+                            <html lang="en">
+                            <head>
+                              <meta charset="utf-8">
+                              <title>Welcome</title>
+                            </head>
+                            <body style="margin: 0 auto;
+                                    width: 940px;
+                                    text-align: center;
+                                    font-family: Arial;
+                                    font-size: 25px;">
 
-                            <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
-                            </div>
+                              <div style="margin: 20px 0 0 0;text-align:left; float:left;">
+                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
+                              </div>
 
-                            <div style="font-size: 34px;
-                                  margin: 20px 0 0 20px; float:left; color: #16355D;">
-                              <p style="margin: 10px 0 0; text-align: left;">
-                                Welcome to the <i>Friend Referral Campaign...</i>
-                              </p>
-                              <p style="font-weight: bold;text-align:left; margin: 5px 0 0;">Let the Sharing Begin!</p>  
-                              <hr style="font-size: 15px; width: 790px;" />
-                            </div>
+                              <div style="font-size: 34px;
+                                    margin: 20px 0 0 20px; float:left; color: #16355D;">
+                                <p style="margin: 10px 0 0; text-align: left;">
+                                  Welcome to the <i>Friend Referral Campaign...</i>
+                                </p>
+                                <p style="font-weight: bold;text-align:left; margin: 5px 0 0;">Let the Sharing Begin!</p>  
+                                <hr style="font-size: 15px; width: 790px;" />
+                              </div>
 
-                            <div style="clear: both;"></div>
-                            <div style="text-align: left;">
-                              <p style="margin: 30px 0 0 0; color: #355F91;"><i>The more friends you refer = the more <b>FREE</b> product you earn! <b>Simple</b>.</i></p>
-                            </div>
-
-                            <div style="margin: 15px 0 0 0;">
-                              <p style="color: #4F81BC;">Your Unique Referral Code</p>
-                            </div>
-                            <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
-                              <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
-        html_content += root_url
-        html_content += '?ref='
-        html_content += self.referral_code
-        html_content += '</div>
-                          <div style="width: 120px; height:37px; margin: 25px auto 0; text-aling: center;">
-                            <a href="http://www.facebook.com/sharer.php?u='
-        html_content += url
-        html_content += '?ref='
-        html_content += referral_code
-        html_content += '&p[title]='
-        html_content += title
-        html_content += '&p[images][0]='
-        html_content += image
-        html_content += '" target="_blank" style="background: url(http://mister-pompadour-referral.herokuapp.com/assets/refer/fb.png); background-size: 27px 27px; width:27px; height: 27px; display: inline-block;"></a>
-                          <div style="height: 28px; width: 1px; background: #bab9ba; margin: 0 20px; display: inline-block;"></div>
-                          <a href="http://twitter.com/share?url='
-        html_content += url
-        html_content += '?ref='
-        html_content += referral_code
-        html_content += '&text='
-        html_content += twitter_message
-        html_content += ''
-
-        html_content += '" target="_blank" style="background: url(http://mister-pompadour-referral.herokuapp.com/assets/refer/twit.png); background-size: 27px 27px; width:27px; height: 27px; display: inline-block;"></a>
-                            </div>  
-                          </div>
-                          <div style="margin-top: 20px;">
-                            <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_1.jpg" style="border: 5px solid #233e5f;">
-                          </div>
-
-                          <p style="margin: 30px 0 0 0; font-size: 20px; text-align: left; color: #365F91;">Each friend can only be referred once so make sure you reach them
-                            <i><b><span style="font-size: 30px;">before others do!</span></b></i></p>
-                          
-                          <p style="margin: 30px 0 0 0; font-size: 20px; text-align: left; color: #365F91;">This Friend Referral Campaign will only be available Feb. 1-8. Then it is 
-                            <i><b><span style="font-size: 30px;">gone forever!</span></b></i></p>
-                          <div style="background-color: #233E5F;margin: 40px auto; width: 650px;">
-                            <p style="padding: 17px 20px;text-font: 35px; color: white;">LOOK SHARP. BE CONFIDENT.</p>
-                          </div>
-                          <div style="text-align: left;">
-                            <p style="font-size: 17px; text-algin: left;"><i>copyright&#0169; 2015 Mister Pompadaur, LLC, All rights reserved.</i></p>
-                          </div>
-                          
-                          <div style="text-align: left; font-size: 16px; margin-bottom: 50px;">
-                            <a href="https://us8.admin.mailchimp.com/templates/*%7CUNSUB%7C*" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
-                            <a href="https://us8.admin.mailchimp.com/templates/*%7CUPDATE_PROFILE%7C*" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
-                            <a href="http://www.misterpompadour.com/" style="float: left; margin: 0 20px 0 0;">www.misterpompadour.com</a>    
-                          </div>
-                        </body>
-                        </html>
-
-                    '
+                              <div style="clear: both;"></div>
+                              <div style="text-align: left;">
+                                <p style="margin: 30px 0 0 0; color: #365F91; font-size: 34px;"><b>Things to remember...</b></p>
+                                <ul style="font-size: 20px; list-style: inherit; color: #365F91; padding: 20px 0 0 40px; line-height: 45px;">
+                                  <li>Earn FREE products...the more you share the better the prize!</li>
+                                  <li>Each friend can be referred only once...reach them before others do!</li>
+                                  <li>Only available from Feb. 1-8...share now before time runs out!</li>
+                                </ul>
+                              </div>
+                              <div style="margin-top: 20px;">
+                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_1.jpg">
+                              </div>'
+        html_content += email_footer_content(1)
         send_mandrill_email(subject, html_content)
     end
 
@@ -623,5 +569,85 @@ class User < ActiveRecord::Base
                     '
         return footer_content
     end
+
+
+    def email_footer_content footer_type
+        
+        root_url = "http://mister-pompadour-referral.herokuapp.com/"
+        image = CGI::escape(root_url + '/assets/refer/logo-fb69ee306dd1e2eb28dd2e5c9e0c103d.jpg');
+        title = CGI::escape('Mister Pompadour');
+        url = CGI::escape(root_url);
+        twitter_message = CGI::escape("#MisterPompadour #looksharpbeconfident Excited for @mistrpompadour new website launch.")
+        referral_code = CGI::escape(self.referral_code);
+
+        footer_content = '<div style="margin: 15px 0 0 0;">
+                            <p style="font-weight: bold; color: #4F81BC; font-size: 32px;">Your Unique Referral Code</p>
+                          </div>
+                          <div style="background-color: #F1F0EE; width: 480px; margin: 7px auto; padding: 20px 25px;">
+                            <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
+        footer_content = root_url
+        footer_content += '?ref='
+        footer_content += self.referral_code
+        footer_content += '</div>
+                          <div style="width: 120px; height:37px; margin: 25px auto 0; text-aling: center;">
+                            <a href="http://www.facebook.com/sharer.php?u='
+        footer_content += url
+        footer_content += '?ref='
+        footer_content += referral_code
+        footer_content += '&p[title]='
+        footer_content += title
+        footer_content += '&p[images][0]='
+        footer_content += image
+        footer_content += '" target="_blank" style="background: url(http://mister-pompadour-referral.herokuapp.com/assets/refer/fb.png); background-size: 27px 27px; width:27px; height: 27px; display: inline-block;"></a>
+                          <div style="height: 28px; width: 1px; background: #bab9ba; margin: 0 20px; display: inline-block;"></div>
+                          <a href="http://twitter.com/share?url='
+        footer_content += url
+        footer_content += '?ref='
+        footer_content += referral_code
+        footer_content += '&text='
+        footer_content += twitter_message
+
+        footer_content = '" target="_blank" style="background: url(/assets/refer/twit.png); background-size: 27px 27px; width:27px; height: 27px; display: inline-block;"></a>
+                            </div>  
+                          </div>
+                          '
+
+        if footer_type == 3
+                
+            footer_content += '<div style="text-align: left;">
+                            <p style="margin: 30px 0 0 10px; font-size: 36px; font-weight: bold; color: #365F91;">Remember...</p>
+                            <ul style="font-size: 20px; list-style: inherit; color: #365F91; padding: 10px 0 0 65px; line-height: 45px;">
+                                <li>Even though you\'ve earned the max reward we still appreciate you spreading the word!</li></ul>
+                          '
+        elsif footer_type == 2
+            
+            footer_content += '<div style="text-align: left;">
+                            <p style="margin: 30px 0 0 10px; font-size: 36px; font-weight: bold; color: #365F91;">Remember...</p>
+                            <ul style="font-size: 20px; list-style: inherit; color: #365F91; padding: 10px 0 0 65px; line-height: 45px;">
+                            <li>Earn FREE products...the more you share the better the prize!</li>
+                              <li>Each friend can be referred only once...reach them before others do!</li>
+                              <li>Only available from Feb. 1-8...share now before time runs out!</li></ul>
+                          '
+        end
+
+        footer_content += '</div>
+                          <div style="background-color: #233E5F;margin: 30px auto; width: 650px;">
+                            <p style="padding: 17px 20px; font-size: 34px; color: white;">LOOK SHARP. BE CONFIDENT.</p>
+                          </div>
+                          
+                          <div style="text-align: left;">
+                            <p style="font-size: 17px; text-algin: left;"><i>copyright&#0169; 2015 Mister Pompadaur, LLC, All rights reserved.</i></p>
+                          </div>
+                          
+                          <div style="text-align: left; font-size: 16px; margin-bottom: 50px;">
+                            <a href="https://us8.admin.mailchimp.com/templates/*%7CUNSUB%7C*" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
+                            <a href="https://us8.admin.mailchimp.com/templates/*%7CUPDATE_PROFILE%7C*" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
+                            <a href="http://www.misterpompadour.com/" style="float: left; margin: 0 20px 0 0;">www.misterpompadour.com</a>    
+                          </div>
+                        </body>
+                        </html>'
+    end
+
+
 
 end
