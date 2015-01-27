@@ -137,28 +137,105 @@ class User < ActiveRecord::Base
 
     def send_remainning_emails days
 
-        html_content = '<!DOCTYPE html>
-                          <html lang="en">
-                          <head>
-                            <meta charset="utf-8">
+        # html_content = '<!DOCTYPE html>
+        #                   <html lang="en">
+        #                   <head>
+        #                     <meta charset="utf-8">
 
 
-                            <title>Welcome</title>
-                          </head>
-                          <body style="margin: 0 auto;
-                                  width: 940px;
-                                  text-align: center;
-                                  font-family: Arial;
-                                  font-size: 25px;">
+        #                     <title>Welcome</title>
+        #                   </head>
+        #                   <body style="margin: 0 auto;
+        #                           width: 940px;
+        #                           text-align: center;
+        #                           font-family: Arial;
+        #                           font-size: 25px;">
 
-                            <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                              <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
-                            </div>
+        #                     <div style="margin: 20px 0 0 0;text-align:left; float:left;">
+        #                       <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_logo.jpg">
+        #                     </div>
 
-                            <div style="font-size: 34px;
-                                  margin: 20px 0 0 20px; float:left; color: #16355D;">
-                              <p style="margin: 10px 0 0; text-align: left;">
-                                '
+        #                     <div style="font-size: 34px;
+        #                           margin: 20px 0 0 20px; float:left; color: #16355D;">
+        #                       <p style="margin: 10px 0 0; text-align: left;">
+        #                         '
+        # case days
+        # when 3
+        #     subject = "Only 3 days left for the Friend Referral Campaign"
+        #     html_content += 'Only 3 days left '
+        # when 2
+        #     subject = "Only 2 days left for the Friend Referral Campaign"
+        #     html_content += 'Only 2 days left '
+        # when 1
+        #     subject = "Last Day left for the Friend Referral Campaign" 
+        #     html_content += 'Last Day '
+        # end
+        # html_content += 'for the <i>Friend Referral Campaign...</i>
+        #                   </p>
+        #                   <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Do Not miss out on FREE products!</p>  
+        #                   <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
+        #                 </div>
+        #                 <div style="clear: both;"></div>
+        #                 <div style="text-align: left;">
+        #                   <p style="margin: 30px 0 0 0; color: #355F91;"><span style="color: #C00000;">'
+        # html_content += self.referrals.count.to_s
+        # html_content += '</span> friends have joined the campaign thanks to you! You have already earned the '
+        # current_prize_level = ''
+        # next_prize_level = ''
+        # remain_count = 0
+        # image_path = 'http://mister-pompadour-referral.herokuapp.com'
+        # if self.referrals.count < 5
+        #     current_prize_level = ''
+        #     next_prize_level = 'Peppermint Shower Experience Travel Kit'
+        #     remain_count = 5 - self.referrals.count
+        #     image_path += '/assets/refer/level-1.jpg'
+        # elsif self.referrals.count < 10
+        #     current_prize_level = 'Peppermint Shower Experience Travel Kit'
+        #     next_prize_level = 'Styling Product of Your Choice'
+        #     remain_count = 10 - self.referrals.count
+        #     image_path += '/assets/refer/level-2.jpg'
+        # elsif self.referrals.count < 25
+        #     current_prize_level = 'Styling Product of Your Choice'
+        #     next_prize_level = 'Mister Pompadour Kit of Your Choice'
+        #     remain_count = 25 - self.referrals.count
+        #     image_path += '/assets/refer/level-3.jpg'
+        # elsif self.referrals.count < 50
+        #     current_prize_level = 'Mister Pompadour Kit of Your Choice'
+        #     next_prize_level = '$100 Mister Pompadour Gift Certificate'
+        #     remain_count = 50 - self.referrals.count
+        #     image_path += '/assets/refer/level-4.jpg'
+        # elsif self.referrals.count >= 50
+        #     current_prize_level = '$100 Mister Pompadour Gift Certificate'
+        #     next_prize_level = ''
+        #     remain_count = 0
+        # end
+        # html_content += current_prize_level
+        # html_content += '. Only <span style="color: #C00000;">'
+        # html_content += remain_count.to_s
+        # html_content += '</span> more until you unlock the '
+        # html_content += next_prize_level
+        # html_content += '...Let the Sharing Continue!</p>
+        #                   </div>
+
+        #                   <div style="margin-top: 20px; color: #355F91;">
+        #                     <p><span style="color: #C00000;">'
+
+        # html_content += self.referrals.count.to_s
+        # html_content += '</span> Friends Referred (in progress)</p>
+        #                   <img src="'
+        # html_content += image_path
+        # html_content += '">
+        #                   </div>
+
+                          
+        #                   <div style="margin: 15px 0 0 0;">
+        #                     <p style="color: #4F81BC;">Your Unique Referral Code</p>
+        #                   </div>
+        #                   <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
+        #                     <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
+        # html_content += html_footer_content
+
+
         case days
         when 3
             subject = "Only 3 days left for the Friend Referral Campaign"
@@ -167,73 +244,11 @@ class User < ActiveRecord::Base
             subject = "Only 2 days left for the Friend Referral Campaign"
             html_content += 'Only 2 days left '
         when 1
-            subject = "Last Day left for the Friend Referral Campaign" 
+            subject = "Last Day for the Friend Referral Campaign" 
             html_content += 'Last Day '
         end
-        html_content += 'for the <i>Friend Referral Campaign...</i>
-                          </p>
-                          <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Do Not miss out on FREE products!</p>  
-                          <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
-                        </div>
-                        <div style="clear: both;"></div>
-                        <div style="text-align: left;">
-                          <p style="margin: 30px 0 0 0; color: #355F91;"><span style="color: #C00000;">'
-        html_content += self.referrals.count.to_s
-        html_content += '</span> friends have joined the campaign thanks to you! You have already earned the '
-        current_prize_level = ''
-        next_prize_level = ''
-        remain_count = 0
-        image_path = 'http://mister-pompadour-referral.herokuapp.com'
-        if self.referrals.count < 5
-            current_prize_level = ''
-            next_prize_level = 'Peppermint Shower Experience Travel Kit'
-            remain_count = 5 - self.referrals.count
-            image_path += '/assets/refer/level-1.jpg'
-        elsif self.referrals.count < 10
-            current_prize_level = 'Peppermint Shower Experience Travel Kit'
-            next_prize_level = 'Styling Product of Your Choice'
-            remain_count = 10 - self.referrals.count
-            image_path += '/assets/refer/level-2.jpg'
-        elsif self.referrals.count < 25
-            current_prize_level = 'Styling Product of Your Choice'
-            next_prize_level = 'Mister Pompadour Kit of Your Choice'
-            remain_count = 25 - self.referrals.count
-            image_path += '/assets/refer/level-3.jpg'
-        elsif self.referrals.count < 50
-            current_prize_level = 'Mister Pompadour Kit of Your Choice'
-            next_prize_level = '$100 Mister Pompadour Gift Certificate'
-            remain_count = 50 - self.referrals.count
-            image_path += '/assets/refer/level-4.jpg'
-        elsif self.referrals.count >= 50
-            current_prize_level = '$100 Mister Pompadour Gift Certificate'
-            next_prize_level = ''
-            remain_count = 0
-        end
-        html_content += current_prize_level
-        html_content += '. Only <span style="color: #C00000;">'
-        html_content += remain_count.to_s
-        html_content += '</span> more until you unlock the '
-        html_content += next_prize_level
-        html_content += '...Let the Sharing Continue!</p>
-                          </div>
-
-                          <div style="margin-top: 20px; color: #355F91;">
-                            <p><span style="color: #C00000;">'
-
-        html_content += self.referrals.count.to_s
-        html_content += '</span> Friends Referred (in progress)</p>
-                          <img src="'
-        html_content += image_path
-        html_content += '">
-                          </div>
-
-                          
-                          <div style="margin: 15px 0 0 0;">
-                            <p style="color: #4F81BC;">Your Unique Referral Code</p>
-                          </div>
-                          <div style="background-color: #F1F0EE; width: 550px; margin: 7px auto; padding: 25px 50px;">
-                            <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
-        html_content += html_footer_content
+        html_content = reminder_email_header(days)
+        html_content += email_footer_content(2)
         send_mandrill_email(subject, html_content)
 
 
