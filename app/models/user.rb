@@ -239,13 +239,10 @@ class User < ActiveRecord::Base
         case days
         when 3
             subject = "Only 3 days left for the Friend Referral Campaign"
-            html_content += 'Only 3 days left '
         when 2
             subject = "Only 2 days left for the Friend Referral Campaign"
-            html_content += 'Only 2 days left '
         when 1
             subject = "Last Day for the Friend Referral Campaign" 
-            html_content += 'Last Day '
         end
         html_content = reminder_email_header(days)
         html_content += email_footer_content(2)
