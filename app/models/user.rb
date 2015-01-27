@@ -651,7 +651,7 @@ class User < ActiveRecord::Base
 
     def referral_friends_header header_type
 
-        header_content = '<!DOCTYPE html>
+        html_content = '<!DOCTYPE html>
                             <html lang="en">
                             <head>
                               <meta charset="utf-8">
@@ -679,19 +679,19 @@ class User < ActiveRecord::Base
         image_path = ''
         case header_type
         when 0
-            referral_title = '<p style="text-align:left; margin: 5px 0 0; "><span style="color: #C00000;">1</span> friend has joined the <i>Friend Referral Campaign</i></p>  '
+            referral_title = '<p style="text-align:left; margin: 5px 0 0; "><span style="color: #C00000;">1</span> friend has joined the <i>Friend Referral Campaign</i></p>'
             referral_content = '<p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Only <span style="color: #C00000;">4</span> more friend referrals to earn FREE product!</p>'
             image_path = 'email_1.jpg'
         when 1
-            referral_title = '<p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Peppermint Shower Experience Travel Kit</i></p>  '
+            referral_title = '<p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Peppermint Shower Experience Travel Kit</i></p>'
             referral_content = '<p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Thanks to you <span style="color: #C00000;">5</span> friends have officially joined!</p>'
             image_path = 'email_1.jpg'
         when 2
-            referral_title = '<p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Styling Product of Your Choice</i></p>  '              
+            referral_title = '<p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Styling Product of Your Choice</i></p>'              
             referral_content = '<p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Thanks to you <span style="color: #C00000;">10</span> friends have officially joined!</p>'
             image_path = 'email_1.jpg'
         when 3
-            referral_title = '<p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Complete Kit of Your Choice</i></p>  '
+            referral_title = '<p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Complete Kit of Your Choice</i></p>'
             referral_content = '<p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Thanks to you <span style="color: #C00000;">25</span> friends have officially joined!</p>'
             image_path = 'email_1.jpg'
         when 4
