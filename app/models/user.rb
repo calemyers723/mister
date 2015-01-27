@@ -585,7 +585,7 @@ class User < ActiveRecord::Base
                           </div>
                           <div style="background-color: #F1F0EE; width: 480px; margin: 7px auto; padding: 20px 25px;">
                             <div style="border: 1px solid #D1D0C7; background: #FFF; padding: 10px 0; font-size: 11px;">'
-        footer_content = root_url
+        footer_content += root_url
         footer_content += '?ref='
         footer_content += self.referral_code
         footer_content += '</div>
@@ -607,7 +607,7 @@ class User < ActiveRecord::Base
         footer_content += '&text='
         footer_content += twitter_message
 
-        footer_content = '" target="_blank" style="background: url(/assets/refer/twit.png); background-size: 27px 27px; width:27px; height: 27px; display: inline-block;"></a>
+        footer_content += '" target="_blank" style="background: url(/assets/refer/twit.png); background-size: 27px 27px; width:27px; height: 27px; display: inline-block;"></a>
                             </div>  
                           </div>
                           '
@@ -626,7 +626,7 @@ class User < ActiveRecord::Base
                             <ul style="font-size: 20px; list-style: inherit; color: #365F91; padding: 10px 0 0 65px; line-height: 45px;">
                             <li>Earn FREE products...the more you share the better the prize!</li>
                               <li>Each friend can be referred only once...reach them before others do!</li>
-                              <li>Only available from Feb. 1-8...share now before time runs out!</li></ul>
+                              <li>Only available from Feb. 1-8...share now before the campaign is gone forever!</li></ul>
                           '
         end
 
