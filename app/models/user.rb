@@ -452,9 +452,21 @@ class User < ActiveRecord::Base
         html_title = ''
         html_sub_title = ''
         image_path = 'email_1.jpg'
+        remain_referrals_count = 0
+        if self.referrals.count < 5
+            remain_referrals_count = 5 - self.referrals.count
+        elsif self.referrals.count < 10
+            remain_referrals_count = 10 - self.referrals.count
+        elsif self.referrals.count < 25
+            remain_referrals_count = 25 - self.referrals.count
+        elsif self.referrals.count < 50
+            remain_referrals_count = 50 - self.referrals.count            
+        end
         if self.referrals.count < 50
             html_title = 'Don\'t miss out on FREE products!'
-            html_sub_title = 'Only <span style="color: #C00000;">XX</span> more friend referrals until your next prize!'
+            html_sub_title = 'Only <span style="color: #C00000;">'
+            html_sub_title += remain_referrals_count.to_s
+            html_sub_title += '</span> more friend referrals until your next prize!'
             image_path = 'email_1.jpg'
         else
             html_title = 'Max prize achieved but we still need your help!'
@@ -463,12 +475,12 @@ class User < ActiveRecord::Base
         end
         html_content += html_title
         html_content += '</p>  
-                            <hr style="font-size: 15px; width: 790px; color: #4F81BC; font-weight: bold;" />
+                            <hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
                           </div>
 
                           <div style="clear: both;"></div>
                           <div style="text-align: left;">
-                            <p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px;">'
+                            <p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">'
 
         html_content += html_sub_title
         html_content += '</p>
