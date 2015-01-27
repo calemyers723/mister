@@ -457,7 +457,7 @@ class User < ActiveRecord::Base
                                 <p style="margin: 10px 0 0; text-align: left;">
                                   Congratulations!'
         if header_type != 0
-            header_content += ' You\'ve earned the'
+            html_content += ' You\'ve earned the'
         end
         referral_title = ''
         referral_content =''
@@ -497,7 +497,10 @@ class User < ActiveRecord::Base
         html_content += image_path
         html_content += '">
                               </div>'
+       
+    end
 
+    def reminder_email_header 
         
     end
 
