@@ -67,7 +67,7 @@ function countdown_clock() {
         if ($("#defaultCountdown").length >0 )
           $("#defaultCountdown")[0].innerHTML = "Only 0 Days 0 Hrs Left!";
         if ($("#defaultCountdown1").length >0 )
-          $("#defaultCountdown1")[0].innerHTML = "Only 0 Days 0 Hrs Left...Let the Sharing Begin!]";
+          $("#defaultCountdown1")[0].innerHTML = "Only 0 Days 0 Hrs Left...Let the Sharing Begin!";
         return;
     }
     var days = Math.floor(distance / _day);

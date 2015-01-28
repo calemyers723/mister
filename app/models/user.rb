@@ -146,7 +146,12 @@ class User < ActiveRecord::Base
             subject = "Last Day for the Friend Referral Campaign" 
         end
         html_content = reminder_email_header(days)
-        html_content += email_footer_content(3)
+        if self.referrals.count < 50
+            html_content += email_footer_content(2)
+        else
+            html_content += email_footer_content(3)
+        end
+        
         send_mandrill_email(subject, html_content)
 
 
@@ -190,13 +195,6 @@ class User < ActiveRecord::Base
         self.referral_code = referral_code
     end
 
-    def send_welcome_email
-        #binding.pry
-        # UserMailer.delay.signup_email(self)
-        UserMailer.test_email(self).deliver
-    end
-
-
     def add_subscribe_to_list_mailchimp
         if Rails.env.production?
             gb = Gibbon::API.new(ENV['MAILCHIMP_KEY'])
@@ -208,70 +206,9 @@ class User < ActiveRecord::Base
     end
 
 
-    def html_footer_content
-
-        root_url = "http://mister-pompadour-referral.herokuapp.com/"
-        image = CGI::escape(root_url + '/assets/refer/logo-fb69ee306dd1e2eb28dd2e5c9e0c103d.jpg');
-        title = CGI::escape('Mister Pompadour');
-        url = CGI::escape(root_url);
-        twitter_message = CGI::escape("#MisterPompadour #looksharpbeconfident Excited for @mistrpompadour new website launch.")
-        referral_code = CGI::escape(self.referral_code);
-
-        footer_content = root_url
-        footer_content += '?ref='
-        footer_content += self.referral_code
-        footer_content += '</div>
-                          <div style="width: 120px; height:37px; margin: 25px auto 0; text-aling: center;">
-                            <a href="http://www.facebook.com/sharer.php?u='
-        footer_content += url
-        footer_content += '?ref='
-        footer_content += referral_code
-        footer_content += '&p[title]='
-        footer_content += title
-        footer_content += '&p[images][0]='
-        footer_content += image
-        footer_content += '" target="_blank" style="background: url(http://mister-pompadour-referral.herokuapp.com/assets/refer/fb.png); background-size: 27px 27px; width:27px; height: 27px; display: inline-block;"></a>
-                          <div style="height: 28px; width: 1px; background: #bab9ba; margin: 0 20px; display: inline-block;"></div>
-                          <a href="http://twitter.com/share?url='
-        footer_content += url
-        footer_content += '?ref='
-        footer_content += referral_code
-        footer_content += '&text='
-        footer_content += twitter_message
-        
-        footer_content += '" target="_blank" style="background: url(http://mister-pompadour-referral.herokuapp.com/assets/refer/twit.png); background-size: 27px 27px; width:27px; height: 27px; display: inline-block;"></a>
-                                </div>  
-                              </div>
-                              
-                              <p style="margin: 30px 0 0 10px; font-size: 40px; font-weight: bold; text-align: left; color: #365F91;">Remember...</p>
-
-                              <p style="margin: 30px 0 0 0; font-size: 20px; text-align: left; color: #365F91;">Each friend can only be referred once so make sure you reach them
-                                <i><b><span style="font-size: 30px;">before others do!</span></b></i></p>
-                              
-                              <p style="margin: 30px 0 0 0; font-size: 20px; text-align: left; color: #365F91;">This Friend Referral Campaign will only be available Feb. 1-8. Then it is 
-                                <i><b><span style="font-size: 30px;">gone forever!</span></b></i></p>
-                              <div style="background-color: #233E5F;margin: 40px auto; width: 650px;">
-                                <p style="padding: 17px 20px;text-font: 35px; color: white;">LOOK SHARP. BE CONFIDENT.</p>
-                              </div>
-                              <div style="text-align: left;">
-                                <p style="font-size: 17px; text-algin: left;"><i>copyright&#0169; 2015 Mister Pompadaur, LLC, All rights reserved.</i></p>
-                              </div>
-                              
-                              <div style="text-align: left; font-size: 16px; margin-bottom: 50px;">
-                                <a href="https://us8.admin.mailchimp.com/templates/*%7CUNSUB%7C*" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
-                                <a href="https://us8.admin.mailchimp.com/templates/*%7CUPDATE_PROFILE%7C*" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
-                                <a href="http://www.misterpompadour.com/" style="float: left; margin: 0 20px 0 0;">www.misterpompadour.com</a>    
-                              </div>
-                            </body>
-                            </html>
-
-                    '
-        return footer_content
-    end
-
+    
     # footer_type: 3 - reached to maximum (50)
     # footer_type: 2 - not reached to maximum
-
     def email_footer_content footer_type
         
         root_url = "http://mister-pompadour-referral.herokuapp.com/"
