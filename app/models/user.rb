@@ -174,7 +174,7 @@ class User < ActiveRecord::Base
             }  
             async = true;
             sending = m.messages.send message, async
-            puts "----------------sending mail status--------"
+            puts "----------------#{subject}--------"
             puts sending
         end
         
@@ -213,10 +213,11 @@ class User < ActiveRecord::Base
         
         root_url = "http://mister-pompadour-referral.herokuapp.com/"
         image = CGI::escape(root_url + '/assets/refer/logo-fb69ee306dd1e2eb28dd2e5c9e0c103d.jpg');
-        title = CGI::escape('Mister Pompadour');
-        url = CGI::escape(root_url);
+        # image = CGI::escape(root_url + '/assets/refer/logo.jpg')
+        title = CGI::escape('Mister Pompadour')
+        url = CGI::escape(root_url)
         twitter_message = CGI::escape("#MisterPompadour #looksharpbeconfident Excited for @mistrpompadour new website launch.")
-        referral_code = CGI::escape(self.referral_code);
+        referral_code = CGI::escape(self.referral_code)
 
         footer_content = '<div style="margin: 15px 0 0 0;">
                             <p style="font-weight: bold; color: #4F81BC; font-size: 32px;">Your Unique Referral Code</p>
