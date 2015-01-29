@@ -92795,3 +92795,140 @@ Served asset /Arial.ttf - 304 Not Modified (0ms)
 Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-01-29 05:54:43 -0500
 Served asset /favicon.ico - 304 Not Modified (0ms)
 Connecting to database specified by database.yml
+
+
+Started GET "/refer-a-friend" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Processing by UsersController#refer as HTML
+  [1m[35mAdminUser Load (1.0ms)[0m  SELECT "admin_users".* FROM "admin_users" LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'cale.myers723@gmail.com' LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = 44
+  Rendered users/refer.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 60ms (Views: 26.9ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /jquery-ui.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/active_admin/lib/namespace.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /active_admin/lib/namespace.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/core.css?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.dropdown-menu.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /active_admin/components/jquery.aa.dropdown-menu.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.popover.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /active_admin/components/jquery.aa.popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /active_admin/components/jquery.aa.table-checkbox-toggler.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/active_admin/pages/application.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /active_admin/pages/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /active_admin/application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /active_admin/base.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /active_admin.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/notify_sending_email.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /notify_sending_email.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.checkbox-toggler.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /active_admin/components/jquery.aa.checkbox-toggler.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/pages/batch_actions.js?body=1" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /active_admin/pages/batch_actions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/refer/level-1.png" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /refer/level-1.png - 200 OK (24ms)
+
+
+Started GET "/assets/refer/level-2.png" for 127.0.0.1 at 2015-01-29 10:21:23 -0500
+Served asset /refer/level-2.png - 200 OK (8ms)
+
+
+Started GET "/assets/refer/level-4.png" for 127.0.0.1 at 2015-01-29 10:21:24 -0500
+Served asset /refer/level-4.png - 200 OK (10ms)
+
+
+Started GET "/assets/refer/level-3.png" for 127.0.0.1 at 2015-01-29 10:21:24 -0500
+Served asset /refer/level-3.png - 200 OK (32ms)
+
+
+Started GET "/assets/refer/fb.png" for 127.0.0.1 at 2015-01-29 10:21:24 -0500
+Served asset /refer/fb.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/Orator.ttf" for 127.0.0.1 at 2015-01-29 10:21:24 -0500
+Served asset /Orator.ttf - 304 Not Modified (0ms)
+
+
+Started GET "/assets/refer/refer-left.jpg" for 127.0.0.1 at 2015-01-29 10:21:24 -0500
+Served asset /refer/refer-left.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/NIAGSOL.TTF" for 127.0.0.1 at 2015-01-29 10:21:24 -0500
+Served asset /NIAGSOL.TTF - 304 Not Modified (0ms)
+
+
+Started GET "/assets/NIAGENG.TTF" for 127.0.0.1 at 2015-01-29 10:21:24 -0500
+Served asset /NIAGENG.TTF - 304 Not Modified (11ms)
+
+
+Started GET "/assets/Arial.ttf" for 127.0.0.1 at 2015-01-29 10:21:24 -0500
+Served asset /Arial.ttf - 304 Not Modified (0ms)
+
+
+Started GET "/assets/refer/progress-bg.png" for 127.0.0.1 at 2015-01-29 10:21:24 -0500
+Served asset /refer/progress-bg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/refer/progress-done.png" for 127.0.0.1 at 2015-01-29 10:21:24 -0500
+Served asset /refer/progress-done.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/refer/twit.png" for 127.0.0.1 at 2015-01-29 10:21:24 -0500
+Served asset /refer/twit.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-01-29 10:21:24 -0500
+Served asset /favicon.ico - 304 Not Modified (0ms)

@@ -20,28 +20,28 @@ class User < ActiveRecord::Base
             "html" => "Travel<br>Shower Kit",
             "class" => "two",
             # "image" =>  ActionController::Base.helpers.asset_path("refer/cream-tooltip@2x.png")
-            "image" =>  ActionController::Base.helpers.asset_path("refer/level-1.jpg")
+            "image" =>  ActionController::Base.helpers.asset_path("refer/level-1.png")
         },
         {
             'count' => 10,
             "html" => "Styling<br>Product",
             "class" => "three",
             # "image" => ActionController::Base.helpers.asset_path("refer/truman@2x.png")
-            "image" => ActionController::Base.helpers.asset_path("refer/level-2.jpg")
+            "image" => ActionController::Base.helpers.asset_path("refer/level-2.png")
         },
         {
             'count' => 25,
             "html" => "Complete<br>Kit",
             "class" => "four",
             # "image" => ActionController::Base.helpers.asset_path("refer/winston@2x.png")
-            "image" => ActionController::Base.helpers.asset_path("refer/level-3.jpg")
+            "image" => ActionController::Base.helpers.asset_path("refer/level-3.png")
         },
         {
             'count' => 50,
             "html" => "$100 Mister Pompadour<br>Gift Certificate",
             "class" => "five",
             # "image" => ActionController::Base.helpers.asset_path("refer/blade-explain@2x.png")
-            "image" => ActionController::Base.helpers.asset_path("refer/level-4.jpg")
+            "image" => ActionController::Base.helpers.asset_path("refer/level-4.png")
         }
     ]
     
@@ -159,8 +159,6 @@ class User < ActiveRecord::Base
         end
         
         send_mandrill_email(subject, html_content)
-
-
     end
 
     def send_mandrill_email(subject,html_content)

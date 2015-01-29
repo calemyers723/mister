@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     protected
 
     def setting_launch_time
-        launch_time = AdminUser.first.created_at + 7.days - 1.hour
+        launch_time = AdminUser.first.created_at + 7.days + 1.hour
         launch_time = launch_time.to_time.to_i
         now_time = Time.now.to_time.to_i
         @remainning_time = launch_time - now_time
