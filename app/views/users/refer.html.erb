@@ -26,13 +26,13 @@
                 title = CGI::escape('Mister Pompadour');
                 url = CGI::escape(root_url);
                 summary = CGI::escape('Custom message that summarizes what your tab is about, or just a simple message to tell people to check out your tab.');
-                image = CGI::escape(root_url + '/assets/refer/logo-fb69ee306dd1e2eb28dd2e5c9e0c103d.jpg')
-                # image = CGI::escape(root_url + '/assets/refer/logo.jpg')
+                # image = CGI::escape(root_url + '/assets/refer/logo-fb69ee306dd1e2eb28dd2e5c9e0c103d.jpg')
+                image = CGI::escape(root_url + '/assets/refer/logo.jpg')
                 referral_code = CGI::escape(@user.referral_code)
 
             %>
             <div class="social-links">
-                <a href="http://www.facebook.com/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&p[title]=<%= title %> &p[images][0]=<%= image %>" class="fb" target="_blank"></a>
+                <a href="http://www.facebook.com/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&p[title]=<%= title %> &p[images][0]=<%= image %> &p[" class="fb" target="_blank"></a>
 
                 <!-- <a href="https://www.facebook.com/dialog/share?
                   app_id=145634995501895
