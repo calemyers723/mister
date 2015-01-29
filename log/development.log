@@ -92794,3 +92794,4 @@ Served asset /Arial.ttf - 304 Not Modified (0ms)
 
 Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-01-29 05:54:43 -0500
 Served asset /favicon.ico - 304 Not Modified (0ms)
+Connecting to database specified by database.yml

@@ -49,9 +49,15 @@ class User < ActiveRecord::Base
     
     def update_list_mailchimp
         if Rails.env.production?
-            gb = Gibbon::API.new(ENV['MAILCHIMP_KEY'])
-            gb.lists.batch_subscribe(:id => ENV['MAILCHIMP_LIST_ID'], :batch => 
-                [ {:email => {:email => self.email }, :merge_vars => { :RNUM => self.referrals.count}}], :update_existing => true)
+
+            begin
+                gb = Gibbon::API.new(ENV['MAILCHIMP_KEY'])
+                gb.lists.batch_subscribe(:id => ENV['MAILCHIMP_LIST_ID'], :batch => 
+                    [ {:email => {:email => self.email }, :merge_vars => { :RNUM => self.referrals.count}}], :update_existing => true)    
+            rescue Exception => e
+                puts "--------update mailchimp list error-----------"
+            end
+            
         end
         
     end
@@ -160,22 +166,27 @@ class User < ActiveRecord::Base
     def send_mandrill_email(subject,html_content)
 
         if Rails.env.production?
-            m = Mandrill::API.new
-            message = {  
-             :subject=> subject,  
-             :from_name=> "Mister Pompadour",  
-             :to=>[  
-               {  
-                 :email=> self.email
-               }  
-             ],  
-             :html=> html_content,
-             :from_email=>"info@misterpompadour.com"  
-            }  
-            async = true;
-            sending = m.messages.send message, async
-            puts "----------------#{subject}--------"
-            puts sending
+            begin
+                m = Mandrill::API.new
+                message = {  
+                 :subject=> subject,  
+                 :from_name=> "Mister Pompadour",  
+                 :to=>[  
+                   {  
+                     :email=> self.email
+                   }  
+                 ],  
+                 :html=> html_content,
+                 :from_email=>"info@misterpompadour.com"  
+                }  
+                async = true;
+                sending = m.messages.send message, async
+                puts "----------------#{subject}--------"
+                puts sending    
+            rescue Exception => e
+                puts "#{subject}-----------error"
+            end
+            
         end
         
     end
@@ -197,10 +208,16 @@ class User < ActiveRecord::Base
 
     def add_subscribe_to_list_mailchimp
         if Rails.env.production?
-            gb = Gibbon::API.new(ENV['MAILCHIMP_KEY'])
-            gb.lists.subscribe({:id => ENV['MAILCHIMP_LIST_ID'], 
-             :email => {:email => self.email }, :merge_vars => {:RNUM => 0, :RCODE => self.referral_code},
-             :double_optin => false})
+
+            begin
+                gb = Gibbon::API.new(ENV['MAILCHIMP_KEY'])
+                gb.lists.subscribe({:id => ENV['MAILCHIMP_LIST_ID'], 
+                 :email => {:email => self.email }, :merge_vars => {:RNUM => 0, :RCODE => self.referral_code},
+                 :double_optin => false})    
+            rescue Exception => e
+                puts "---------add subscribe to mailchimp list error----------"
+            end
+            
         end
         
     end
