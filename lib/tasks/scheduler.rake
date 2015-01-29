@@ -7,6 +7,5 @@ end
 
 
 task :send_reminder_emails => :environment do
-  puts 'starting reminder sending'
   Background.reminder_emails
 end

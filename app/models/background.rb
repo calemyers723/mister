@@ -36,8 +36,8 @@ class Background < ActiveRecord::Base
 
         timestamp_day = 60 * 60 * 24
         remain_day = remain_time / timestamp_day
+        puts remain_day
         if remain_day <= 3 && remain_day >= 1
-          puts remain_day
           users = User.all
           for user in users do
             puts user.email
