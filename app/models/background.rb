@@ -37,12 +37,12 @@ class Background < ActiveRecord::Base
         timestamp_day = 60 * 60 * 24
         remain_day = remain_time / timestamp_day
         puts remain_day
-        if remain_day <= 3 && remain_day >= 1
+        if remain_day <= 6 && remain_day >= 1
           users = User.all
           for user in users do
             puts user.email
             begin
-              user.send_remainning_emails remain_day
+              user.send_remainning_emails 3
             rescue Exception => e
               puts "Reminder email sending error"
             end
