@@ -438,7 +438,7 @@ class User < ActiveRecord::Base
                             <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/'
 
         html_content += image_path
-        html_content += '" style="border: 5px solid #233e5f;">
+        html_content += '" >
                             </div>'
     end
 
