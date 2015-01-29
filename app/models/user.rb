@@ -94,7 +94,7 @@ class User < ActiveRecord::Base
                                 </ul>
                               </div>
                               <div style="margin-top: 20px;">
-                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_1.jpg">
+                                <img src="http://mister-pompadour-referral.herokuapp.com/assets/refer/email_0.png">
                               </div>'
         html_content += email_footer_content(1)
         send_mandrill_email(subject, html_content)
@@ -249,6 +249,17 @@ class User < ActiveRecord::Base
                             </div>  
                           </div>
                           '
+        # footer_content += '<div style="background-color: #E26C09;margin: 20px auto; width: 570px; border-radius: 10px;">
+        #                     <a href="<%= root_url %>?ref=df2c2abfff" style="text-decoration: blink;"><p style="padding: 10px 10px; font-size: 28px; color: white;">Click Here for <i>Friend Referral Dashboard</i></p></a>
+        #                   </div>'
+        
+        footer_content += '<div style="background-color: #E26C09;margin: 20px auto; width: 570px; border-radius: 10px;">
+                            <a href="'
+        footer_content += root_url
+        footer_content += '?ref='
+        footer_content += referral_code
+        footer_content += '" style="text-decoration: blink;"><p style="padding: 10px 10px; font-size: 28px; color: white;">Click Here for <i>Friend Referral Dashboard</i></p></a>
+                          </div>'
 
         if footer_type == 3
                 
@@ -269,7 +280,7 @@ class User < ActiveRecord::Base
         end
 
         footer_content += '</div>
-                          <div style="background-color: #233E5F;margin: 30px auto; width: 650px;">
+                          <div style="background-color: #233E5F;margin: 30px auto; ">
                             <p style="padding: 17px 20px; font-size: 34px; color: white;">LOOK SHARP. BE CONFIDENT.</p>
                           </div>
                           
@@ -318,24 +329,20 @@ class User < ActiveRecord::Base
         when 0
             referral_title = '<p style="text-align:left; margin: 5px 0 0; "><span style="color: #C00000; font-weight: bold;">1</span> friend has joined the <i>Friend Referral Campaign</i></p>'
             referral_content = '<p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Only <span style="color: #C00000;">4</span> more friend referrals to earn FREE product!</p>'
-            image_path = 'email_1.jpg'
         when 1
             referral_title = '<p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Peppermint Shower Experience Travel Kit</i></p>'
             referral_content = '<p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Thanks to you <span style="color: #C00000;">5</span> friends have officially joined!</p>'
-            image_path = 'email_1.jpg'
         when 2
             referral_title = '<p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Styling Product of Your Choice</i></p>'              
             referral_content = '<p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Thanks to you <span style="color: #C00000;">10</span> friends have officially joined!</p>'
-            image_path = 'email_1.jpg'
         when 3
             referral_title = '<p style="text-align:left; margin: 5px 0 0; font-weight: bold;">Complete Kit of Your Choice</i></p>'
             referral_content = '<p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Thanks to you <span style="color: #C00000;">25</span> friends have officially joined!</p>'
-            image_path = 'email_1.jpg'
         when 4
             referral_title = '<p style="text-align:left; margin: 5px 0 0; font-weight: bold;">$100 Mister Pompadour Gift Certificate</i></p>  '
             referral_content = '<p style="margin: 30px 0 0 0; color: #355F91; font-size: 34px; font-weight: bold;">Extraordinary! You\'ve officially referred <span style="color: #C00000;">50</span> friends!</p>'
-            image_path = 'email_1.jpg'
         end
+        image_path = 'email_' + header_type.to_s + '.png'
         html_content += referral_title
         html_content += '<hr style="font-size: 15px; width: 790px; color: #4F81BC;" />
                               </div>
@@ -388,27 +395,31 @@ class User < ActiveRecord::Base
                             <p style="text-align:left; margin: 5px 0 0; font-weight: bold;">'
         html_title = ''
         html_sub_title = ''
-        image_path = 'email_1.jpg'
+        image_path = 'email_0.png'
         remain_referrals_count = 0
         if self.referrals.count < 5
             remain_referrals_count = 5 - self.referrals.count
+            image_path = 'email_0.png'
         elsif self.referrals.count < 10
             remain_referrals_count = 10 - self.referrals.count
+            image_path = 'email_1.png'
         elsif self.referrals.count < 25
             remain_referrals_count = 25 - self.referrals.count
+            image_path = 'email_2.png'
         elsif self.referrals.count < 50
             remain_referrals_count = 50 - self.referrals.count            
+            image_path = 'email_3.png'
+        else
+            image_path = 'email_4.png'
         end
         if self.referrals.count < 50
             html_title = 'Don\'t miss out on FREE products!'
             html_sub_title = 'Only <span style="color: #C00000;">'
             html_sub_title += remain_referrals_count.to_s
             html_sub_title += '</span> more friend referrals until your next prize!'
-            image_path = 'email_1.jpg'
         else
             html_title = 'Max prize achieved but we still need your help!'
             html_sub_title = 'You\'ve already referred <span style="color: #C00000;">50</span> friend referrals, but don\'t let that stop you from referring more!'
-            image_path = 'email_1.jpg'
         end
         html_content += html_title
         html_content += '</p>  

@@ -2,40 +2,36 @@
     <!-- <p class="large " ><span style="font-family:Niagrsol;">Mister </span> <span style="font-family:Niageng;">Pompadour</span></p> -->
     
     <div class="form-wrap">
-    <style type="text/css">
-        input::-webkit-input-placeholder { color: #fff; opacity: 1; }
-        input:-moz-placeholder { color: #fff; opacity: 1; }
-        input::-moz-placeholder { color: #fff; opacity: 1;}
-        input::-ms-input-placeholder { color: #fff; opacity: 1;}
-    </style>
-    <p class="byline splash-font">Look Sharp. Be Confident.</p>
-    <p class="signup splash-font">Sign up Now for FREE Product</p>
-    <p class="countdown splash-font" id="defaultCountdown">Only XX Days XX Hrs Left!</p>
-    <%= form_for @user, :url => { :action => "create" } do |f| %>
+        <style type="text/css">
+            input::-webkit-input-placeholder { color: #fff; opacity: 1; }
+            input:-moz-placeholder { color: #fff; opacity: 1; }
+            input::-moz-placeholder { color: #fff; opacity: 1;}
+            input::-ms-input-placeholder { color: #fff; opacity: 1;}
+        </style>
 
-        <div style="margin: 20px 0 0px 616px; height: 50px;">
-            <div class="email brandon">
-
-                <%= f.text_field :email, :placeholder => "Enter Email", :class => "splash-font", :style => "color: #ffffff; background:transparent;border:none;opacity: 1;margin-top: 11px;
-                    margin-left: 11px;font-family: Arial;" %>    
-            </div>
-            <input class="submit splash-font" name="commit" type="submit" value="Step Inside" />        
-            
+        <div style="margin: 26px auto 37px; text-align: center;"><img src="/assets/home/home_logo.png"></div>
+        <div style="width: 675px; height: 85px; background-color: #00294e; margin: 0 auto; opacity: 0.75;">
+            <p class="byline splash-font">Look Sharp. Be Confident.</p>    
         </div>
         
-    <% end %>   
+        <p class="signup splash-font">STEP INSIDE NOW FOR FREE PRODUCT</p>
+        <p class="countdown splash-font" id="defaultCountdown">Only XX Days XX Hrs Left!</p>
+        <%= form_for @user, :url => { :action => "create" } do |f| %>
 
-    <div class="hr1"></div>
-    <div class="hr2"></div>
-    
-    <!-- <p class="large " ><span style="font-family:Niagrsol;">Mister </span> <span style="font-family:Niageng;">Pompadour</span></p> -->
-    <p class="logo_text_1" >MISTER</p>
-    <p class="logo_text_2" >POMPADOUR</p>
-    <div class="hr3"></div>
-    <div class="hr4"></div>
+            <div style="margin: 26px 0 0px 0px; height: 50px;">
+                <div class="email brandon">
 
+                    <%= f.text_field :email, :placeholder => "ENTER EMAIL", :class => "splash-font", :style => "color: #ffffff; background:transparent;border:none;opacity: 1;margin-top: 9px;
+                        margin-left: 13px;font-family: Arial;" %>    
+                </div>
+                <input class="submit splash-font" name="commit" type="submit" value="Step Inside" />        
+                
+            </div>
+            
+        <% end %>   
+
+        <input id="remainning_time" type="hidden" value="<%= @remainning_time %>">
     </div>
-    <input id="remainning_time" type="hidden" value="<%= @remainning_time %>">
 </div>
 
 <div class="main-link">
