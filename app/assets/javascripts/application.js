@@ -14,38 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 
-// window.fbAsyncInit = function() {
-//     FB.init({
-//         appId: '409570049205375',
-//         status: true,
-//         cookie: true,
-//         xfbml: true
-//     });
-
-    
-// }; 
-// (function(d, debug){
-//      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-//      if (d.getElementById(id)) {return;}
-//      js = d.createElement('script'); js.id = id; js.async = true;
-//      js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
-//      ref.parentNode.insertBefore(js, ref);
-// }(document, /*debug*/ false));
-
-// function share_facebook() {
-//   FB.ui({
-//      method: 'share_open_graph',
-//      action_type: 'og.likes',
-//      action_properties: JSON.stringify({
-//       object:'https://developers.facebook.com/docs/',
-//       message: "Look Good. Be Confident. Didn't want to leave you all behind. Check out Mister Pompadour's hair products here."
-//      }),
-//    }, function(response){});
-
-  
-// }
-
-
 
 var end = new Date(); 
 end.setDate(end.getDate() + 7);

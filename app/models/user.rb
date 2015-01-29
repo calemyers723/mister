@@ -102,42 +102,42 @@ class User < ActiveRecord::Base
                               <div style="margin-top: 20px;">
                                 <img src="https://mister-pompadour-refer.herokuapp.com/assets/refer/email_0.png">
                               </div>'
-        html_content += email_footer_content(1)
+        html_content += email_footer_content(1, "LOOK SHARP. BE CONFIDENT.")
         send_mandrill_email(subject, html_content)
     end
 
     def send_first_referral_friend
         subject = "Congratulations on Your First Friend Referral"
         html_content = referral_friends_header(0)
-        html_content += email_footer_content(2)
+        html_content += email_footer_content(2, "LOOK SHARP. BE CONFIDENT.")
         send_mandrill_email(subject, html_content)
     end
 
     def send_five_referral_friends
         subject = "Congratulations on 5 Friend Referrals"
         html_content = referral_friends_header(1)
-        html_content += email_footer_content(2)
+        html_content += email_footer_content(2, "Nice Job! 5 friends have officially joined!")
         send_mandrill_email(subject, html_content)
     end
 
     def send_ten_referral_friends
         subject = "Congratulations on 10 Friend Referrals"
         html_content = referral_friends_header(2)
-        html_content += email_footer_content(2)
+        html_content += email_footer_content(2, "Great job! 10 friends have officially joined!")
         send_mandrill_email(subject, html_content)
     end
 
     def send_twentyfive_referral_friends
         subject = "Congratulations on 25 Friend Referrals"
         html_content = referral_friends_header(3)
-        html_content += email_footer_content(2)
+        html_content += email_footer_content(2, "Incredible! 25 friends have officially joined!")
         send_mandrill_email(subject, html_content)
     end
 
     def send_fifty_referral_friends
         subject = "Congratulations on 50 Friend Referrals"
         html_content = referral_friends_header(4)
-        html_content += email_footer_content(2)
+        html_content += email_footer_content(2, "Extraordinary! 50 friends have officially joined!")
         send_mandrill_email(subject, html_content)
     end
 
@@ -153,9 +153,9 @@ class User < ActiveRecord::Base
         end
         html_content = reminder_email_header(days)
         if self.referrals.count < 50
-            html_content += email_footer_content(2)
+            html_content += email_footer_content(2, "LOOK SHARP. BE CONFIDENT.")
         else
-            html_content += email_footer_content(3)
+            html_content += email_footer_content(3, "LOOK SHARP. BE CONFIDENT.")
         end
         
         send_mandrill_email(subject, html_content)
@@ -225,7 +225,7 @@ class User < ActiveRecord::Base
     # footer_type: 3 - reached to maximum (50)
     # footer_type: 2 - not reached to maximum
     # footer_type: 1 - sign_up
-    def email_footer_content footer_type
+    def email_footer_content footer_type, text_message
         
         root_url = "https://mister-pompadour-refer.herokuapp.com/"
         image = CGI::escape(root_url + '/assets/refer/logo-fb69ee306dd1e2eb28dd2e5c9e0c103d.jpg');
@@ -296,9 +296,28 @@ class User < ActiveRecord::Base
                           '
         end
 
+        # footer_content += '</div>
+        #                   <div style="background-color: #233E5F;margin: 30px auto; ">
+        #                     <p style="padding: 17px 20px; font-size: 34px; color: white;">LOOK SHARP. BE CONFIDENT.</p>
+        #                   </div>
+                          
+        #                   <div style="text-align: left;">
+        #                     <p style="font-size: 17px; text-algin: left;"><i>copyright&#0169; 2015 Mister Pompadaur, LLC, All rights reserved.</i></p>
+        #                   </div>
+                          
+        #                   <div style="text-align: left; font-size: 16px; margin-bottom: 50px;">
+        #                     <a href="https://us8.admin.mailchimp.com/templates/*%7CUNSUB%7C*" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
+        #                     <a href="https://us8.admin.mailchimp.com/templates/*%7CUPDATE_PROFILE%7C*" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
+        #                     <a href="http://www.misterpompadour.com/" style="float: left; margin: 0 20px 0 0;">www.misterpompadour.com</a>    
+        #                   </div>
+        #                 </body>
+        #                 </html>'
+
         footer_content += '</div>
                           <div style="background-color: #233E5F;margin: 30px auto; ">
-                            <p style="padding: 17px 20px; font-size: 34px; color: white;">LOOK SHARP. BE CONFIDENT.</p>
+                            <p style="padding: 17px 20px; font-size: 34px; color: white;">'
+        footer_content += text_message
+        footer_content += '</p>
                           </div>
                           
                           <div style="text-align: left;">
