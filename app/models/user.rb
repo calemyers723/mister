@@ -224,6 +224,7 @@ class User < ActiveRecord::Base
     
     # footer_type: 3 - reached to maximum (50)
     # footer_type: 2 - not reached to maximum
+    # footer_type: 1 - sign_up
     def email_footer_content footer_type
         
         root_url = "https://mister-pompadour-refer.herokuapp.com/"

@@ -2,12 +2,6 @@ class Background < ActiveRecord::Base
   # attr_accessible :title, :body
   
     def self.send_notify_email
-        root_url = "http://mister-pompadour-referral.herokuapp.com/"
-        image = CGI::escape(root_url + '/assets/refer/logo-fb69ee306dd1e2eb28dd2e5c9e0c103d.jpg');
-        title = CGI::escape('Mister Pompadour');
-        url = CGI::escape(root_url);
-        twitter_message = CGI::escape("#MisterPompadour #looksharpbeconfident Excited for @mistrpompadour new website launch.")
-
 
         user = User.find_by_email("kyle.perez1985@gmail.com")
         #user = User.find_by_email("mattdavis777@gmail.com")
@@ -24,5 +18,37 @@ class Background < ActiveRecord::Base
         user.send_remainning_emails 2
         user.send_remainning_emails 1
 
+        users = User.all
+        for user in users
+            begin
+                
+            rescue Exception => e
+                puts '-----------send_notify_email_error-------------'
+            end
+        end
     end
+
+    def self.reminder_emails
+        end_time = AdminUser.first.created_at + 7.days + 1.hour
+        end_time = end_time.to_time.to_i
+        now_time = Time.now.to_time.to_i
+        remain_time = end_time - now_time
+
+        timestamp_day = 60 * 60 * 24
+        remain_day = remain_time / timestamp_day
+        if remain_day <= 3 && remain_day >= 1
+          puts remain_day
+          users = User.all
+          for user in users do
+            puts user.email
+            begin
+              user.send_remainning_emails remain_day
+            rescue Exception => e
+              puts "Reminder email sending error"
+            end
+          end
+        end
+    end
+
+
 end
