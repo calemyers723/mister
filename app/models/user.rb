@@ -232,7 +232,7 @@ class User < ActiveRecord::Base
         # image = CGI::escape(root_url + '/assets/refer/logo.jpg')
         title = CGI::escape('Mister Pompadour')
         url = CGI::escape(root_url)
-        twitter_message = CGI::escape("#MisterPompadour #looksharpbeconfident Excited for @mistrpompadour new website launch.")
+        twitter_message = CGI::escape("Can't wait to try @mistrpompadour products to #style my hair for FREE! #looksharpbeconfident")
         referral_code = CGI::escape(self.referral_code)
 
         footer_content = '<div style="margin: 15px 0 0 0;">
@@ -314,7 +314,7 @@ class User < ActiveRecord::Base
         #                 </html>'
 
         footer_content += '</div>
-                          <div style="background-color: #233E5F;margin: 30px auto; ">
+                          <div style="background-color: #233E5F;margin: 30px auto; text-align: center;">
                             <p style="padding: 17px 20px; font-size: 34px; color: white;">'
         footer_content += text_message
         footer_content += '</p>

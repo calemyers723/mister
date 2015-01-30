@@ -62,3 +62,22 @@ https://mister-pompadour-refer.herokuapp.com/?ref=146bbcf3a4
 
 
 https://mister-pompadour-refer.herokuapp.com/?ref=fa8a771c2c
+
+
+Hi Nick
+Thank you for your reply.
+
+1) Will you be able to implement this rails app on a shopify site?
+Actually, it's impossible to integrate this prelaunchr rails source code into shopify site.
+But I have a solution how to integrate this rails app into shopify site.
+I have just done to integrate this app into shopify site.
+2) What will you need to get started (psd, image assets, etc)?
+If you send me the graphic design files (psd is good), I can start immediately
+3) If all necessary assets are provided to you, will your budget include a fully functional and operation prelaunch site?
+I would like to know the fully functional and operation what you want.
+4) Will it be responsive?
+Yes, I can.
+But for all your requirements, I need some extra budget.
+
+
+

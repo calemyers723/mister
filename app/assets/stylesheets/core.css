@@ -71,7 +71,7 @@ html.home{
 
 #home{
 	/*padding-bottom: 50px;*/
-	width: 1349px;
+	/*width: 1349px;*/
 	margin: 0 auto;
 }
 
@@ -91,7 +91,7 @@ html.home{
 	overflow: hidden;
 	position: relative;
 	letter-spacing: .09em;
-	margin: 0 auto;
+	margin: 80px auto 0;
 }
 
 #home .hero .large{
@@ -415,7 +415,7 @@ a.main-link {
 	position: relative;
 }
 
-#refer .header{
+#refer .header {
 	height: 50px;
 	background: #203E56;
 	width: 100%;
@@ -425,12 +425,24 @@ a.main-link {
 	min-width: 1120px;
 }
 
-#refer .header .content{
+#home .header {
+	height: 50px;
+	background: #203E56;
+	width: 100%;
+	overflow:hidden;
+	z-index: 1;
+	position: relative;
+	min-width: 1349px;
+}
+
+#refer .header .content, 
+#home .header .content {
 	width: 240px;
 	margin: 0 auto;
 }
 
-#refer .header p{
+#refer .header p, 
+#home .header p {
 	float: left;
 	color: #FFF;
 	font-weight: 500;
@@ -442,7 +454,8 @@ a.main-link {
 	font-size: 14px;
 }
 
-#refer .header .logo{
+#refer .header .logo, 
+#home .header .logo {
 	font-weight: normal;
 	font-size: 34px;
 	line-height: 0;
