@@ -96,7 +96,7 @@ class User < ActiveRecord::Base
                                 <ul style="font-size: 20px; list-style: inherit; color: #365F91; padding: 20px 0 0 40px; line-height: 45px;">
                                   <li>Earn FREE products...the more you share the better the prize!</li>
                                   <li>Each friend can be referred only once...reach them before others do!</li>
-                                  <li>Only available from Feb. 1-8...share now before time runs out!</li>
+                                  <li>Only available from Feb. 8-14...share now before time runs out!</li>
                                 </ul>
                               </div>
                               <div style="margin-top: 20px;">
@@ -292,7 +292,7 @@ class User < ActiveRecord::Base
                             <ul style="font-size: 20px; list-style: inherit; color: #365F91; padding: 10px 0 0 65px; line-height: 45px;">
                             <li>Earn FREE products...the more you share the better the prize!</li>
                               <li>Each friend can be referred only once...reach them before others do!</li>
-                              <li>Only available from Feb. 1-8...share now before the campaign is gone forever!</li></ul>
+                              <li>Only available from Feb. 8-14...share now before the campaign is gone forever!</li></ul>
                           '
         end
 
