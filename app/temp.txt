@@ -61,6 +61,7 @@ https://mister-pompadour.myshopify.com
 https://mister-pompadour-refer.herokuapp.com/?ref=146bbcf3a4
 https://mister-pompadour-refer.herokuapp.com/?ref=fa8a771c2c
 http://mister-pompadour-test-referral.herokuapp.com/?ref=eb37a3f22d
+https://mister-pompadour.myshopify.com
 
 
 Hi Nick
@@ -77,6 +78,8 @@ I would like to know the fully functional and operation what you want.
 4) Will it be responsive?
 Yes, I can.
 But for all your requirements, I need some extra budget.
+
+
 
 
 
