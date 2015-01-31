@@ -1,0 +1,37 @@
+<style type="text/css">
+  input::-webkit-input-placeholder { color: #fff; opacity: 1; }
+  input:-moz-placeholder { color: #fff; opacity: 1; }
+  input::-moz-placeholder { color: #fff; opacity: 1;}
+  input::-ms-input-placeholder { color: #fff; opacity: 1;}
+</style>
+<!-- PAGE -->
+<div class="page index">
+  <!-- HEADER -->
+  <div class="header">
+    <a class="logo" href="<%= root_url %>">
+      <span>Mister</span><span class="font-niageng">Pompadour</span>
+    </a>
+  </div><!-- END HEADER -->
+
+  <!-- CONTENT -->
+  <div class="content">
+    <div class="container">
+      <!-- BANNER -->
+      <div class="banner">
+        <a class="logo-img" href="<%= root_url %>"></a>
+        <div class="slogan">Look Sharp. Be Confident.</div>
+        <div class="sub-slogan">Step Inside Now For Free Product</div>
+        <div class="count-down">Only XX Days XX Hrs Left!</div>
+        <div class="contact">
+          <%= form_for @user, :url => { :action => "create" } do |f| %>
+            <%= f.text_field :email, :placeholder => "ENTER EMAIL", :class => "field email" %>
+            <button type="submit" class="field submit">Step Inside</button>
+          <% end %>   
+        </div>
+      </div><!-- END BANNER -->
+      <div class="continue">
+        <a href="https://mister-pompadour.myshopify.com">Continue to Mister Pompadour</a>
+      </div>
+    </div>
+  </div><!-- END CONTENT -->
+</div><!-- END PAGE -->

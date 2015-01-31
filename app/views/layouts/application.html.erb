@@ -17,14 +17,10 @@
         <meta property="og:image" content="<%= asset_path("refer/logo.jpg") %>"/>
         <meta property="fb:app_id" content="297145297118247"/>
 
-        <% if @is_mobile %>
-            <% if @bodyId == 'home' %>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <% else %>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <% end %>
-        <% end %>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
         <%= stylesheet_link_tag "core.css", :media => "all" %>
+        <%= stylesheet_link_tag "custom.css.scss", :media => "all" %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
         <% if @is_mobile %>
             

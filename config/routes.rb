@@ -8,8 +8,10 @@ Prelaunchr::Application.routes.draw do
   root :to => "users#new"
 
   match 'users/create' => 'users#create'
+  match 'users/splash' => 'users#splash'
 
   match 'refer-a-friend' => 'users#refer'
+  match 'referral' => 'users#referral'
 
   match 'privacy-policy' => 'users#policy'
 

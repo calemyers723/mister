@@ -1,65 +1,39 @@
-<div class="header">
-    <div class="content">
-        <p class="logo brandon"><span style="font-family:Niagrsol;">Mister </span> <span style="font-family:Niageng;">Pompadour</span></p>
-    </div>
-</div>
+<style type="text/css">
+  input::-webkit-input-placeholder { color: #fff; opacity: 1; }
+  input:-moz-placeholder { color: #fff; opacity: 1; }
+  input::-moz-placeholder { color: #fff; opacity: 1;}
+  input::-ms-input-placeholder { color: #fff; opacity: 1;}
+</style>
+<!-- PAGE -->
+<div class="page index">
+  <!-- HEADER -->
+  <div class="header">
+    <a class="logo" href="<%= root_url %>">
+      <span>Mister</span><span class="font-niageng">Pompadour</span>
+    </a>
+  </div><!-- END HEADER -->
 
-<div class="hero">
-    <!-- <p class="large " ><span style="font-family:Niagrsol;">Mister </span> <span style="font-family:Niageng;">Pompadour</span></p> -->
-    
-    <div class="form-wrap">
-        <style type="text/css">
-            input::-webkit-input-placeholder { color: #fff; opacity: 1; }
-            input:-moz-placeholder { color: #fff; opacity: 1; }
-            input::-moz-placeholder { color: #fff; opacity: 1;}
-            input::-ms-input-placeholder { color: #fff; opacity: 1;}
-        </style>
-
-        <div style="margin: 26px auto 37px; text-align: center;"><img src="/assets/home/splash_logo.png"></div>
-        <div style="width: 675px; height: 85px; background-color: #00294e; margin: 0 auto; opacity: 0.75;">
-            <p class="byline splash-font">Look Sharp. Be Confident.</p>    
+  <!-- CONTENT -->
+  <div class="content">
+    <div class="container">
+      <!-- BANNER -->
+      <div class="banner">
+        <a class="logo-img" href="<%= root_url %>"></a>
+        <div class="slogan">Look Sharp. Be Confident.</div>
+        <div class="sub-slogan">Step Inside Now For Free Product</div>
+        <div class="count-down">Only XX Days XX Hrs Left!</div>
+        <div class="contact">
+          <%= form_for @user, :url => { :action => "create" } do |f| %>
+            <%= f.text_field :email, :placeholder => "ENTER EMAIL", :class => "field email" %>
+            <button type="submit" class="field submit">Step Inside</button>
+          <% end %>   
         </div>
-        
-        <p class="signup splash-font">STEP INSIDE NOW FOR FREE PRODUCT</p>
-        <p class="countdown splash-font" id="defaultCountdown">Only XX Days XX Hrs Left!</p>
-        <%= form_for @user, :url => { :action => "create" } do |f| %>
-
-            <div style="margin: 26px 0 0px 0px; height: 50px;">
-                <div class="email brandon">
-
-                    <%= f.text_field :email, :placeholder => "ENTER EMAIL", :class => "splash-font", :style => "color: #ffffff; background:transparent;border:none;opacity: 1;margin-top: 9px;
-                        margin-left: 13px;font-family: Arial;" %>    
-                </div>
-                <input class="submit splash-font" name="commit" type="submit" value="Step Inside" />        
-                
-            </div>
-            
-        <% end %>   
-
-        <input id="remainning_time" type="hidden" value="<%= @remainning_time %>">
-    </div>
-</div>
-
-<div style="width: 1349px; margin: 0 auto;">
-    <div class="main-link">
+      </div><!-- END BANNER -->
+      <div class="continue">
         <a href="https://mister-pompadour.myshopify.com">Continue to Mister Pompadour</a>
-    </div>    
-</div>
+      </div>
+    </div>
+    <input id="remainning_time" type="hidden" value="<%= @remainning_time %>">
+  </div><!-- END CONTENT -->
 
-
-
-<!-- <div class="form-wrap clearfix <%= "ended" if Rails.application.config.ended %>">
-    <% if Rails.application.config.ended %>
-        <p class="thanks brandon">THANK YOU FOR PARTICIPATING<br>IN OUR PRE-LAUNCH.</p>
-        <p class="compiling brandon">WE ARE COMPILING REWARDS RIGHT NOW AND WILL EMAIL<br/>COUPON CODES TO ALL RECIPIENTS IN THE NEXT DAY OR TWO</p>
-        <p class="go-to brandon">In the meantime, head to  <a href="http://www.harrys.com/">WWW.HARRYS.COM</a></p>
-        <p class="again brandon">Thank You Again!</p>
-    <% else %>
-        <div class="key"></div>
-        <p class="byline brandon">Be the first to know</p>
-        <%= form_for @user, :url => { :action => "create" } do |f| %>
-            <%= f.text_field :email, :placeholder => "ENTER EMAIL", :class => "email brandon" %>
-            <input class="submit brandon" name="commit" type="submit" value="Step Inside" />
-        <% end %>   
-    <% end %>
-</div> -->
+</div><!-- END PAGE -->

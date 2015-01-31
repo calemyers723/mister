@@ -32,8 +32,8 @@ function countdown_clock() {
     if (distance < 0) {
 
         // clearInterval(timer);
-        if ($("#defaultCountdown").length >0 )
-          $("#defaultCountdown")[0].innerHTML = "Only 0 Days 0 Hrs Left!";
+        if ($(".count-down").length >0 )
+          $(".count-down")[0].innerHTML = "Only 0 Days 0 Hrs Left!";
         if ($("#defaultCountdown1").length >0 )
           $("#defaultCountdown1")[0].innerHTML = "Only 0 Days 0 Hrs Left...Let the Sharing Begin!";
         return;
@@ -41,11 +41,11 @@ function countdown_clock() {
     var days = Math.floor(distance / _day);
     var hours = Math.floor((distance % _day) / _hour);
 
-    if ($("#defaultCountdown").length >0 ) {
-      $("#defaultCountdown")[0].innerHTML = "Only ";
-      $("#defaultCountdown")[0].innerHTML += days + ' Days ';
-      $("#defaultCountdown")[0].innerHTML += hours + ' Hrs ';
-      $("#defaultCountdown")[0].innerHTML += "Left!";
+    if ($(".count-down").length >0 ) {
+      $(".count-down")[0].innerHTML = "Only ";
+      $(".count-down")[0].innerHTML += days + ' Days ';
+      $(".count-down")[0].innerHTML += hours + ' Hrs ';
+      $(".count-down")[0].innerHTML += "Left!";
     }
 
     if ($("#defaultCountdown1").length >0 ) {
@@ -62,9 +62,5 @@ function countdown_clock() {
 
 $(document).ready( function() {
   countdown_clock();
-
-  // var remainning_time = $('#remainning_time').val();
-  // alert(remainning_time);
 });
 
-// timer = setInterval(countdown_clock, 1000);

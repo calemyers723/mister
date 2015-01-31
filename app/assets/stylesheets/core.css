@@ -71,7 +71,7 @@ html.home{
 
 #home{
 	/*padding-bottom: 50px;*/
-	/*width: 1349px;*/
+	width: 1349px;
 	margin: 0 auto;
 }
 
@@ -86,12 +86,13 @@ html.home{
 	width: 1349px;
 	height: 655px;
 	/*background: url(/assets/home/hero.jpg) center center no-repeat;*/
-	background: url(/assets/home/splash.jpg) center center no-repeat;
-	/*background-size: 1365px 715px;*/
+	background: url("/assets/home/splash.jpg") no-repeat scroll center top rgba(0, 0, 0, 0);
+	background-size: container;
 	overflow: hidden;
 	position: relative;
 	letter-spacing: .09em;
 	margin: 20px auto 0;
+
 }
 
 #home .hero .large{
@@ -473,12 +474,12 @@ a.main-link {
 	background: #F1F0EE;
 	/*height: 391px;*/
 	overflow: hidden;
-	min-width: 1120px;
+	/*min-width: 1120px;*/
 }
 
 #refer .mammoth{
 	/*background: url(/assets/refer/main_refer.jpg) 0 0 no-repeat;*/
-	background: url(/assets/refer/refer-left.jpg) 0 0 no-repeat;
+	background: url(/assets/refer/refer_left.jpg) 0 0 no-repeat;
 	width: 613px;
 	height: 365px;
 	/*background: url(/assets/refer/mammoth.png) 0 0 no-repeat;*/
@@ -614,7 +615,7 @@ a.main-link {
 #refer .prizes .progress{
 	height: 4px;
 	width: 100%;
-	background: url(/assets/refer/progress-bg.png) 0 0 repeat-x;
+	background: url(/assets/refer/progress_bg.png) 0 0 repeat-x;
 	background-size: 1px 4px;
 	position: absolute;
 	top: 72px;
@@ -628,7 +629,7 @@ a.main-link {
 }
 
 #refer .prizes .progress .mover .bar{
-	background: url(/assets/refer/progress-done.png) 0 0 repeat-x;
+	background: url(/assets/refer/progress_done.png) 0 0 repeat-x;
 	width: 165px;
 	height: 4px;
 	-webkit-background-size: 1px 4px;
@@ -875,12 +876,12 @@ only screen and (min-device-pixel-ratio: 2) {
 	}
 
 	#refer .prizes .progress{
-		background: url(/assets/refer/progress-bg@2x.png) 0 0 repeat-x;
+		background: url(/assets/refer/progress_bg@2x.png) 0 0 repeat-x;
 		background-size: 1px 4px;
 	}
 
 	#refer .prizes .progress .mover .bar{
-		background: url(/assets/refer/progress-done@2x.png) 0 0 repeat-x;
+		background: url(/assets/refer/progress_done@2x.png) 0 0 repeat-x;
 		background-size: 1px 4px;
 	}
 

@@ -1,0 +1,115 @@
+<!-- PAGE -->
+<div class="page referral">
+  <!-- HEADER -->
+  <div class="header">
+    <a class="logo" href="<%= root_url %>">
+      <span>Mister</span><span class="font-niageng">Pompadour</span>
+    </a>
+  </div><!-- END HEADER -->
+  
+  <!-- CONTENT -->
+  <div class="content">
+    <input id="remainning_time" type="hidden" value="<%= @remainning_time %>">
+    <!-- BANNER -->
+    <div class="banner">
+      <div class="container">
+        <div class="banner-left">
+          <div class="slogan"><span>friends dont let friends</span><span>have bad hair.</span></div>
+        </div>
+        <div class="banner-right">
+          <div class="dont-leave">Don't leave your friends behind</div>
+          <div class="invite"><span>INVITE FRIENDS &amp;</span><span> Earn <b>FREE</b> Product</span></div>
+          <div class="share"><span>Share your unique referral link via email, Facebook </span><span>or Twitter and earn <b>FREE</b> Mister Pompadour products </span><span>for each friend who signs up.</span></div>
+          <div class="count-down">Only XX Days XX Hrs Left...Let the Sharing Begin!</div>
+          <div class="copy-link"><%= root_url %>?ref=<%= @user.referral_code %></div>
+          <% twitter_message = "Can't wait to try @mistrpompadour products to #style my hair for FREE! #looksharpbeconfident" %>
+          <%
+              title = CGI::escape('Mister Pompadour');
+              url = CGI::escape(root_url)
+              summary = CGI::escape('Look Sharp. Be Confident. Didn\'t want to leave you all behind. Check out Mister Pompadour\'s hair products here.')
+              image = CGI::escape(root_url + '/assets/refer/logo-fb69ee306dd1e2eb28dd2e5c9e0c103d.jpg')
+              # image = CGI::escape(root_url + '/assets/refer/logo.jpg')
+              referral_code = CGI::escape(@user.referral_code)
+
+          %>
+          <ul class="social-links">
+            <li class="link facebook">
+              <a href="http://www.facebook.com/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&p[title]=<%= title %> &p[images][0]=<%= image %>" target="_blank"></a>
+            </li>
+            <li class="link twitter">
+              <a href="http://twitter.com/share?url=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&text=<%= CGI::escape(twitter_message) %>" target="_blank"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- END BANNER -->
+    <!-- HOW IT WORK -->
+    <% 
+      referrals_count = @user.referrals.count
+      stops = User::REFERRAL_STEPS
+      found = nil
+      is_flag = false
+      stops.reverse_each { |stop|
+        if is_flag
+          stop["active"] = true
+          stop["selected"] = false
+        elsif stop["count"] <= referrals_count and !found
+          stop["active"] = true
+          # found = stop
+          is_flag = true
+          stop["selected"] = true
+        else
+          stop["active"] = false
+          stop["selected"] = false
+        end
+      }   
+    %>
+    <div class="how-it-works">
+      <div class="container">
+        <div class="title">Here's How It Works:</div>
+        <ul class="products">
+          <li class="product main active">
+            <div class="step">Friends Joined</div>
+            <div class="line">
+              Free Product<br>Earned
+            </div>
+            
+          </li>
+          <% stops.each do |stop| %>
+            <li class="product <% if stop["active"] %>active<% end %> <% if stop["class"] == 'five' %>last<% end %> <% if stop["selected"] %>selected<% end %>">
+              <div class="step number"><%= stop["count"] %></div>
+              <div class="line">
+                <span><%= stop["html"].html_safe %></span>
+              </div>
+              <div class="tooltip">
+                <img src="<%= stop["image"] %>" height="200">
+              </div>
+            </li>
+          <% end %>
+        </ul>
+
+        <% 
+          words = ''
+          if referrals_count == 1
+              words = 'Friend has'
+          elsif 
+              words = 'Friends have'
+          end
+        %>
+        <% if referrals_count == 0 %>
+          <div class="friends"><span style="font-weight:bold; color: #960008;">No</span> friends have joined...Yet!</div>
+        <% else %>
+          <p class="friends"><span style="font-weight:bold; color: #960008;"><%= referrals_count %></span> <%= words %> joined</p>
+        <% end %>
+        <div class="checking">Keep checking</div>
+
+        <p class="ship">We ship to the US, Canada, and anywhere Worldwide</p>        
+        <div class="continue">
+          <a href="https://mister-pompadour.myshopify.com">Continue to Mister Pompadour</a>
+        </div>
+
+        <input id="remainning_time" type="hidden" value="<%= @remainning_time %>">
+      </div>
+    </div><!-- END HOW IT WORK -->
+  </div><!-- END CONTENT -->
+</div><!-- END PAGE-->

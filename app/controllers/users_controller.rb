@@ -2,7 +2,17 @@ class UsersController < ApplicationController
     before_filter :skip_first_page, :only => :new
 
     def new
-        @bodyId = 'home'
+        # @bodyId = 'home'
+        @is_mobile = mobile_device?
+
+        @user = User.new
+
+        respond_to do |format|
+            format.html # new.html.erb
+        end
+    end
+
+    def splash
         @is_mobile = mobile_device?
 
         @user = User.new
@@ -90,10 +100,24 @@ class UsersController < ApplicationController
         end
     end
 
+    def referral
+        # @bodyId = 'refer-body'
+        @user = User.first
+
+        respond_to do |format|
+            if !@user.nil?
+                format.html #refer.html.erb
+            else
+                #binding.pry
+                format.html { redirect_to root_path, :alert => "Something went wrong!" }
+            end
+        end        
+    end
+
     def refer
         email = cookies[:h_email]
 
-        @bodyId = 'refer'
+        # @bodyId = 'refer'
         @is_mobile = mobile_device?
 
         @user = User.find_by_email(email)
