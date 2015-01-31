@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
                                     font-size: 25px;">
 
                               <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                                <img src="http://mister-pompadour-friend-refer.herokuapp.com/assets/refer/email_logo.jpg">
+                                <img src="http://mister-pompadour-friend-refers.herokuapp.com/assets/refer/email_logo.jpg">
                               </div>
 
                               <div style="font-size: 34px;
@@ -100,7 +100,7 @@ class User < ActiveRecord::Base
                                 </ul>
                               </div>
                               <div style="margin-top: 20px;">
-                                <img src="http://mister-pompadour-friend-refer.herokuapp.com/assets/refer/email_0.png">
+                                <img src="http://mister-pompadour-friend-refers.herokuapp.com/assets/refer/email_0.png">
                               </div>'
         html_content += email_footer_content(1, "LOOK SHARP. BE CONFIDENT.")
         send_mandrill_email(subject, html_content)
@@ -227,7 +227,7 @@ class User < ActiveRecord::Base
     # footer_type: 1 - sign_up
     def email_footer_content footer_type, text_message
         
-        root_url = "http://mister-pompadour-friend-refer.herokuapp.com/"
+        root_url = "http://mister-pompadour-friend-refers.herokuapp.com/"
         image = CGI::escape(root_url + '/assets/refer/logo-fb69ee306dd1e2eb28dd2e5c9e0c103d.jpg');
         # image = CGI::escape(root_url + '/assets/refer/logo.jpg')
         title = CGI::escape('Mister Pompadour')
@@ -253,7 +253,7 @@ class User < ActiveRecord::Base
         footer_content += title
         footer_content += '&p[images][0]='
         footer_content += image
-        footer_content += '" target="_blank" style="background: url(http://mister-pompadour-friend-refer.herokuapp.com/assets/refer/fb.png); background-size: 27px 27px; width:27px; height: 27px; display: inline-block;"></a>
+        footer_content += '" target="_blank" style="background: url(http://mister-pompadour-friend-refers.herokuapp.com/assets/refer/fb.png); background-size: 27px 27px; width:27px; height: 27px; display: inline-block;"></a>
                           <div style="height: 28px; width: 1px; background: #bab9ba; margin: 0 20px; display: inline-block;"></div>
                           <a href="http://twitter.com/share?url='
         footer_content += url
@@ -262,7 +262,7 @@ class User < ActiveRecord::Base
         footer_content += '&text='
         footer_content += twitter_message
 
-        footer_content += '" target="_blank" style="background: url(http://mister-pompadour-friend-refer.herokuapp.com/assets/refer/twit.png); background-size: 27px 27px; width:27px; height: 27px; display: inline-block;"></a>
+        footer_content += '" target="_blank" style="background: url(http://mister-pompadour-friend-refers.herokuapp.com/assets/refer/twit.png); background-size: 27px 27px; width:27px; height: 27px; display: inline-block;"></a>
                             </div>  
                           </div>
                           '
@@ -348,7 +348,7 @@ class User < ActiveRecord::Base
                                     font-size: 25px;">
 
                               <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                                <img src="http://mister-pompadour-friend-refer.herokuapp.com/assets/refer/email_logo.jpg">
+                                <img src="http://mister-pompadour-friend-refers.herokuapp.com/assets/refer/email_logo.jpg">
                               </div>
 
                               <div style="font-size: 34px;
@@ -388,7 +388,7 @@ class User < ActiveRecord::Base
         html_content += referral_content
         html_content += '</div>
                               <div style="margin-top: 20px;">
-                                <img src="http://mister-pompadour-friend-refer.herokuapp.com/assets/refer/'
+                                <img src="http://mister-pompadour-friend-refers.herokuapp.com/assets/refer/'
         html_content += image_path
         html_content += '">
                               </div>'
@@ -409,7 +409,7 @@ class User < ActiveRecord::Base
                                     font-size: 25px;">
 
                               <div style="margin: 20px 0 0 0;text-align:left; float:left;">
-                                <img src="http://mister-pompadour-friend-refer.herokuapp.com/assets/refer/email_logo.jpg">
+                                <img src="http://mister-pompadour-friend-refers.herokuapp.com/assets/refer/email_logo.jpg">
                               </div>
 
                               <div style="font-size: 34px;
@@ -471,7 +471,7 @@ class User < ActiveRecord::Base
                           </div>
 
                           <div style="margin-top: 20px; color: #355F91;">
-                            <img src="http://mister-pompadour-friend-refer.herokuapp.com/assets/refer/'
+                            <img src="http://mister-pompadour-friend-refers.herokuapp.com/assets/refer/'
 
         html_content += image_path
         html_content += '" >
