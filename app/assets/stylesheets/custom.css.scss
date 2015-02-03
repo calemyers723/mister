@@ -271,7 +271,7 @@ body {
               overflow: hidden;
               position: absolute;
               top: -250px;
-              left: -90px;
+              left: 6px;
 
               img {
                 margin: 0 auto;
@@ -555,6 +555,78 @@ body {
   }
 }
 
+@media screen and (min-width: 992px) and (max-width: 1120px) {
+  .page {
+    &.referral {
+      .content {
+        .how-it-works {
+          .products {
+            li.product {
+              .tooltip {
+                top: -227px;
+                left: 6px;
+
+                img {
+                  width: 180px;
+                  height: 180px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .page {
+    &.referral {
+      .content {
+        .how-it-works {
+          .products {
+            li.product {
+              .tooltip {
+                top: -196px;
+                left: 6px;
+                
+                img {
+                  width: 145px;
+                  height: 145px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .page {
+    &.referral {
+      .content {
+        .how-it-works {
+          .products {
+            li.product {
+              .tooltip {
+                top: -196px;
+                left: -27px;
+                
+                img {
+                  width: 145px;
+                  height: 145px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 480px) {
   .page {
     &.referral {
@@ -586,8 +658,13 @@ body {
                 background: #fff;
                 overflow: hidden;
                 position: absolute;
-                top: -228px;
-                left: 38px;
+                top: -203px;
+                left: 100px;
+
+                img {
+                  width: 145px;
+                  height: 145px;
+                }
 
               }
             }
