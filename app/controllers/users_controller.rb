@@ -22,6 +22,19 @@ class UsersController < ApplicationController
         end
     end
 
+
+    def unsubscribe
+        refer_code = params[:refer_code]
+        user = User.find_by_referral_code(refer_code)
+
+        if !user.nil?
+            user.is_unsubscribe = true
+            user.save
+        end
+        
+        # render :unsubscribe, layout: false
+    end
+
     def create
         # Get user to see if they have already signed up
         email = params[:user][:email]

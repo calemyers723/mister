@@ -9,6 +9,7 @@ Prelaunchr::Application.routes.draw do
 
   match 'users/create' => 'users#create'
   match 'users/splash' => 'users#splash'
+  match 'users/unsubscribe' => 'users#unsubscribe'
 
   match 'refer-a-friend' => 'users#refer'
   match 'referral' => 'users#referral'

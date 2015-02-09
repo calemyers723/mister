@@ -4,28 +4,28 @@ class Background < ActiveRecord::Base
   def self.send_notify_email
 
     #user = User.find_by_email("kyle.perez1985@gmail.com")
-    user = User.find_by_email("mattdavis777@gmail.com")
+    user = User.find_by_email("cale.myers723@gmail.com")
     referral_code = CGI::escape(user.referral_code);
 
     user.send_sign_up_email
-    user.send_first_referral_friend
-    user.send_five_referral_friends
-    user.send_ten_referral_friends
-    user.send_twentyfive_referral_friends
-    user.send_fifty_referral_friends
+    # user.send_first_referral_friend
+    # user.send_five_referral_friends
+    # user.send_ten_referral_friends
+    # user.send_twentyfive_referral_friends
+    # user.send_fifty_referral_friends
 
-    user.send_remainning_emails 3
-    user.send_remainning_emails 2
-    user.send_remainning_emails 1
+    # user.send_remainning_emails 3
+    # user.send_remainning_emails 2
+    # user.send_remainning_emails 1
 
-    users = User.all
-    for user in users
-      begin
+    # users = User.all
+    # for user in users
+    #   begin
           
-      rescue Exception => e
-        puts '-----------send_notify_email_error-------------'
-      end
-    end
+    #   rescue Exception => e
+    #     puts '-----------send_notify_email_error-------------'
+    #   end
+    # end
   end
 
   def self.reminder_emails

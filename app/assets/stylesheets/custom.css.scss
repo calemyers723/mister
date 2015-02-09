@@ -326,6 +326,15 @@ body {
       }
     }
   }
+  &.unsubscribe {
+    .content {
+      .container {
+        text-align: center;
+        color: #000;
+        font-size: 20px;
+      }
+    }
+  }
 }
 
 /* Responsive */

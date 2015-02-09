@@ -107,6 +107,10 @@ class User < ActiveRecord::Base
     end
 
     def send_first_referral_friend
+        if self.is_unsubscribe
+            puts 'This user is unsubscribe'
+            return
+        end
         subject = "Congratulations on Your First Friend Referral"
         html_content = referral_friends_header(0)
         html_content += email_footer_content(2, "LOOK SHARP. BE CONFIDENT.")
@@ -114,6 +118,10 @@ class User < ActiveRecord::Base
     end
 
     def send_five_referral_friends
+        if self.is_unsubscribe
+            puts 'This user is unsubscribe'
+            return
+        end
         subject = "Congratulations on 5 Friend Referrals"
         html_content = referral_friends_header(1)
         html_content += email_footer_content(2, "Nice Job! 5 friends have officially joined!")
@@ -121,6 +129,10 @@ class User < ActiveRecord::Base
     end
 
     def send_ten_referral_friends
+        if self.is_unsubscribe
+            puts 'This user is unsubscribe'
+            return
+        end
         subject = "Congratulations on 10 Friend Referrals"
         html_content = referral_friends_header(2)
         html_content += email_footer_content(2, "Great job! 10 friends have officially joined!")
@@ -128,6 +140,10 @@ class User < ActiveRecord::Base
     end
 
     def send_twentyfive_referral_friends
+        if self.is_unsubscribe
+            puts 'This user is unsubscribe'
+            return
+        end
         subject = "Congratulations on 25 Friend Referrals"
         html_content = referral_friends_header(3)
         html_content += email_footer_content(2, "Incredible! 25 friends have officially joined!")
@@ -135,6 +151,10 @@ class User < ActiveRecord::Base
     end
 
     def send_fifty_referral_friends
+        if self.is_unsubscribe
+            puts 'This user is unsubscribe'
+            return
+        end
         subject = "Congratulations on 50 Friend Referrals"
         html_content = referral_friends_header(4)
         html_content += email_footer_content(2, "Extraordinary! 50 friends have officially joined!")
@@ -142,6 +162,11 @@ class User < ActiveRecord::Base
     end
 
     def send_remainning_emails days
+
+        if self.is_unsubscribe
+            puts 'This user is unsubscribe'
+            return
+        end
 
         case days
         when 3
@@ -286,7 +311,7 @@ class User < ActiveRecord::Base
                                 <li>Even though you\'ve earned the max reward we still appreciate you spreading the word!</li></ul>
                           '
         elsif footer_type == 2
-            
+
             footer_content += '<div style="text-align: left;">
                             <p style="margin: 30px 0 0 10px; font-size: 36px; font-weight: bold; color: #365F91;">Remember...</p>
                             <ul style="font-size: 20px; list-style: inherit; color: #365F91; padding: 10px 0 0 65px; line-height: 45px;">
@@ -296,38 +321,37 @@ class User < ActiveRecord::Base
                           '
         end
 
-        # footer_content += '</div>
-        #                   <div style="background-color: #233E5F;margin: 30px auto; ">
-        #                     <p style="padding: 17px 20px; font-size: 34px; color: white;">LOOK SHARP. BE CONFIDENT.</p>
-        #                   </div>
-                          
-        #                   <div style="text-align: left;">
-        #                     <p style="font-size: 17px; text-algin: left;"><i>copyright&#0169; 2015 Mister Pompadaur, LLC, All rights reserved.</i></p>
-        #                   </div>
-                          
-        #                   <div style="text-align: left; font-size: 16px; margin-bottom: 50px;">
-        #                     <a href="https://us8.admin.mailchimp.com/templates/*%7CUNSUB%7C*" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
-        #                     <a href="https://us8.admin.mailchimp.com/templates/*%7CUPDATE_PROFILE%7C*" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
-        #                     <a href="http://www.misterpompadour.com/" style="float: left; margin: 0 20px 0 0;">www.misterpompadour.com</a>    
-        #                   </div>
-        #                 </body>
-        #                 </html>'
 
         footer_content += '</div>
                           <div style="background-color: #233E5F;margin: 30px auto; text-align: center;">
                             <p style="padding: 17px 20px; font-size: 34px; color: white;">'
         footer_content += text_message
+        # footer_content += '</p>
+        #                   </div>
+
+        #                   <div style="text-align: left;">
+        #                     <p style="font-size: 17px; text-algin: left;"><i>copyright&#0169; 2015 Mister Pompadaur, LLC, All rights reserved.</i></p>
+        #                   </div>
+
+        #                   <div style="text-align: left; font-size: 16px; margin-bottom: 50px;">
+        #                     <a href="http://mister-pompadour-friend-refer.herokuapp.com/users/unsubscribe" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
+        #                     <a href="http://www.misterpompadour.com/" style="float: left; margin: 0 20px 0 0;">www.misterpompadour.com</a>
+        #                   </div>
+        #                 </body>
+        #                 </html>'
+
         footer_content += '</p>
                           </div>
-                          
+
                           <div style="text-align: left;">
                             <p style="font-size: 17px; text-algin: left;"><i>copyright&#0169; 2015 Mister Pompadaur, LLC, All rights reserved.</i></p>
                           </div>
-                          
+
                           <div style="text-align: left; font-size: 16px; margin-bottom: 50px;">
-                            <a href="https://us8.admin.mailchimp.com/templates/*%7CUNSUB%7C*" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
-                            <a href="https://us8.admin.mailchimp.com/templates/*%7CUPDATE_PROFILE%7C*" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
-                            <a href="http://www.misterpompadour.com/" style="float: left; margin: 0 20px 0 0;">www.misterpompadour.com</a>    
+                            <a href="http://mister-pompadour-friend-refer.herokuapp.com/users/unsubscribe?refer_code='
+        footer_content += referral_code
+        footer_content += '" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
+                            <a href="http://www.misterpompadour.com/" style="float: left; margin: 0 20px 0 0;">www.misterpompadour.com</a>
                           </div>
                         </body>
                         </html>'
