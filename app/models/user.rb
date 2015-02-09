@@ -326,20 +326,7 @@ class User < ActiveRecord::Base
                           <div style="background-color: #233E5F;margin: 30px auto; text-align: center;">
                             <p style="padding: 17px 20px; font-size: 34px; color: white;">'
         footer_content += text_message
-        # footer_content += '</p>
-        #                   </div>
-
-        #                   <div style="text-align: left;">
-        #                     <p style="font-size: 17px; text-algin: left;"><i>copyright&#0169; 2015 Mister Pompadaur, LLC, All rights reserved.</i></p>
-        #                   </div>
-
-        #                   <div style="text-align: left; font-size: 16px; margin-bottom: 50px;">
-        #                     <a href="http://mister-pompadour-friend-refer.herokuapp.com/users/unsubscribe" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
-        #                     <a href="http://www.misterpompadour.com/" style="float: left; margin: 0 20px 0 0;">www.misterpompadour.com</a>
-        #                   </div>
-        #                 </body>
-        #                 </html>'
-
+        
         footer_content += '</p>
                           </div>
 
