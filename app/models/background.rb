@@ -8,8 +8,8 @@ class Background < ActiveRecord::Base
     referral_code = CGI::escape(user.referral_code);
 
     # user.send_sign_up_email
-    # user.send_first_referral_friend
-    # user.send_five_referral_friends
+    user.send_first_referral_friend
+    user.send_five_referral_friends
     # user.send_ten_referral_friends
     # user.send_twentyfive_referral_friends
     # user.send_fifty_referral_friends
