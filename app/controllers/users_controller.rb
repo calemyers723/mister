@@ -26,11 +26,16 @@ class UsersController < ApplicationController
     def unsubscribe
         refer_code = params[:refer_code]
         user = User.find_by_referral_code(refer_code)
+        puts '--------enter unsubscribe module-----------'
+        puts refer_code
+        @status_message = 'The error is occured from removing the Mister Pompadour email list.'
 
         if !user.nil?
             user.is_unsubscribe = true
             user.save
+            @status_message = 'You have been removed from the Mister Pompadour email list.'
         end
+        puts @status_message
         
         # render :unsubscribe, layout: false
     end
