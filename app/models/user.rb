@@ -335,7 +335,7 @@ class User < ActiveRecord::Base
                           </div>
 
                           <div style="text-align: left; font-size: 16px; margin-bottom: 50px;">
-                            <a href="http://mister-pompadour-friend-refer.herokuapp.com/users/unsubscribe?refer_code='
+                            <a href="http://mister-pompadour-friend-refers.herokuapp.com/users/unsubscribe?refer_code='
         footer_content += referral_code
         footer_content += '" style="float: left; margin: 0 20px 0 0;">unsubscribe from this list</a>
                             <a href="http://www.misterpompadour.com/" style="float: left; margin: 0 20px 0 0;">www.misterpompadour.com</a>
