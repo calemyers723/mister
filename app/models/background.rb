@@ -82,11 +82,14 @@ class Background < ActiveRecord::Base
       #   end
 
       # end
-
+      index = 0
       users = User.order('id desc').all
+      puts "&&&&&&&&&#{users.size}"
       for user in users
+        index = index + 1
         info = gb.lists.member_info({:id => list_id, :emails => [{:email => user.email}]})
         success_count = info["success_count"].to_i
+        puts "%%%%%%%%%%%%%#{index}"
         if success_count == 0
           puts "------------new subscribe:#{user.email}-------------"
           gb.lists.subscribe({:id => list_id, 
