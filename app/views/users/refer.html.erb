@@ -45,7 +45,7 @@
     </div><!-- END BANNER -->
     <!-- HOW IT WORK -->
     <% 
-      referrals_count = @user.referrals.count
+      referrals_count = @user.referral_count
       stops = User::REFERRAL_STEPS
       found = nil
       is_flag = false
