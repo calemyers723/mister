@@ -94,10 +94,15 @@ class Background < ActiveRecord::Base
         if success_count == 0
           puts "------------new subscribe:#{user.email}:#{user.referral_count}-------------"
           missing_count += 1
-          # gb.lists.subscribe({:id => list_id, 
-          #          :email => {:email => user.email }, :merge_vars => {:RNUM => user.referral_count, :RCODE => user.referral_code},
-          #          :double_optin => false})
-          #         puts '------------success add subscribe-------------'
+          begin
+            gb.lists.subscribe({:id => list_id, 
+                     :email => {:email => user.email }, :merge_vars => {:RNUM => user.referral_count, :RCODE => user.referral_code},
+                     :double_optin => false})
+                    puts '------------success add subscribe-------------'  
+          rescue Exception => e
+            
+          end
+          
         end
         
       end
