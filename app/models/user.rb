@@ -46,6 +46,8 @@ class User < ActiveRecord::Base
     ]
     
     public 
+
+    
     
     def update_list_mailchimp
         if Rails.env.production?
@@ -53,7 +55,7 @@ class User < ActiveRecord::Base
             begin
                 gb = Gibbon::API.new(ENV['MAILCHIMP_KEY'])
                 gb.lists.batch_subscribe(:id => ENV['MAILCHIMP_LIST_ID'], :batch => 
-                    [ {:email => {:email => self.email }, :merge_vars => { :RNUM => self.referrals.count}}], :update_existing => true)    
+                    [ {:email => {:email => self.email }, :merge_vars => { :RNUM => self.referral_count}}], :update_existing => true)    
             rescue Exception => e
                 puts "--------update mailchimp list error-----------"
             end
@@ -177,7 +179,7 @@ class User < ActiveRecord::Base
             subject = "Last Day for the Friend Referral Campaign" 
         end
         html_content = reminder_email_header(days)
-        if self.referrals.count < 50
+        if self.referral_count < 50
             html_content += email_footer_content(2, "LOOK SHARP. BE CONFIDENT.")
         else
             html_content += email_footer_content(3, "LOOK SHARP. BE CONFIDENT.")
@@ -444,22 +446,22 @@ class User < ActiveRecord::Base
         html_sub_title = ''
         image_path = 'email_0.png'
         remain_referrals_count = 0
-        if self.referrals.count < 5
-            remain_referrals_count = 5 - self.referrals.count
+        if self.referral_count < 5
+            remain_referrals_count = 5 - self.referral_count
             image_path = 'email_0.png'
-        elsif self.referrals.count < 10
-            remain_referrals_count = 10 - self.referrals.count
+        elsif self.referral_count < 10
+            remain_referrals_count = 10 - self.referral_count
             image_path = 'email_1.png'
-        elsif self.referrals.count < 25
-            remain_referrals_count = 25 - self.referrals.count
+        elsif self.referral_count < 25
+            remain_referrals_count = 25 - self.referral_count
             image_path = 'email_2.png'
-        elsif self.referrals.count < 50
-            remain_referrals_count = 50 - self.referrals.count            
+        elsif self.referral_count < 50
+            remain_referrals_count = 50 - self.referral_count            
             image_path = 'email_3.png'
         else
             image_path = 'email_4.png'
         end
-        if self.referrals.count < 50
+        if self.referral_count < 50
             html_title = 'Don\'t miss out on FREE products!'
             html_sub_title = 'Only <span style="color: #C00000;">'
             html_sub_title += remain_referrals_count.to_s

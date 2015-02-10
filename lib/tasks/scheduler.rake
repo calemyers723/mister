@@ -9,3 +9,7 @@ end
 task :send_reminder_emails => :environment do
   Background.reminder_emails
 end
+
+task :patch_user_database => :environment do
+  Background.patch_user_database
+end

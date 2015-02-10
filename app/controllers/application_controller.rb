@@ -32,6 +32,8 @@ class ApplicationController < ActionController::Base
                 redirect_to proc { url_for(params.except(:ref)) }  
             end
         end
+
+        
     end
 
 end
