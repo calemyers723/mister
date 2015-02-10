@@ -39,7 +39,7 @@ class Background < ActiveRecord::Base
       puts "Database Referral Count:***************#{user.referral_count}"
     end
 
-  # info = gb.lists.member_info({:id => list_id, :emails => [{:email => "asdfsafdsadf"}]})
+    # info = gb.lists.member_info({:id => list_id, :emails => [{:email => "#{user.email}"}]})
   end
 
 
@@ -52,62 +52,70 @@ class Background < ActiveRecord::Base
       limit_count = member["total"]
       puts "~~~~~~~~~~~~~~total:#{limit_count}~~~~~~~~~~~~~~~~"
 
-      # for i in 0..limit_count - 1
-      #   member = gb.lists.members({:id => list_id, :opts => {:start => i, :limit => 1}})
-      #   email = member["data"][0]["email"].downcase
-      #   referral_code = member["data"][0]["merges"]["RCODE"]
-      #   referral_count = member["data"][0]["merges"]["RNUM"].to_i
+      for i in 0..limit_count - 1
+        member = gb.lists.members({:id => list_id, :opts => {:start => i, :limit => 1}})
+        email = member["data"][0]["email"].downcase
+        referral_code = member["data"][0]["merges"]["RCODE"]
+        referral_count = member["data"][0]["merges"]["RNUM"].to_i
 
 
-      #   puts "**********count[#{i.to_s}]*************"
+        puts "**********count[#{i.to_s}]*************"
 
 
-      #   user = User.find_by_email(email)
-      #   if user.nil?
-      #     puts email
-      #     record_email = ActiveRecord::Base.connection.quote(email)
-      #     record_referral_code = ActiveRecord::Base.connection.quote(referral_code)
-      #     record_referral_count = ActiveRecord::Base.connection.quote(referral_count)
-      #     record_date = ActiveRecord::Base.connection.quote("2015-02-09 12:00:00")
-      #     query = "INSERT INTO users (email,referral_code,referral_count, created_at, updated_at) VALUES (#{record_email}, #{record_referral_code}, #{record_referral_count}, #{record_date}, #{record_date})"
-      #     ActiveRecord::Base.connection.execute(query);
-      #     puts "user save"
-      #   else
-      #     if user.referral_count != referral_count
-      #       puts email
-      #       user.referral_count = referral_count
-      #       user.save
-      #       puts "user update"
-      #     end
-
-      #   end
-
-      # end
-      index = 0
-      users = User.order('id asc')
-      missing_count = 0
-      for user in users
-        index = index + 1
-        info = gb.lists.member_info({:id => list_id, :emails => [{:email => user.email}]})
-        success_count = info["success_count"].to_i
-        puts "%%%%%%%%%%%%%#{index}"
-        if success_count == 0
-          puts "------------new subscribe:#{user.email}:#{user.referral_count}-------------"
-          missing_count += 1
-          begin
-            gb.lists.subscribe({:id => list_id, 
-                     :email => {:email => user.email }, :merge_vars => {:RNUM => user.referral_count, :RCODE => user.referral_code},
-                     :double_optin => false})
-                    puts '------------success add subscribe-------------'  
-          rescue Exception => e
-            
+        user = User.find_by_email(email)
+        if user.nil?
+          puts email
+          record_email = ActiveRecord::Base.connection.quote(email)
+          record_referral_code = ActiveRecord::Base.connection.quote(referral_code)
+          record_referral_count = ActiveRecord::Base.connection.quote(referral_count)
+          record_date = ActiveRecord::Base.connection.quote("2015-02-09 12:00:00")
+          query = "INSERT INTO users (email,referral_code,referral_count, created_at, updated_at) VALUES (#{record_email}, #{record_referral_code}, #{record_referral_count}, #{record_date}, #{record_date})"
+          ActiveRecord::Base.connection.execute(query);
+          puts "user save"
+        else
+          if user.referral_count != referral_count
+            puts email
+            user.referral_count = referral_count
+            user.save
+            puts "user referral_count update"
+          elsif user.referral_code != referral_code
+            puts email
+            user.referral_code = referral_code
+            user.save
+            puts "user referral_code update"
           end
-          
+
         end
-        
+
       end
 
-      puts "^^^^^^^^^^^^^^^^^^^^^^^^Total-Count:::::#{missing_count}^^^^^^^^^^^^^^^^^^^^^^^"
+
+
+      # index = 0
+      # users = User.order('id asc')
+      # missing_count = 0
+      # for user in users
+      #   index = index + 1
+      #   info = gb.lists.member_info({:id => list_id, :emails => [{:email => user.email}]})
+      #   success_count = info["success_count"].to_i
+      #   puts "%%%%%%%%%%%%%#{index}"
+      #   if success_count == 0
+      #     puts "------------new subscribe:#{user.email}:#{user.referral_count}-------------"
+      #     missing_count += 1
+      #     begin
+      #       gb.lists.subscribe({:id => list_id, 
+      #                :email => {:email => user.email }, :merge_vars => {:RNUM => user.referral_count, :RCODE => user.referral_code},
+      #                :double_optin => false})
+      #               puts '------------success add subscribe-------------'  
+      #     rescue Exception => e
+            
+      #     end
+          
+      #   end
+        
+      # end
+
+      # puts "^^^^^^^^^^^^^^^^^^^^^^^^Total-Count:::::#{missing_count}^^^^^^^^^^^^^^^^^^^^^^^"
 
     end
 
@@ -127,7 +135,7 @@ class Background < ActiveRecord::Base
     #                 [ {:email => {:email => user.email }, :merge_vars => { :RNUM => user.referral_count}}], :update_existing => true)    
 
     # IGoid7862@armyspy.com
-    # user = User.find_by_email("IGoid7862@armyspy.com")
+    # user = User.find_by_email("kyle.perez1985@gmail.com")
     # gb.lists.subscribe({:id => list_id, 
     #                :email => {:email => user.email }, :merge_vars => {:RNUM => user.referral_count, :RCODE => user.referral_code},
     #                :double_optin => false})
@@ -157,6 +165,7 @@ class Background < ActiveRecord::Base
 
   def self.generate_dummy_emails count
     #user = User.find_by_email("kyle.perez1985@gmail.com")
+    # user = User.where(:email => "kyle.perez1985@gmail.com")
     user = User.find_by_email("mattdavis777@gmail.com")
 
     for i in 1..count do
