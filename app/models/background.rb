@@ -31,37 +31,40 @@ class Background < ActiveRecord::Base
 
   def self.patch_user_database
 
-    gb = Gibbon::API.new(ENV['MAILCHIMP_KEY'])
-    list_id = ENV['MAILCHIMP_LIST_ID']
-    record_count = 6000
+    if Rails.env.production?
+      gb = Gibbon::API.new(ENV['MAILCHIMP_KEY'])
+      list_id = ENV['MAILCHIMP_LIST_ID']
+      record_count = 6000
 
-    for i in 0..record_count
-      member = gb.lists.members({:id => list_id, :opts => {:start => i, :limit => 1}})
-      email = member["data"][0]["email"].downcase
-      referral_code = member["data"][0]["merges"]["RCODE"]
-      referral_count = member["data"][0]["merges"]["RNUM"].to_i
+      for i in 0..record_count
+        member = gb.lists.members({:id => list_id, :opts => {:start => i, :limit => 1}})
+        email = member["data"][0]["email"].downcase
+        referral_code = member["data"][0]["merges"]["RCODE"]
+        referral_count = member["data"][0]["merges"]["RNUM"].to_i
 
-      
-      puts "**********count[#{i.to_s}]*************"
-      puts email
+        
+        puts "**********count[#{i.to_s}]*************"
+        puts email
 
-      record_email = ActiveRecord::Base.connection.quote(email)
-      record_referral_code = ActiveRecord::Base.connection.quote(referral_code)
-      record_referral_count = ActiveRecord::Base.connection.quote(referral_count)
-      record_date = ActiveRecord::Base.connection.quote("2015-02-09 12:00:00")
+        record_email = ActiveRecord::Base.connection.quote(email)
+        record_referral_code = ActiveRecord::Base.connection.quote(referral_code)
+        record_referral_count = ActiveRecord::Base.connection.quote(referral_count)
+        record_date = ActiveRecord::Base.connection.quote("2015-02-09 12:00:00")
 
-      user = User.find_by_email(email)
-      if user.nil?
-        query = "INSERT INTO users (email,referral_code,referral_count, created_at, updated_at) VALUES (#{record_email}, #{record_referral_code}, #{record_referral_count}, #{record_date}, #{record_date})"
-        ActiveRecord::Base.connection.execute(query);
-        puts "user save"
-      else
-        user.referral_count = referral_count
-        user.save
+        user = User.find_by_email(email)
+        if user.nil?
+          query = "INSERT INTO users (email,referral_code,referral_count, created_at, updated_at) VALUES (#{record_email}, #{record_referral_code}, #{record_referral_count}, #{record_date}, #{record_date})"
+          ActiveRecord::Base.connection.execute(query);
+          puts "user save"
+        else
+          user.referral_count = referral_count
+          user.save
+        end
+
       end
-
-    end
       
+    end
+
   end
 
   def self.reminder_emails
