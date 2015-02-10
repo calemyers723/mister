@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
     
     public 
 
-    
+
     
     def update_list_mailchimp
         if Rails.env.production?
@@ -238,7 +238,8 @@ class User < ActiveRecord::Base
                 gb = Gibbon::API.new(ENV['MAILCHIMP_KEY'])
                 gb.lists.subscribe({:id => ENV['MAILCHIMP_LIST_ID'], 
                  :email => {:email => self.email }, :merge_vars => {:RNUM => 0, :RCODE => self.referral_code},
-                 :double_optin => false})    
+                 :double_optin => false})
+                puts '------------success add subscribe-------------'
             rescue Exception => e
                 puts "---------add subscribe to mailchimp list error----------"
             end

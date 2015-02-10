@@ -39,6 +39,7 @@ class Background < ActiveRecord::Base
       puts "Database Referral Count:***************#{user.referral_count}"
     end
 
+  # info = gb.lists.member_info({:id => list_id, :emails => [{:email => "asdfsafdsadf"}]})
   end
 
 
@@ -50,39 +51,54 @@ class Background < ActiveRecord::Base
       member = gb.lists.members({:id => list_id, :opts => {:start => 0, :limit => 1}})
       limit_count = member["total"]
 
-      for i in 0..limit_count - 1
-        member = gb.lists.members({:id => list_id, :opts => {:start => i, :limit => 1}})
-        email = member["data"][0]["email"].downcase
-        referral_code = member["data"][0]["merges"]["RCODE"]
-        referral_count = member["data"][0]["merges"]["RNUM"].to_i
+      # for i in 0..limit_count - 1
+      #   member = gb.lists.members({:id => list_id, :opts => {:start => i, :limit => 1}})
+      #   email = member["data"][0]["email"].downcase
+      #   referral_code = member["data"][0]["merges"]["RCODE"]
+      #   referral_count = member["data"][0]["merges"]["RNUM"].to_i
 
-        
-        puts "**********count[#{i.to_s}]*************"
-        
 
-        user = User.find_by_email(email)
-        if user.nil?
-          puts email
-          record_email = ActiveRecord::Base.connection.quote(email)
-          record_referral_code = ActiveRecord::Base.connection.quote(referral_code)
-          record_referral_count = ActiveRecord::Base.connection.quote(referral_count)
-          record_date = ActiveRecord::Base.connection.quote("2015-02-09 12:00:00")
-          query = "INSERT INTO users (email,referral_code,referral_count, created_at, updated_at) VALUES (#{record_email}, #{record_referral_code}, #{record_referral_count}, #{record_date}, #{record_date})"
-          ActiveRecord::Base.connection.execute(query);
-          puts "user save"
-        else
-          if user.referral_count != referral_count
-            puts email
-            user.referral_count = referral_count
-            user.save
-            puts "user update"
-          end
-          
+      #   puts "**********count[#{i.to_s}]*************"
+
+
+      #   user = User.find_by_email(email)
+      #   if user.nil?
+      #     puts email
+      #     record_email = ActiveRecord::Base.connection.quote(email)
+      #     record_referral_code = ActiveRecord::Base.connection.quote(referral_code)
+      #     record_referral_count = ActiveRecord::Base.connection.quote(referral_count)
+      #     record_date = ActiveRecord::Base.connection.quote("2015-02-09 12:00:00")
+      #     query = "INSERT INTO users (email,referral_code,referral_count, created_at, updated_at) VALUES (#{record_email}, #{record_referral_code}, #{record_referral_count}, #{record_date}, #{record_date})"
+      #     ActiveRecord::Base.connection.execute(query);
+      #     puts "user save"
+      #   else
+      #     if user.referral_count != referral_count
+      #       puts email
+      #       user.referral_count = referral_count
+      #       user.save
+      #       puts "user update"
+      #     end
+
+      #   end
+
+      # end
+
+      users = User.order('id desc').all
+      for user in users
+        info = gb.lists.member_info({:id => list_id, :emails => [{:email => user.email}]})
+        success_count = info["success_count"].to_i
+        if success_count == 0
+          puts "------------new subscribe:#{user.email}-------------"
+          gb.lists.subscribe({:id => list_id, 
+                   :email => {:email => self.email }, :merge_vars => {:RNUM => user.referral_count, :RCODE => self.referral_code},
+                   :double_optin => false})
+                  puts '------------success add subscribe-------------'
         end
-
+        
       end
 
     end
+
 
   end
 
