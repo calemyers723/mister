@@ -91,7 +91,7 @@ class UsersController < ApplicationController
             if !@referred_by.nil?
                 
                 @referred_by.update_list_mailchimp
-                @referred_by.referral_count += 1
+                @referred_by.referral_count = @referred_by.referral_count + 1
                 @referred_by.save
 
                 case @referred_by.referral_count
