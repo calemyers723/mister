@@ -50,6 +50,7 @@ class Background < ActiveRecord::Base
       list_id = ENV['MAILCHIMP_LIST_ID']
       member = gb.lists.members({:id => list_id, :opts => {:start => 0, :limit => 1}})
       limit_count = member["total"]
+      puts "~~~~~~~~~~~~~~total:#{limit_count}~~~~~~~~~~~~~~~~"
 
       # for i in 0..limit_count - 1
       #   member = gb.lists.members({:id => list_id, :opts => {:start => i, :limit => 1}})
@@ -83,8 +84,8 @@ class Background < ActiveRecord::Base
 
       # end
       index = 0
-      users = User.order('id asc').limit(200)
-      puts "&&&&&&&&&#{users.size}"
+      users = User.order('id asc')
+      missing_count = 0
       for user in users
         index = index + 1
         info = gb.lists.member_info({:id => list_id, :emails => [{:email => user.email}]})
@@ -92,6 +93,7 @@ class Background < ActiveRecord::Base
         puts "%%%%%%%%%%%%%#{index}"
         if success_count == 0
           puts "------------new subscribe:#{user.email}:#{user.referral_count}-------------"
+          missing_count += 1
           # gb.lists.subscribe({:id => list_id, 
           #          :email => {:email => user.email }, :merge_vars => {:RNUM => user.referral_count, :RCODE => user.referral_code},
           #          :double_optin => false})
@@ -100,8 +102,18 @@ class Background < ActiveRecord::Base
         
       end
 
+      puts "^^^^^^^^^^^^^^^^^^^^^^^^Total-Count:::::#{missing_count}^^^^^^^^^^^^^^^^^^^^^^^"
+
     end
 
+    # User.distinct.count('email')
+    # User.find(:all).group_by(&:email).count
+    # User.group(:email).count
+    # User.find(:all, 
+    #          :select => "count(*) as email_count", 
+    #          :having => "email_count > 0", 
+    #          :group => 'email').size
+    # User.group(:email).having("count(*) > 1").count.size
 
     # query = "SELECT count(distinct email) FROM users;"
     # query = "SELECT count(*) FROM users;"
@@ -109,6 +121,11 @@ class Background < ActiveRecord::Base
     # gb.lists.batch_subscribe(:id => ENV['MAILCHIMP_LIST_ID'], :batch => 
     #                 [ {:email => {:email => user.email }, :merge_vars => { :RNUM => user.referral_count}}], :update_existing => true)    
 
+    # IGoid7862@armyspy.com
+    # user = User.find_by_email("IGoid7862@armyspy.com")
+    # gb.lists.subscribe({:id => list_id, 
+    #                :email => {:email => user.email }, :merge_vars => {:RNUM => user.referral_count, :RCODE => user.referral_code},
+    #                :double_optin => false})
   end
 
   def self.reminder_emails
