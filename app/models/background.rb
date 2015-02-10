@@ -91,11 +91,11 @@ class Background < ActiveRecord::Base
         success_count = info["success_count"].to_i
         puts "%%%%%%%%%%%%%#{index}"
         if success_count == 0
-          puts "------------new subscribe:#{user.email}-------------"
-          gb.lists.subscribe({:id => list_id, 
-                   :email => {:email => user.email }, :merge_vars => {:RNUM => user.referral_count, :RCODE => user.referral_code},
-                   :double_optin => false})
-                  puts '------------success add subscribe-------------'
+          puts "------------new subscribe:#{user.email}:#{user.referral_count}-------------"
+          # gb.lists.subscribe({:id => list_id, 
+          #          :email => {:email => user.email }, :merge_vars => {:RNUM => user.referral_count, :RCODE => user.referral_code},
+          #          :double_optin => false})
+          #         puts '------------success add subscribe-------------'
         end
         
       end
@@ -103,9 +103,11 @@ class Background < ActiveRecord::Base
     end
 
 
-    query = "SELECT count(distinct email) FROM users;"
-    query = "SELECT count(*) FROM users;"
-    ActiveRecord::Base.connection.execute(query);
+    # query = "SELECT count(distinct email) FROM users;"
+    # query = "SELECT count(*) FROM users;"
+    # ActiveRecord::Base.connection.execute(query);
+    # gb.lists.batch_subscribe(:id => ENV['MAILCHIMP_LIST_ID'], :batch => 
+    #                 [ {:email => {:email => user.email }, :merge_vars => { :RNUM => user.referral_count}}], :update_existing => true)    
 
   end
 
