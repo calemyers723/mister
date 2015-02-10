@@ -83,7 +83,7 @@ class Background < ActiveRecord::Base
 
       # end
       index = 0
-      users = User.order('id desc').all
+      users = User.order('id asc').limit(200)
       puts "&&&&&&&&&#{users.size}"
       for user in users
         index = index + 1
@@ -93,7 +93,7 @@ class Background < ActiveRecord::Base
         if success_count == 0
           puts "------------new subscribe:#{user.email}-------------"
           gb.lists.subscribe({:id => list_id, 
-                   :email => {:email => self.email }, :merge_vars => {:RNUM => user.referral_count, :RCODE => self.referral_code},
+                   :email => {:email => user.email }, :merge_vars => {:RNUM => user.referral_count, :RCODE => user.referral_code},
                    :double_optin => false})
                   puts '------------success add subscribe-------------'
         end
@@ -102,6 +102,10 @@ class Background < ActiveRecord::Base
 
     end
 
+
+    query = "SELECT count(distinct email) FROM users;"
+    query = "SELECT count(*) FROM users;"
+    ActiveRecord::Base.connection.execute(query);
 
   end
 
