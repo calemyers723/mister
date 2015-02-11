@@ -40,6 +40,8 @@ class Background < ActiveRecord::Base
     end
 
     # info = gb.lists.member_info({:id => list_id, :emails => [{:email => "#{user.email}"}]})
+    # info = gb.lists.member_info({:id => list_id, :emails => [{:email => "guitarboy27713@aol.com"}]})
+    # User.find_by_referral_code('1c70316479')
     # user = User.find_by_email("eloisaoropeza1@gmail.com")
     # referral_code = info["data"][0]["merges"]["RCODE"]
     # gb.lists.batch_subscribe(:id => ENV['MAILCHIMP_LIST_ID'], :batch => 
@@ -63,10 +65,10 @@ class Background < ActiveRecord::Base
         referral_count = member["data"][0]["merges"]["RNUM"].to_i
 
 
-        # puts "**********count[#{i.to_s}]*************"
+        puts "**********count[#{i.to_s}]*************"
 
 
-        user = User.find_by_email(email)
+        user = User.find_by_referral_code(referral_code)
         if user.nil?
           record_email = ActiveRecord::Base.connection.quote(email)
           record_referral_code = ActiveRecord::Base.connection.quote(referral_code)
@@ -76,16 +78,24 @@ class Background < ActiveRecord::Base
           # ActiveRecord::Base.connection.execute(query);
           puts "**************USER SAVE(#{i.to_s}):#{email}*********************"
         else
-          if user.referral_count != referral_count
+          # if user.referral_count != referral_count
+          #   user.referral_count = referral_count
+          #   # user.save
+          #   puts "**************USER UPDATE REFERRAL CODE(#{i.to_s}):#{email}*********************"
+          # elsif user.referral_code != referral_code
+          #   user.referral_code = referral_code
+          #   # user.save
+          #   puts "**************USER UPDATE REFERRAL CODE(#{i.to_s}):#{email}*********************"
+          # end
+
+          if user.email != email || user.referral_count != referral_count
+            user.email = email
             user.referral_count = referral_count
-            # user.save
-            puts "**************USER UPDATE REFERRAL CODE(#{i.to_s}):#{email}*********************"
-          elsif user.referral_code != referral_code
-            user.referral_code = referral_code
-            # user.save
-            puts "**************USER UPDATE REFERRAL CODE(#{i.to_s}):#{email}*********************"
+            puts "**************USER UPDATE (#{i.to_s}):#{email}*********************"
           end
 
+          query = "delete from users where referral_code = '#{referral_code}' and id <> #{user.id}"
+          ActiveRecord::Base.connection.execute(query);
         end
 
       end
@@ -140,6 +150,8 @@ class Background < ActiveRecord::Base
     # gb.lists.subscribe({:id => list_id, 
     #                :email => {:email => user.email }, :merge_vars => {:RNUM => user.referral_count, :RCODE => user.referral_code},
     #                :double_optin => false})
+
+    # query = "delete from users where referral_code = '1aa55299cc' and id <> 76"
   end
 
   def self.reminder_emails
