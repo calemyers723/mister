@@ -40,7 +40,7 @@ class Background < ActiveRecord::Base
     end
 
     # info = gb.lists.member_info({:id => list_id, :emails => [{:email => "#{user.email}"}]})
-    # user = User.find_by_email("kadeavans@gmail.com")
+    # user = User.find_by_email("eloisaoropeza1@gmail.com")
     # referral_code = info["data"][0]["merges"]["RCODE"]
     # gb.lists.batch_subscribe(:id => ENV['MAILCHIMP_LIST_ID'], :batch => 
     #                 [ {:email => {:email => user.email }, :merge_vars => { :RNUM => 21}}], :update_existing => true)    
@@ -74,16 +74,16 @@ class Background < ActiveRecord::Base
           record_date = ActiveRecord::Base.connection.quote("2015-02-09 12:00:00")
           query = "INSERT INTO users (email,referral_code,referral_count, created_at, updated_at) VALUES (#{record_email}, #{record_referral_code}, #{record_referral_count}, #{record_date}, #{record_date})"
           # ActiveRecord::Base.connection.execute(query);
-          puts "**************USER SAVE:#{email}*********************"
+          puts "**************USER SAVE(#{i.to_s}):#{email}*********************"
         else
           if user.referral_count != referral_count
             user.referral_count = referral_count
             # user.save
-            puts "**************USER UPDATE REFERRAL CODE:#{email}*********************"
+            puts "**************USER UPDATE REFERRAL CODE(#{i.to_s}):#{email}*********************"
           elsif user.referral_code != referral_code
             user.referral_code = referral_code
             # user.save
-            puts "**************USER UPDATE REFERRAL CODE:#{email}*********************"
+            puts "**************USER UPDATE REFERRAL CODE(#{i.to_s}):#{email}*********************"
           end
 
         end

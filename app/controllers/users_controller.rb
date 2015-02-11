@@ -71,7 +71,7 @@ class UsersController < ApplicationController
                 cur_ip.save
             end
 
-            @user = User.new(:email => params[:user][:email])
+            @user = User.new(:email => email)
 
             
             @referred_by = User.find_by_referral_code(cookies[:h_ref])
