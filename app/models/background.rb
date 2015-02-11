@@ -40,6 +40,10 @@ class Background < ActiveRecord::Base
     end
 
     # info = gb.lists.member_info({:id => list_id, :emails => [{:email => "#{user.email}"}]})
+    # user = User.find_by_email("kadeavans@gmail.com")
+    # referral_code = info["data"][0]["merges"]["RCODE"]
+    # gb.lists.batch_subscribe(:id => ENV['MAILCHIMP_LIST_ID'], :batch => 
+    #                 [ {:email => {:email => user.email }, :merge_vars => { :RNUM => 21}}], :update_existing => true)    
   end
 
 
@@ -59,30 +63,27 @@ class Background < ActiveRecord::Base
         referral_count = member["data"][0]["merges"]["RNUM"].to_i
 
 
-        puts "**********count[#{i.to_s}]*************"
+        # puts "**********count[#{i.to_s}]*************"
 
 
         user = User.find_by_email(email)
         if user.nil?
-          puts email
           record_email = ActiveRecord::Base.connection.quote(email)
           record_referral_code = ActiveRecord::Base.connection.quote(referral_code)
           record_referral_count = ActiveRecord::Base.connection.quote(referral_count)
           record_date = ActiveRecord::Base.connection.quote("2015-02-09 12:00:00")
           query = "INSERT INTO users (email,referral_code,referral_count, created_at, updated_at) VALUES (#{record_email}, #{record_referral_code}, #{record_referral_count}, #{record_date}, #{record_date})"
-          ActiveRecord::Base.connection.execute(query);
-          puts "user save"
+          # ActiveRecord::Base.connection.execute(query);
+          puts "**************USER SAVE:#{email}*********************"
         else
           if user.referral_count != referral_count
-            puts email
             user.referral_count = referral_count
-            user.save
-            puts "user referral_count update"
+            # user.save
+            puts "**************USER UPDATE REFERRAL CODE:#{email}*********************"
           elsif user.referral_code != referral_code
-            puts email
             user.referral_code = referral_code
-            user.save
-            puts "user referral_code update"
+            # user.save
+            puts "**************USER UPDATE REFERRAL CODE:#{email}*********************"
           end
 
         end
