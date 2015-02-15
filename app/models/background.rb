@@ -42,10 +42,10 @@ class Background < ActiveRecord::Base
     # info = gb.lists.member_info({:id => list_id, :emails => [{:email => "#{user.email}"}]})
     # info = gb.lists.member_info({:id => list_id, :emails => [{:email => "guitarboy27713@aol.com"}]})
     # User.find_by_referral_code('1c70316479')
-    # user = User.find_by_email("eloisaoropeza1@gmail.com")
+    # user = User.find_by_email("recall475@gmail.com")
     # referral_code = info["data"][0]["merges"]["RCODE"]
     # gb.lists.batch_subscribe(:id => ENV['MAILCHIMP_LIST_ID'], :batch => 
-    #                 [ {:email => {:email => user.email }, :merge_vars => { :RNUM => 21}}], :update_existing => true)    
+    #                 [ {:email => {:email => user.email }, :merge_vars => { :RNUM => 25}}], :update_existing => true)    
   end
 
 
@@ -177,8 +177,13 @@ class Background < ActiveRecord::Base
   end
 
   def self.generate_dummy_emails count
-    #user = User.find_by_email("kyle.perez1985@gmail.com")
-    # user = User.where(:email => "kyle.perez1985@gmail.com")
+    #user = User.find_by_email("mattdavis777@gmail.com")
+    # user = User.where(:email => "mattdavis777@gmail.com")
+    # User.where("referrer_id = 124").size
+    # query = "SELECT email,referral_code FROM users where referrer_id = 124;"
+    # ActiveRecord::Base.connection.execute(query);
+    # rslt = ActiveRecord::Base.connection.execute(query)
+    # rslt.each {|mysql_result| puts mysql_result}
     user = User.find_by_email("mattdavis777@gmail.com")
 
     for i in 1..count do
