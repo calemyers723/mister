@@ -11,56 +11,11 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
-//= require_tree .
+//= require bootstrap.min
+//= require users
+//= require active_admin
 
 
-var end = new Date(); 
-end.setDate(end.getDate() + 7);
-// $('#defaultCountdown').countdown({until: baseTime}); 
-
-var _second = 1;
-var _minute = _second * 60;
-var _hour = _minute * 60;
-var _day = _hour * 24;
-var timer;
-
-function countdown_clock() {
-    // var now = new Date();
-    // var distance = end - now;
-    var distance = $('#remainning_time').val();
-    if (distance < 0) {
-
-        // clearInterval(timer);
-        if ($(".count-down").length >0 )
-          $(".count-down")[0].innerHTML = "Only 0 Days 0 Hrs Left!";
-        if ($("#defaultCountdown1").length >0 )
-          $("#defaultCountdown1")[0].innerHTML = "Only 0 Days 0 Hrs Left...Let the Sharing Begin!";
-        return;
-    }
-    var days = Math.floor(distance / _day);
-    var hours = Math.floor((distance % _day) / _hour);
-
-    if ($(".count-down").length >0 ) {
-      $(".count-down")[0].innerHTML = "Only ";
-      $(".count-down")[0].innerHTML += days + ' Days ';
-      $(".count-down")[0].innerHTML += hours + ' Hrs ';
-      $(".count-down")[0].innerHTML += "Left!";
-    }
-
-    if ($("#defaultCountdown1").length >0 ) {
-      $("#defaultCountdown1")[0].innerHTML = "Only ";
-      $("#defaultCountdown1")[0].innerHTML += days + ' Days ';
-      $("#defaultCountdown1")[0].innerHTML += hours + ' Hrs ';
-      $("#defaultCountdown1")[0].innerHTML += "Left...Let the Sharing Begin!";
-    }
-    
-    
-    
-    // console.log($("#defaultCountdown").innerHTML);
-}
-
-$(document).ready( function() {
-  countdown_clock();
-});
 
