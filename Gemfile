@@ -32,7 +32,7 @@ gem 'unicorn'
 
 gem 'rails_12factor', group: :production
 
-gem 'sidekiq'
+# gem 'sidekiq'
 
 gem 'gibbon'
 
